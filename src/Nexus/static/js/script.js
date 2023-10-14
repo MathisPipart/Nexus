@@ -1,5 +1,17 @@
 //alert("Js is link !");  
 
+function launchBatchFile() {
+    console.log("launchBatchFile");
+    // Use ActiveXObject for IE
+    try {
+        const objShell = new ActiveXObject("WScript.Shell");
+        console.log("Launching batch file...");
+        objShell.Run("start_server.bat", 1, false);
+    } catch (e) {
+        console.error("Error launching batch file:", e);
+    }
+}
+
 function updateDateTime() {
     const currentDateElement = document.getElementById('current-date');
     const currentTimeElement = document.getElementById('current-time');
@@ -23,3 +35,5 @@ updateDateTime();
 
 // Mettre à jour l'heure et la date toutes les secondes
 setInterval(updateDateTime, 1000);
+
+launchBatchFile();
