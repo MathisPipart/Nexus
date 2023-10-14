@@ -1,4 +1,4 @@
-alert("Hello, Welcome to Javatpoint");  
+//alert("Js is link !");  
 
 function updateDateTime() {
     const currentDateElement = document.getElementById('current-date');
