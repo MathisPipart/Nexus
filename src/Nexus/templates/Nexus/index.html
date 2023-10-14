@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>- Nexus -</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% load static %}  
+    <script src="{% static '/js/script.js' %}" type="text/javascript"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur le &lt;NEXUS&gt;</h1>
+        <h2>Aujourd'hui nous sommes le <span id="current-date"></span></h2>
+        <h3>Il est actuellement <span id="current-time"></span></h3>
+    </div>
+</body>
+</html>
