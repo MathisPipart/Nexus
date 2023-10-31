@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        {% comment %} <stylesheet href="{% static 'css/style.css' %}"></stylesheet> {% endcomment %}
+        <meta charset="utf-8">
+        <meta 
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <title>{% block title %} Nexus {% endblock %}</title>
+        <!-- Bootstrap CSS -->
+        <link 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {% comment %} <img src="{% static 'png/Black_logo.png' %}" width="10%" height="10%" alt="Nexus Logo"> {% endcomment %}
+            {% comment %} <a class="navbar-brand" href="#">Nexus</a> {% endcomment %}
+
+            <a href="##">
+                <img src="{% static 'png/Black_logo.png' %}" style="max-width: 100px; max-height: 50px;" alt="Nexus Logo">
+            </a>
+
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+            >
+            <span class=""navbar-toggler-icon></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clubs & Assos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Discussion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container"> {% block content %} {% endblock %} </div>
+
+        <!-- jQuery and Bootstrap Bundle (inclue Popper) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    
+    </body>
+</html>
