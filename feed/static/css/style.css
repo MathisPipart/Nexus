@@ -3,7 +3,31 @@ p {
     text-align: left;
 }
 
+/* Ajoutez une bordure à droite pour les éléments .nav-link sauf le dernier */
+.navbar .navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+.nav-item {
+    border-right: 1px solid white; /* Ajoute une bordure verticale blanche à droite */
+    margin-right: 20px; /* Ajoute de la marge à droite pour l'espacement */
+    padding-right: 20px; /* Ajoute du rembourrage à droite pour l'espacement */
+}
+
+.nav-item:last-child {
+    border-right: none; /* Supprime la bordure à droite du dernier élément .nav-link */
+    margin-right: 0; /* Supprime la marge à droite pour le dernier élément */
+    padding-right: 0; /* Supprime le rembourrage à droite pour le dernier élément */
+}
+
 .navbar {
     background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);
     /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
-}  
+}
+
+#navbarNav {
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
