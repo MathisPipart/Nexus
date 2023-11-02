@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %} Feed {% endblock %}
 
 {% block content %}
 <div class="f_feed" id="text">
     <aside class="f_events_search">
         <br>
-        <form action="/chemin-vers-votre-script-de-recherche" method="get" class="search-container">
-            <input type="text" name="query" placeholder="Rechercher..." class="search-input">
-            <button type="submit" class="search-button">Rechercher</button>
+        <!-- <img src="{% static 'png/search_icon.png' %}" alt="Rechercher"> -->       
+        <form action="/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
+            <button type="submit" class="boutonRecherche">🔍</button>
+            <input type="text" name="query" placeholder="Cherchez un club" class="TexteRecherche">
+            
         </form>
-        
-        
         
         <br>
         <h3>A venir</h3>
@@ -26,36 +26,57 @@
             Cras a consequat leo, vel lacinia urna. Vestibulum magna ex, laoreet nec leo nec, interdum iaculis orci. Sed lacinia bibendum imperdiet. 
             Vivamus congue a erat eget scelerisque. Duis fringilla ligula sed justo vulputate, in pellentesque tortor commodo</p>
     </aside>
+    
     <main class="f_posts">
-        <article class="f_Post">
+        <article class="f_post">
+            <h5>Club Poker</h5>
             <p>Pierre paie sa tournée à toute les personnes présentes dans la salle</p>
         </article>
         <br/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet vitae magna quis malesuada. Donec lacinia quam turpis, et lobortis nulla consectetur nec. 
-            Donec varius eros vitae massa mollis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/><br/>
-            Cras purus purus, porttitor vel lorem in, vestibulum pharetra augue.
-            Fusce et lectus ultrices, sagittis urna sit amet, ultricies dolor. Praesent ullamcorper laoreet dolor, vitae facilisis dui dapibus vel. 
-            Nam eget libero efficitur, eleifend elit eu, vulputate nunc. <br/><br/>
-            Curabitur semper fermentum augue nec fermentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce diam sem, pulvinar eget finibus dictum, 
-            accumsan venenatis ipsum. Integer accumsan sagittis augue, sed efficitur elit faucibus non. Maecenas efficitur blandit tellus, ut auctor justo facilisis 
-            vel. Donec accumsan urna eget odio sollicitudin cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br/><br/>
-            Praesent dictum interdum metus, ac interdum velit feugiat sed. Etiam egestas elementum lorem, in laoreet enim mattis in. Pellentesque aliquet ante 
-            id neque laoreet bibendum. Mauris at porta orci. Maecenas eget congue magna. Nunc in lacus venenatis sem ultrices ultrices ac id quam. Nam sed eleifend 
-            sapien. Integer ultricies id orci vel vestibulum.
         
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet vitae magna quis malesuada. Donec lacinia quam turpis, et lobortis nulla consectetur nec. 
-            Donec varius eros vitae massa mollis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/><br/>
-            Cras purus purus, porttitor vel lorem in, vestibulum pharetra augue.
-            Fusce et lectus ultrices, sagittis urna sit amet, ultricies dolor. Praesent ullamcorper laoreet dolor, vitae facilisis dui dapibus vel. 
-            Nam eget libero efficitur, eleifend elit eu, vulputate nunc. <br/><br/>
-            Curabitur semper fermentum augue nec fermentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce diam sem, pulvinar eget finibus dictum, 
-            accumsan venenatis ipsum. Integer accumsan sagittis augue, sed efficitur elit faucibus non. Maecenas efficitur blandit tellus, ut auctor justo facilisis 
-            vel. Donec accumsan urna eget odio sollicitudin cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br/><br/>
-            Praesent dictum interdum metus, ac interdum velit feugiat sed. Etiam egestas elementum lorem, in laoreet enim mattis in. Pellentesque aliquet ante 
-            id neque laoreet bibendum. Mauris at porta orci. Maecenas eget congue magna. Nunc in lacus venenatis sem ultrices ultrices ac id quam. Nam sed eleifend 
-            sapien. Integer ultricies id orci vel vestibulum.
-        </p>
+        <article class="f_post">
+            <h5>BDE Peppers</h5>
+            <p>🎉 Rejoignez-nous pour la WINTER NIGHT ❄️! 🎉</p>
+            <p>Le BDE vous convie à notre soirée étudiante hivernal : la WINTER NIGHT. Venez célébrer avec nous, profiter de la musique, des boissons et de la bonne compagnie.</p>
+            <p>Nous vous attendons nombreux le 03/11/2023 à l'école à partir de 22h30. Ne manquez pas cet événement exceptionnel ! 🌟</p>
+        </article>
+        <br/>
+
+        <article class="f_post">
+            <h5>Club Test</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet vitae magna quis malesuada. Donec lacinia quam turpis, et lobortis nulla consectetur nec. 
+                Donec varius eros vitae massa mollis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/><br/>
+                Cras purus purus, porttitor vel lorem in, vestibulum pharetra augue.
+                Fusce et lectus ultrices, sagittis urna sit amet, ultricies dolor. Praesent ullamcorper laoreet dolor, vitae facilisis dui dapibus vel. 
+                Nam eget libero efficitur, eleifend elit eu, vulputate nunc. <br/><br/>
+                Curabitur semper fermentum augue nec fermentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce diam sem, pulvinar eget finibus dictum, 
+                accumsan venenatis ipsum. Integer accumsan sagittis augue, sed efficitur elit faucibus non. Maecenas efficitur blandit tellus, ut auctor justo facilisis 
+                vel. Donec accumsan urna eget odio sollicitudin cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br/><br/>
+                Praesent dictum interdum metus, ac interdum velit feugiat sed. Etiam egestas elementum lorem, in laoreet enim mattis in. Pellentesque aliquet ante 
+                id neque laoreet bibendum. Mauris at porta orci. Maecenas eget congue magna. Nunc in lacus venenatis sem ultrices ultrices ac id quam. Nam sed eleifend 
+                sapien. Integer ultricies id orci vel vestibulum.
+            </p>
+        </article>
+        <br/>
+
+        <article class="f_post">
+            <h5>Club Polymnie</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet vitae magna quis malesuada. Donec lacinia quam turpis, et lobortis nulla consectetur nec. 
+                Donec varius eros vitae massa mollis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/><br/>
+                Cras purus purus, porttitor vel lorem in, vestibulum pharetra augue.
+                Fusce et lectus ultrices, sagittis urna sit amet, ultricies dolor. Praesent ullamcorper laoreet dolor, vitae facilisis dui dapibus vel. 
+                Nam eget libero efficitur, eleifend elit eu, vulputate nunc. <br/><br/>
+                Curabitur semper fermentum augue nec fermentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce diam sem, pulvinar eget finibus dictum, 
+                accumsan venenatis ipsum. Integer accumsan sagittis augue, sed efficitur elit faucibus non. Maecenas efficitur blandit tellus, ut auctor justo facilisis 
+                vel. Donec accumsan urna eget odio sollicitudin cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br/><br/>
+                Praesent dictum interdum metus, ac interdum velit feugiat sed. Etiam egestas elementum lorem, in laoreet enim mattis in. Pellentesque aliquet ante 
+                id neque laoreet bibendum. Mauris at porta orci. Maecenas eget congue magna. Nunc in lacus venenatis sem ultrices ultrices ac id quam. Nam sed eleifend 
+                sapien. Integer ultricies id orci vel vestibulum.
+            </p>
+        </article>
     </main>
+
     <aside class="f_conversations">
         <br>
         <h3>Conversation</h3>

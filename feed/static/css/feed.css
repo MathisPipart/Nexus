@@ -16,30 +16,34 @@
     padding: 10px;
 }
 
-.search-container {
+.barreDeRecherche {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 400px; /* ou la largeur que vous préférez */
     border: 1px solid #ccc;
-    border-radius: 3px;
-    overflow: hidden; /* pour s'assurer que les bordures arrondies sont respectées */
+    border-radius: 5px;
+    overflow: hidden;
+    border-radius: 25px;
 }
 
-.search-input {
-    flex: 1; /* permet à l'input de prendre tout l'espace disponible */
+.TexteRecherche {
+    padding: 10px;
     border: none;
-    padding: 8px 12px;
+    flex-grow: 1;
     outline: none;
 }
 
-.search-button {
-    padding: 8px 12px;
+.boutonRecherche {
+    padding: 6px 10px;
     border: none;
-    background-color: #007BFF;
-    color: white;
+    background-color: #eee;
     cursor: pointer;
-    border-left: 1px solid #ccc;
+    vertical-align: middle;
+    font-size: 200%;
+    background-color: white;
+}
+
+.boutonRecherche:hover {
+    background-color: #ddd;
 }
 
 .f_posts {
@@ -102,11 +106,12 @@
     }
 }
 
-.f_Post {
+.f_post {
     border: 2px solid #ccc;
     border-radius: 30px; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
     padding: 50px; 
     margin-left: 4%;
     margin-right: 4%;
+    margin-top: 7%;
 }
