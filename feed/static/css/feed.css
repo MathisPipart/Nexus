@@ -8,22 +8,28 @@
 }
 
 .f_events_search {
+    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
+    overflow-y: scroll; /* permet le défilement vertical */
+    overflow-x: hidden; /* empêche le défilement horizontal */
     box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
     width: 25%;
     padding: 10px;
 }
 
 .f_posts {
-    /* border-right: 1px solid #000;
-    border-left: 1px solid #000;
-    background: #FFF; */
-    /* box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25); */
+    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
+    overflow-y: scroll; /* permet le défilement vertical */
+    overflow-x: hidden; /* empêche le défilement horizontal */
+
     flex: 2;
     width: 50%;
     padding: 10px;
 }
 
 .f_conversations {
+    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
+    overflow-y: scroll; /* permet le défilement vertical */
+    overflow-x: hidden; /* empêche le défilement horizontal */
     box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
     width: 25%;
     padding: 10px;

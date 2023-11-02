@@ -50,11 +50,6 @@ body {
     margin-right: 1%;
 }
 
-#drop_right{
-    border: 2px solid light_blue;
-    padding-right: 10px;
-}
-
 #nav-right img {
     filter: brightness(0) invert(1);
 }
@@ -64,12 +59,10 @@ body {
     padding: auto;
 }
 
-#dropdown-menu {
-    border: 2px solid lime;
-}
 
-#dropdown-menu-right {
-    padding-right: 10px;
+.dropdown-menu-right{
+    right:5px;
+    left:auto
 }
 
 #nexus-collapse{
@@ -78,11 +71,9 @@ body {
     border: none;
     text-decoration: none;
     margin: auto;
-    border: 2px solid red;
 }
 
 #nexus-collapse img {
-    border: 2px solid red;
     max-width: 150px;
     max-height: 50px;
 }
@@ -94,4 +85,10 @@ body {
     text-decoration: none;
     margin: auto;
     list-style-type: none;
+}
+
+@media (max-width: 992px) {
+    #nav-bar {
+        padding-top: 8px;
+    }
 }
