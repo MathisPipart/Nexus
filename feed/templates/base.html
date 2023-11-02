@@ -1,7 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="fr"> 
-    <head> 
+    <head>
+        <link rel="stylesheet" href="{% static 'css/feed.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <!-- Change icon -->
@@ -19,12 +20,12 @@
 
         <nav class="navbar navbar-expand-lg bg-primary" id="nav-bar">
             
-            <a id="nexus-collapse" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> NEXUS </a>
+            <a class="navbar-toggler" id="nexus-collapse" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <img src="{% static 'png/White_logo.png' %}" alt="Nexus_Logo"> </a>
 
             <li id="nexus-collapse-liste" class="navbar-toggler">
                 <a class="nav-link dropdown-toggle" href="dropdown" id="navbarDropdown" role="button" 
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/feed">Feed</a>
                     <a class="dropdown-item" href="#Clubs_&_Assos">Clubs & Assos</a>
@@ -44,10 +45,10 @@
                         <a class="nav-link" href="/feed">Feed</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Clubs_&_Assos">Clubs & Assos</a>
+                        <a class="nav-link" href="/#Clubs_&_Assos">Clubs & Assos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Calendrier">Calendrier</a>
+                        <a class="nav-link" href="/#Calendrier">Calendrier</a>
                     </li>
                 </ul>
 
@@ -57,16 +58,26 @@
                             <img src="{% static 'png/trophy.png' %}" alt="Trophy" style="max-width: 30px;">
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#compte">
                             <img src="{% static 'png/compte.png' %}" alt="Compte" style="max-width: 30px;">
                         </a>
+                    </li> -->
+                    <li class="compte-toggler">
+                        <a class="nav-link dropdown-toggle" href="#compte_dropdown" id="navbarDropdown" role="button" 
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <img src="{% static 'png/compte.png' %}" alt="Compte" style="max-width: 30px;">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" id="drop_right">
+                            <a class="dropdown-item" href="/#compte">Mon Compte</a>
+                            <a class="dropdown-item" href="/#logout">Déconnexion</a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container"> {% block content %} {% endblock %} </div>
+        <div class="content"> {% block content %} {% endblock %} </div>
 
         <!-- jQuery and Bootstrap Bundle (inclue Popper) -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -1,0 +1,42 @@
+.f_feed {
+    display: flex;
+    margin: auto;
+}
+
+.menu-button {
+    display: none; /* Par défaut, le bouton de menu est masqué sur les écrans plus larges */
+}
+
+.f_events_search {
+    box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
+    width: 25%;
+    padding: 10px;
+}
+
+.f_posts {
+    /* border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    background: #FFF; */
+    /* box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25); */
+    flex: 2;
+    width: 50%;
+    padding: 10px;
+}
+
+.f_conversations {
+    box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
+    width: 25%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    /* Pour les écrans de largeur maximale de 768px (typiquement des téléphones) */
+    .menu-button {
+        display: block; /* Affiche le bouton de menu */
+    }
+    
+    .f_events_search,
+    .f_conversations {
+        display: none; /* Masque les éléments par défaut */
+    }
+}

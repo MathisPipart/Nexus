@@ -3,9 +3,8 @@ body {
     margin: auto;
 }
 
-.text {
+#text {
     color: rgb(0, 0, 255);
-    text-align: left;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -31,18 +30,12 @@ body {
 }
 
 #navbarNav {
-    /* display: flex; */
     justify-content: center;
     color: white;
     font-weight: bold;
 }
 
-.navbar .navbar-nav .nav-item a img {
-    filter: brightness(0) invert(1);
-}
-
 #nav-left {
-    /* border: 2px solid red; */
     margin: auto;
     margin-left: 1%;
 } 
@@ -53,14 +46,30 @@ body {
 }
 
 #nav-right {
-    /* border: 2px solid red; */
     margin: auto;
     margin-right: 1%;
+}
+
+#drop_right{
+    border: 2px solid light_blue;
+    padding-right: 10px;
+}
+
+#nav-right img {
+    filter: brightness(0) invert(1);
 }
 
 #nav-bar{
     height: 70px;
     padding: auto;
+}
+
+#dropdown-menu {
+    border: 2px solid lime;
+}
+
+#dropdown-menu-right {
+    padding-right: 10px;
 }
 
 #nexus-collapse{
@@ -69,12 +78,13 @@ body {
     border: none;
     text-decoration: none;
     margin: auto;
+    border: 2px solid red;
 }
 
-#bouton-de-merde{
-    border: none;
+#nexus-collapse img {
     border: 2px solid red;
-    filter: brightness(0) invert(1);
+    max-width: 150px;
+    max-height: 50px;
 }
 
 #nexus-collapse-liste{
