@@ -5,6 +5,17 @@
 {% block content %}
 <div class="f_feed" id="text">
     <aside class="f_events_search">
+        <br>
+        <form action="/chemin-vers-votre-script-de-recherche" method="get" class="search-container">
+            <input type="text" name="query" placeholder="Rechercher..." class="search-input">
+            <button type="submit" class="search-button">Rechercher</button>
+        </form>
+        
+        
+        
+        <br>
+        <h3>A venir</h3>
+        <hr> <br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar pellentesque erat. Praesent non nisi non elit feugiat eleifend. 
             Suspendisse placerat risus eu justo sodales, nec accumsan augue dignissim. Morbi mollis eros vitae tellus rhoncus, quis finibus libero pellentesque. 
             Nam id eleifend nisl, ac viverra magna. Curabitur magna ante, finibus vitae suscipit quis, commodo et enim. 
@@ -16,6 +27,10 @@
             Vivamus congue a erat eget scelerisque. Duis fringilla ligula sed justo vulputate, in pellentesque tortor commodo</p>
     </aside>
     <main class="f_posts">
+        <article class="f_Post">
+            <p>Pierre paie sa tournée à toute les personnes présentes dans la salle</p>
+        </article>
+        <br/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet vitae magna quis malesuada. Donec lacinia quam turpis, et lobortis nulla consectetur nec. 
             Donec varius eros vitae massa mollis mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/><br/>
             Cras purus purus, porttitor vel lorem in, vestibulum pharetra augue.
@@ -38,24 +53,20 @@
             vel. Donec accumsan urna eget odio sollicitudin cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br/><br/>
             Praesent dictum interdum metus, ac interdum velit feugiat sed. Etiam egestas elementum lorem, in laoreet enim mattis in. Pellentesque aliquet ante 
             id neque laoreet bibendum. Mauris at porta orci. Maecenas eget congue magna. Nunc in lacus venenatis sem ultrices ultrices ac id quam. Nam sed eleifend 
-            sapien. Integer ultricies id orci vel vestibulum.</p>
+            sapien. Integer ultricies id orci vel vestibulum.
+        </p>
     </main>
     <aside class="f_conversations">
+        <br>
         <h3>Conversation</h3>
         <hr>
         <br>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
-        <p>Listes des conversations</p>
+        <p>Listes des conversations</p><br><br>
+        <p>Listes des conversations</p><br><br>
+        <p>Listes des conversations</p><br><br>
+        <p>Listes des conversations</p><br><br>
+        <p>Listes des conversations</p><br><br>
+        <p>Listes des conversations</p><br><br>
     </aside>
 </div>
 {% endblock %}

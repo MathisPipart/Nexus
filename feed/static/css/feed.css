@@ -4,22 +4,48 @@
 }
 
 .menu-button {
-    display: none; /* Par défaut, le bouton de menu est masqué sur les écrans plus larges */
+    display: none;
 }
 
 .f_events_search {
-    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
-    overflow-y: scroll; /* permet le défilement vertical */
-    overflow-x: hidden; /* empêche le défilement horizontal */
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
     width: 25%;
     padding: 10px;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* ou la largeur que vous préférez */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden; /* pour s'assurer que les bordures arrondies sont respectées */
+}
+
+.search-input {
+    flex: 1; /* permet à l'input de prendre tout l'espace disponible */
+    border: none;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.search-button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-left: 1px solid #ccc;
+}
+
 .f_posts {
-    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
-    overflow-y: scroll; /* permet le défilement vertical */
-    overflow-x: hidden; /* empêche le défilement horizontal */
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden; 
 
     flex: 2;
     width: 50%;
@@ -27,9 +53,9 @@
 }
 
 .f_conversations {
-    height: 100vh; /* ou la hauteur que vous voulez, peut-être 500px ou autre */
-    overflow-y: scroll; /* permet le défilement vertical */
-    overflow-x: hidden; /* empêche le défilement horizontal */
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
     width: 25%;
     padding: 10px;
@@ -39,25 +65,48 @@
     margin-bottom: 5%;
     text-align: center;
     font-size: 2vw;
-    font-family : "Nunito Sans";
+    font-family:  'Playfair Display', 'Georgia', Times, 'Times New Roman', serif;
 }
 .f_conversations hr {
-    width: 50%;         /* Pour le rendre plus court */
-    margin: 0 auto;     /* Pour le centrer */
-    height: 2px;        /* Pour le rendre plus épais */
-    border: none;       /* Pour retirer la bordure par défaut */
-    background-color: #000 !important; /* Couleur du trait */
+    width: 60%;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+    background-color: #000 !important;
+    opacity: 1;
+}
+.f_events_search h3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 2vw;
+    font-family:  'Playfair Display', 'Georgia', Times, 'Times New Roman', serif;
+}
+.f_events_search hr {
+    width: 60%;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+    background-color: #000 !important;
     opacity: 1;
 }
 
 @media (max-width: 768px) {
-    /* Pour les écrans de largeur maximale de 768px (typiquement des téléphones) */
     .menu-button {
-        display: block; /* Affiche le bouton de menu */
+        display: block;
     }
     
     .f_events_search,
     .f_conversations {
-        display: none; /* Masque les éléments par défaut */
+        display: none;
     }
+}
+
+.f_Post {
+    border: 2px solid #ccc;
+    border-radius: 30px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    padding: 50px; 
+    margin-left: 4%;
+    margin-right: 4%;
 }
