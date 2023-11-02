@@ -1,5 +1,10 @@
-p {
-    color: red;
+body {
+    /* background-color: black !important; */
+    margin: auto;
+}
+
+.text {
+    color: rgb(0, 0, 255);
     text-align: left;
 }
 
@@ -26,7 +31,7 @@ p {
 }
 
 #navbarNav {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     color: white;
     font-weight: bold;
@@ -34,4 +39,49 @@ p {
 
 .navbar .navbar-nav .nav-item a img {
     filter: brightness(0) invert(1);
+}
+
+#nav-left {
+    /* border: 2px solid red; */
+    margin: auto;
+    margin-left: 1%;
+} 
+
+#nav-left img {
+    max-width: 150px;
+    max-height: 50px;
+}
+
+#nav-right {
+    /* border: 2px solid red; */
+    margin: auto;
+    margin-right: 1%;
+}
+
+#nav-bar{
+    height: 70px;
+    padding: auto;
+}
+
+#nexus-collapse{
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    margin: auto;
+}
+
+#bouton-de-merde{
+    border: none;
+    border: 2px solid red;
+    filter: brightness(0) invert(1);
+}
+
+#nexus-collapse-liste{
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    margin: auto;
+    list-style-type: none;
 }

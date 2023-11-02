@@ -3,7 +3,7 @@
 <html lang="fr"> 
     <head> 
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <!-- Change icon -->
         <link rel="icon" href="{% static 'png/blanc.jpg' %}">
         <meta charset="utf-8">
@@ -13,52 +13,52 @@
         />
         <title>{% block title %} Nexus {% endblock %}</title>
         <!-- Bootstrap CSS -->
-        <link 
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
+        
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            {% comment %} <img src="{% static 'png/Black_logo.png' %}" width="10%" height="10%" alt="Nexus Logo"> {% endcomment %}
-            {% comment %} <a class="navbar-brand" href="#">Nexus</a> {% endcomment %}
 
-            <a href="##">
-                <img src="{% static 'png/White_logo.png' %}" style="max-width: 150px; max-height: 50px;" alt="Nexus Logo">
-            </a>
+        <nav class="navbar navbar-expand-lg bg-primary" id="nav-bar">
+            
+            <a id="nexus-collapse" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> NEXUS </a>
 
-            <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-toggle="collapse" 
-                data-target="#navbarNav" 
-                aria-controls="navbarNav" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation"
-            >
-            <span class="navbar-toggler-icon"></span>
-            </button>
+            <li id="nexus-collapse-liste" class="navbar-toggler">
+                <a class="nav-link dropdown-toggle" href="dropdown" id="navbarDropdown" role="button" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/feed">Feed</a>
+                    <a class="dropdown-item" href="#Clubs_&_Assos">Clubs & Assos</a>
+                    <a class="dropdown-item" href="#Calendrier">Calendrier</a>
+                    <a class="dropdown-item" href="#Mon_compte">Mon compte</a>
+                    <a class="dropdown-item" href="#Compte">Compte</a>
+                    <a class="dropdown-item" href="#Déconnexion">Déconnexion</a>
+                </div>
+            </li>
+            
+            
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <a href="" id="nav-left"><img src="{% static 'png/White_logo.png' %}" alt="Nexus_Logo"></a>
+
+                <ul class="navbar-nav" id="nav-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Feed</a>
+                        <a class="nav-link" href="/feed">Feed</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clubs & Assos</a>
+                        <a class="nav-link" href="#Clubs_&_Assos">Clubs & Assos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Calendrier</a>
+                        <a class="nav-link" href="#Calendrier">Calendrier</a>
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav" id="nav-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#renomme">
                             <img src="{% static 'png/trophy.png' %}" alt="Trophy" style="max-width: 30px;">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#compte">
                             <img src="{% static 'png/compte.png' %}" alt="Compte" style="max-width: 30px;">
                         </a>
                     </li>
