@@ -11,8 +11,8 @@ p {
 
 .nav-item {
     border-right: 1px solid white; /* Ajoute une bordure verticale blanche à droite */
-    margin-right: 20px; /* Ajoute de la marge à droite pour l'espacement */
-    padding-right: 20px; /* Ajoute du rembourrage à droite pour l'espacement */
+    margin-right: 40px; /* Ajoute de la marge à droite pour l'espacement */
+    padding-right: 40px; /* Ajoute du rembourrage à droite pour l'espacement */
 }
 
 .nav-item:last-child {
