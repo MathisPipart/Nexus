@@ -34,6 +34,21 @@
     width: 25%;
     padding: 10px;
 }
+.f_conversations h3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 2vw;
+    font-family : "Nunito Sans";
+}
+.f_conversations hr {
+    width: 50%;         /* Pour le rendre plus court */
+    margin: 0 auto;     /* Pour le centrer */
+    height: 2px;        /* Pour le rendre plus épais */
+    border: none;       /* Pour retirer la bordure par défaut */
+    background-color: #000 !important; /* Couleur du trait */
+    opacity: 1;
+}
 
 @media (max-width: 768px) {
     /* Pour les écrans de largeur maximale de 768px (typiquement des téléphones) */
