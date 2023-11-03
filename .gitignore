@@ -37,3 +37,4 @@ profil/__pycache__/models.cpython-39.pyc
 profil/__pycache__/urls.cpython-39.pyc
 profil/__pycache__/views.cpython-39.pyc
 profil/migrations/__pycache__/__init__.cpython-39.pyc
+db_old.sqlite3
