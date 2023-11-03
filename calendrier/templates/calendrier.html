@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} Calendrier {% endblock %}
-
 {% block content %}
-    <h1>Mon Calendrier </h1>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.css" rel="stylesheet"/>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid' ],
+          initialView: 'dayGridMonth',
+          events: [
+            // Vous injecterez ici vos événements Django.
+          ]
+        });
+        calendar.render();
+      });
+
+    </script>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
 {% endblock %}
