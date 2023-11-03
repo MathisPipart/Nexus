@@ -32,13 +32,14 @@
         scrollTime: '07:00:00', // Définir le défilement initial à 7h du matin
         editable: true,
         events: [
-          // Vos événements
-          {
-            title: 'Mon événement',
-            start: '2023-11-03T12:00:00',
-            end: '2023-11-03T14:00:00',
-            allDay: false
-          }
+            {% for event in events %}
+            {
+                title: '{{ event.title }}',
+                start: '{{ event.start_time|date:"c" }}', // Assurez-vous que le format est correct
+                end: '{{ event.end_time|date:"c" }}', // Idem ici
+                allDay: false // ou true, selon la nature de l'événement
+            },
+            {% endfor %}
         ]
       });
       calendar.render();
