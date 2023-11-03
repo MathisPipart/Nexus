@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include("feed.urls")),
     path("feed/", include("feed.urls")),
     path("calendrier/", include("calendrier.urls")),
+    path("clubs/", include("clubs.urls")),
 ]
