@@ -3,23 +3,49 @@
 
 {% block content %}
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.css" rel="stylesheet"/>
+    <!-- Inclusion des scripts et styles de FullCalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
     <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'dayGrid' ],
-          initialView: 'dayGridMonth',
-          events: [
-            // Vous injecterez ici vos événements Django.
-          ]
-        });
-        calendar.render();
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        timeZone: 'UTC',
+        initialView: 'timeGridWeek',
+        height: 'auto',
+        locale: 'fr',
+        hiddenDays: [ 0 ], // Masquer les dimanches
+        nowIndicator: true, // Afficher la ligne actuelle
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: 'dayGridDay,timeGridWeek,dayGridMonth'
+        },
+        slotLabelFormat: {
+          hour: 'numeric',
+          minute: '2-digit',
+          omitZeroMinute: true,
+          meridiem: 'short'
+        },
+        slotMinTime: '00:00:00', // Heure de début de la grille de temps
+        slotMaxTime: '24:00:00', // Heure de fin de la grille de temps
+        scrollTime: '07:00:00', // Définir le défilement initial à 7h du matin
+        editable: true,
+        events: [
+          // Vos événements
+          {
+            title: 'Mon événement',
+            start: '2023-11-03T12:00:00',
+            end: '2023-11-03T14:00:00',
+            allDay: false
+          }
+        ]
       });
+      calendar.render();
+    });
+
+
+
 
     </script>
 </head>

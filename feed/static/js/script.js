@@ -1,7 +1,7 @@
 //alert("Max la saucisse");
 
 //print test in cosol
-console.log("Max la saucisse");
+console.log("joel la grosse pute");
 
 $(document).ready(function() {
     // Gestion du clic sur un élément de la liste déroulante
