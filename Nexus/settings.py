@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "feed",
     "calendrier",
     "clubs",
+    "classement",
 ]
 
 MIDDLEWARE = [
