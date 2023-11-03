@@ -11,7 +11,7 @@
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 0px 15px 5px rgba(0, 0, 0, 0.10);
     width: 25%;
     padding: 10px;
 }
@@ -60,7 +60,7 @@
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    box-shadow: 5px 0px 61px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 0px 30px 8px rgba(0, 0, 0, 0.30);
     width: 25%;
     padding: 10px;
 }
