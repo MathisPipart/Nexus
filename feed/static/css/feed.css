@@ -95,6 +95,16 @@
     opacity: 1;
 }
 
+.f_post {
+    border: 2px solid #ccc;
+    border-radius: 30px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    padding: 50px; 
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 7%;
+}
+
 @media (max-width: 768px) {
     .menu-button {
         display: block;
@@ -104,14 +114,4 @@
     .f_conversations {
         display: none;
     }
-}
-
-.f_post {
-    border: 2px solid #ccc;
-    border-radius: 30px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    padding: 50px; 
-    margin-left: 4%;
-    margin-right: 4%;
-    margin-top: 7%;
 }
