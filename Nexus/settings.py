@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "calendrier",
     "clubs",
     "classement",
+    "profil",
 ]
 
 MIDDLEWARE = [
