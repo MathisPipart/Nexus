@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="f_feed" id="text">
-    <aside class="f_events_search">
+    <aside class="f_events_search" id="feed-content">
         <br> 
         <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
             <button type="submit" class="boutonRecherche">🔍</button>
@@ -26,7 +26,7 @@
             Vivamus congue a erat eget scelerisque. Duis fringilla ligula sed justo vulputate, in pellentesque tortor commodo</p>
     </aside>
     
-    <main class="f_posts">
+    <main class="f_posts" id="feed-content">
         <article class="f_post">
             <h5>Club Poker</h5>
             <p>Pierre paie sa tournée à toute les personnes présentes dans la salle</p>
@@ -76,7 +76,7 @@
         </article>
     </main>
 
-    <aside class="f_conversations">
+    <aside class="f_conversations" id="feed-content">
         <br>
         <h3>Conversation</h3>
         <hr>
@@ -89,29 +89,16 @@
         <p>Listes des conversations</p><br><br>
     </aside>
 
-    {% comment %} <div class="floating-button">
-        <li id="nexus-collapse-liste" class="navbar-toggler">
-            <a class="nav-link dropdown-toggle" href="dropdown" id="button_switch_page" role="button" 
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <button id="show-feed" class="btn btn-primary">Afficher le Feed</button>
-                <button id="show-events" class="btn btn-primary">Afficher les Événements</button>
-                <button id="show-conversations" class="btn btn-primary">Afficher les Conversations</button>
-            </div>
-        </li>
-    </div> {% endcomment %}
-
     <div class="floating-button">
         <button class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-plus"></i></button>
+            <i class="fa fa-plus"></i>
+        </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Évenements</a>
-            <a class="dropdown-item" href="#">Feed</a>
-            <a class="dropdown-item" href="#">Conversation</a>
+            <a class="dropdown-item" href="#" data-target="events-content">Événements</a>
+            <a class="dropdown-item" href="#" data-target="feed-content">Feed</a>
+            <a class="dropdown-item" href="#" data-target="conversations-content">Conversations</a>
         </div>
     </div>
-
-    
 
 </div>
 {% endblock %}

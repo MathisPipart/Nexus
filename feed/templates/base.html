@@ -18,7 +18,7 @@
 
         <nav class="navbar navbar-expand-lg bg-primary" id="nav-bar">
             
-            <a class="navbar-toggler" id="nexus-collapse" data-toggle="collapse" data-target="#navbarNav" href=""
+            <a class="navbar-toggler" id="nexus-collapse" data-toggle="collapse" data-target="#navbarNav" href="/feed"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <img src="{% static 'img/White_logo.png' %}" alt="Nexus_Logo"> </a>
 
             <li id="nexus-collapse-liste" class="navbar-toggler">
@@ -35,7 +35,7 @@
             
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <a href="" id="nav-left"><img src="{% static 'img/White_logo.png' %}" alt="Nexus_Logo"></a>
+                <a href="/feed" id="nav-left"><img src="{% static 'img/White_logo.png' %}" alt="Nexus_Logo"></a>
 
                 <ul class="navbar-nav" id="nav-center">
                     <li class="nav-item">
@@ -71,6 +71,8 @@
 
         <div class="content"> {% block content %} {% endblock %} </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="{% static 'js/script.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     
