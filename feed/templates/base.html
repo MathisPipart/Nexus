@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="{% static 'css/feed.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-        <link rel="icon" href="{% static 'png/icon.png' %}">
+        <link rel="icon" href="{% static 'img/icon.png' %}">
         <meta charset="utf-8">
         <meta 
             name="viewport"
@@ -18,8 +18,8 @@
 
         <nav class="navbar navbar-expand-lg bg-primary" id="nav-bar">
             
-            <a class="navbar-toggler" id="nexus-collapse" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <img src="{% static 'png/White_logo.png' %}" alt="Nexus_Logo"> </a>
+            <a class="navbar-toggler" id="nexus-collapse" data-toggle="collapse" data-target="#navbarNav" href="/feed"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <img src="{% static 'img/White_logo.png' %}" alt="Nexus_Logo"> </a>
 
             <li id="nexus-collapse-liste" class="navbar-toggler">
                 <a class="nav-link dropdown-toggle" href="dropdown" id="navbarDropdown" role="button" 
@@ -36,7 +36,7 @@
             
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <a href="/feed" id="nav-left"><img src="{% static 'png/White_logo.png' %}" alt="Nexus_Logo"></a>
+                <a href="/feed" id="nav-left"><img src="{% static 'img/White_logo.png' %}" alt="Nexus_Logo"></a>
 
                 <ul class="navbar-nav" id="nav-center">
                     <li class="nav-item">
@@ -59,7 +59,7 @@
                     <li class="compte-toggler">
                         <a class="nav-link dropdown-toggle" href="#compte_dropdown" id="navbarDropdown" role="button" 
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                            <img src="{% static 'png/compte.png' %}" alt="Compte" style="max-width: 30px;">
+                            <img src="{% static 'img/compte.png' %}" alt="Compte" style="max-width: 30px;">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" id="drop_right">
                             <a class="dropdown-item" href="/profil">Mon Compte</a>
@@ -72,6 +72,8 @@
 
         <div class="content"> {% block content %} {% endblock %} </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="{% static 'js/script.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     
