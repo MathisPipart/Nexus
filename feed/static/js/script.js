@@ -6,6 +6,7 @@ console.log("Max la saucisse");
 $(document).ready(function() {
     // Gestion du clic sur un élément de la liste déroulante
     $('.dropdown-item').click(function() {
+
         // Masquez tous les blocs de contenu
         $('.f_posts, .f_conversations').hide();
 
