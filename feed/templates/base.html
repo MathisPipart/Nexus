@@ -3,8 +3,9 @@
 <html lang="fr"> 
     <head>
         <link rel="stylesheet" href="{% static 'css/feed.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        {% block extra_css %}{% endblock %}
         <link rel="icon" href="{% static 'img/icon.png' %}">
         <meta charset="utf-8">
         <meta 
@@ -53,7 +54,7 @@
                 <ul class="navbar-nav" id="nav-right">
                     <li class="nav-item">
                         <a class="nav-link" href="/classement">
-                            <img src="{% static 'png/trophy.png' %}" alt="Trophy" style="max-width: 30px;">
+                            <img src="{% static 'img/trophy.png' %}" alt="Trophy" style="max-width: 30px;">
                         </a>
                     </li>
                     <li class="compte-toggler">
