@@ -152,4 +152,10 @@
     .f_events_search {
         width: 100%;
     }
+
+    .f_conversations h3, .f_events_search h3{
+        font-size: 8vw;
+    }
+
+
 }
