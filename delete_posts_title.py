@@ -11,8 +11,12 @@ application = get_wsgi_application()
 from feed.models import Post
 
 def delete_post_tittle(): 
-    titre = input("Quel est le titre du post a supprimer ? \n")
     posts = Post.objects.all()
+    
+    for post in posts:
+        print(post.titre)
+
+    titre = input("Quel est le titre du post a supprimer ? \n")
 
     if posts.exists():
         # supprimer le post
