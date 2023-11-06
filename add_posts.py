@@ -15,8 +15,8 @@ from feed.models import Post
 def add_posts():
     # Créez une instance du modèle avec les détails du post
     nouveau_post = Post(
-        titre="Max",
-        contenu="yo <br> test de retour a la ligne avec < br > <br><br> lolilol",
+        titre="Pierro",
+        contenu="le plus beau <br> le plus grand <br> le plus fort (test des balises < br >)",
         date_de_creation=timezone.now()
     )
 
