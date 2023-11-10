@@ -101,6 +101,10 @@
     opacity: 1;
 }
 
+#feed-content{
+    padding-bottom: 2%;
+}
+
 .f_post {
     border-radius: 30px; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
@@ -126,19 +130,6 @@
     display: flex;
 }
 
-.boutton_switch_page{
-    background-color:#A158FF;
-	border-radius:42px;
-    border: #A158FF;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:28px;
-	padding:0 13px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #2f6627;
-}
-
 .floating-button button {
     display: none;
 }
@@ -154,7 +145,44 @@
     background-color: #eee;
 }
 
+#run-script-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 26%;
+    padding: 10px;
+    background-color:#A158FF;
+    color: white;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
+    #run-script-btn {
+        bottom: 80px; 
+        right: 3%;
+    }
+
+
+    .boutton_switch_page{
+        background-color:#A158FF;
+        border-radius:42px;
+        border: #A158FF;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:28px;
+        text-decoration:none;
+        text-shadow:0px 0px 0px #2f6627;
+        position: fixed;
+        /* Assurez-vous que les tailles sont cohérentes avec le bouton d'ajout de post */
+        font-size: 28px; /* ou ajustez selon la taille du texte dans le bouton d'ajout de post */
+        padding: 2px 16px 2px 16px; /* ou ajustez selon le padding du bouton d'ajout de post */
+        bottom: 20px; /* pour aligner verticalement avec le bouton d'ajout de post */
+        right: 3%; /* pour aligner horizontalement avec le bouton d'ajout de post */
+        border-radius: 42px; /* si nécessaire pour correspondre au style du bouton d'ajout de post */
+    }
+
     #button_switch_page {
         display: block;
     }

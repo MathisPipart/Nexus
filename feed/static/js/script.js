@@ -85,6 +85,22 @@ function showAllBlocks() {
     }
 }
 
+// function launchPythonScript() {
+//         // Code pour lancer le script Python
+//         alert("Script Python lancé!"); // Remplacez ceci par votre code réel
+// }
+
+document.getElementById("run-script-btn").addEventListener("click", function() {
+
+    alert("- START -");
+
+    fetch('/run-script/')
+    .then(response => response.json())
+    .then(data => alert(data.message));
+
+    alert("- END -");
+});
+
 // Ajouter un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
 window.addEventListener('resize', function() {
     // Réafficher les blocs en fonction de la largeur de la fenêtre

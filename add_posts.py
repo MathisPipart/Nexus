@@ -11,12 +11,17 @@ application = get_wsgi_application()
 
 # Importez le modèle de votre post
 from feed.models import Post
+import random
+import string
 
 def add_posts():
     # Créez une instance du modèle avec les détails du post
+
+    #generate random title and random content
+    
     nouveau_post = Post(
-        titre="Pierro",
-        contenu="le plus beau <br> le plus grand <br> le plus fort (test des balises < br >)",
+        titre = "Max ",
+        contenu = "Merci pour les dragibus <3",
         date_de_creation=timezone.now()
     )
 
