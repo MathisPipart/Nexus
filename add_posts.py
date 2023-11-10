@@ -20,8 +20,8 @@ def add_posts():
     #generate random title and random content
     
     nouveau_post = Post(
-        titre = "Max ",
-        contenu = "Merci pour les dragibus <3",
+        titre = "Titre du post",
+        contenu = "Contenu du post",
         date_de_creation=timezone.now()
     )
 

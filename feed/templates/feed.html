@@ -28,6 +28,21 @@
     </aside>
     
     <main class="f_posts" id="feed-content">
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+        </div>
+
         {% for post in posts %}
             <article class="f_post">
                 <h3>{{ post.titre }}</h3>
@@ -35,8 +50,6 @@
                 <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }}</p>
             </article>
         {% endfor %}
-
-        {% comment %} <button id="python-script-button" onclick="launchPythonScript()">Lancer le Script Python</button> {% endcomment %}
 
         <button id="run-script-btn" onclick="launchPythonScript()"> 
             <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
