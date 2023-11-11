@@ -29,16 +29,31 @@
     
     <main class="f_posts" id="feed-content">
 
-        <!-- Trigger/Open The Modal -->
-        <button id="myBtn">Open Modal</button>
+        <!-- Trigger/Open The popup -->
+        <button id="myBtn">
+            <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
+        </button>
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
+        <!-- The popup -->
+        <div id="myPopup" class="popup">
 
-        <!-- Modal content -->
-        <div class="modal-content">
+        <!-- popup content -->
+        <div class="popup-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <h3>Ajouter un post</h3>
+            <form method="post" action="/feed/">
+
+                {% comment %} <label class="col-form-label col-form-label-lg" for="inputLarge">Titre du post</label>
+                <input class="form-control form-control-lg" type="text" placeholder="Titre du post" id="inputLarge">
+                
+                <label class="col-form-label" for="inputDefault">Contenu du post</label>
+                <input type="text" class="form-control" placeholder="Contenu du post" id="inputDefault"> {% endcomment %}
+                
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add post </button>
+            </form>
+
         </div>
 
         </div>
@@ -51,9 +66,9 @@
             </article>
         {% endfor %}
 
-        <button id="run-script-btn" onclick="launchPythonScript()"> 
+        {% comment %} <button id="run-script-btn" onclick="launchPythonScript()"> 
             <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
-        </button>
+        </button> {% endcomment %}
 
     </main>
 

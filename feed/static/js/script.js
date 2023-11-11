@@ -85,16 +85,30 @@ function showAllBlocks() {
     }
 }
 
-document.getElementById("run-script-btn").addEventListener("click", function() {
+// document.getElementById("run-script-btn").addEventListener("click", function() {
 
-    alert("- START -");
+//     alert("- START -");
 
-    fetch('/run-script/')
-    .then(response => response.json())
-    .then(data => alert(data.message));
+//     fetch('/run-script/')
+//     .then(response => response.json())
+//     .then(data => alert(data.message));
 
-    alert("- END -");
-});
+//     alert("- END -");
+// });
+
+// document.getElementById("submit_posts").addEventListener("click", function() {
+
+//     // alert("- START -");
+
+//     fetch('/run-script/')
+//     .then(response => response.json())
+//     .then(data => alert(data.message));
+
+//     // alert("- END -");
+//     //reload the web page
+//     location.reload();
+
+// });
 
 // Ajouter un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
 window.addEventListener('resize', function() {
@@ -106,28 +120,50 @@ window.addEventListener('resize', function() {
 showAllBlocks();
 
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
+var modal = document.getElementById("myPopup");
 var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
 btn.onclick = function() {
+
+    // scroll to the top on the div whith the class f_posts
+    var posts = document.getElementsByClassName("f_posts");
+    for (var i = 0; i < posts.length; i++) {
+        posts[i].scrollTop = 0;
+    }
+
     modal.style.display = "block";
+    // disable scroll in div with class f_posts 
+    var posts = document.getElementsByClassName("f_posts");
+    for (var i = 0; i < posts.length; i++) {
+        posts[i].style.overflow = "hidden";
+    }
+    var boutton = document.getElementById("myBtn");
+    boutton.style.display = "none";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+    // enable scroll in div with class f_posts
+    var posts = document.getElementsByClassName("f_posts");
+    for (var i = 0; i < posts.length; i++) {
+        posts[i].style.overflow = "scroll";
+    }
+    var boutton = document.getElementById("myBtn");
+    boutton.style.display = "block";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        // enable scroll in div with class f_posts
+        var posts = document.getElementsByClassName("f_posts");
+        for (var i = 0; i < posts.length; i++) {
+            posts[i].style.overflow = "scroll";
+        }
+        var boutton = document.getElementById("myBtn");
+        boutton.style.display = "block";
     }
 }

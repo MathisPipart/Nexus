@@ -15,14 +15,11 @@ import random
 import string
 
 def add_posts():
-    # Créez une instance du modèle avec les détails du post
 
-    #generate random title and random content
-    
     nouveau_post = Post(
-        titre = "Titre du post",
-        contenu = "Contenu du post",
-        date_de_creation=timezone.now()
+        titre = "a",
+        contenu = "aa",
+        date_de_creation = timezone.now()
     )
 
     # Enregistrez le post dans la base de données

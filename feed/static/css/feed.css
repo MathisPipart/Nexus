@@ -145,7 +145,7 @@
     background-color: #eee;
 }
 
-#run-script-btn {
+#myBtn {
     position: fixed;
     bottom: 10px;
     right: 26%;
@@ -157,28 +157,39 @@
     cursor: pointer;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+#submit_posts {
+    bottom: 10px;
+    right: 26%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color:#A158FF;
+    color: white;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
 }
 
-  /* Modal Content */
-.modal-content {
+
+.popup {
+    display: none;
+    z-index: 1;
+    padding-top: 100px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(218, 218, 218, 0.1);
+    border-radius: 30px;
+    overflow-y: auto;
+}
+
+.popup-content {
     background-color: #fefefe;
-    margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid black;
+    border-radius: 30px;
     width: 80%;
+    margin: auto;
 }
 
   /* The Close Button */
@@ -189,6 +200,10 @@
     font-weight: bold;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .close:hover,
 .close:focus {
     color: #000;
@@ -197,11 +212,10 @@
 }
 
 @media (max-width: 768px) {
-    #run-script-btn {
+    #myBtn {
         bottom: 80px; 
         right: 3%;
     }
-
 
     .boutton_switch_page{
         background-color:#A158FF;
@@ -214,12 +228,11 @@
         text-decoration:none;
         text-shadow:0px 0px 0px #2f6627;
         position: fixed;
-        /* Assurez-vous que les tailles sont cohérentes avec le bouton d'ajout de post */
-        font-size: 28px; /* ou ajustez selon la taille du texte dans le bouton d'ajout de post */
-        padding: 2px 16px 2px 16px; /* ou ajustez selon le padding du bouton d'ajout de post */
-        bottom: 20px; /* pour aligner verticalement avec le bouton d'ajout de post */
-        right: 3%; /* pour aligner horizontalement avec le bouton d'ajout de post */
-        border-radius: 42px; /* si nécessaire pour correspondre au style du bouton d'ajout de post */
+        font-size: 28px;
+        padding: 2px 16px 2px 16px;
+        bottom: 20px; 
+        right: 3%;
+        border-radius: 42px; 
     }
 
     #button_switch_page {
