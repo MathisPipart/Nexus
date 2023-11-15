@@ -18,10 +18,12 @@ def home(request):
             nouveau_post.save()
             posts = Post.objects.all()
             form = AddPost()
-            return render(request, "feed.html", {'posts': posts, 'form': form})
+            return HttpResponseRedirect("/")
+            # return render(request, "feed.html", {'posts': posts, 'form': form})
 
     else :    
         posts = Post.objects.all()
+        posts = reversed(posts)
         form = AddPost()
 
     return render(request, "feed.html", {'posts': posts, 'form': form})
