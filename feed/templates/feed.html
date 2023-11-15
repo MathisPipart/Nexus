@@ -60,6 +60,7 @@
 
         {% for post in posts %}
             <article class="f_post">
+                <img class="option_de_post" src="{% static 'img/trash.png' %}" alt="Compte" style="max-width: 15px;">
                 <h3>{{ post.titre }}</h3>
                 <p>{{ post.contenu|safe }}</p>
                 <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }}</p>

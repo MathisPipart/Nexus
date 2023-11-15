@@ -211,6 +211,14 @@
     cursor: pointer;
 }
 
+.option_de_post{
+    position: absolute;
+    right: 3%;
+    top: 7%;
+    color: #ff0000 !important;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     #myBtn {
         bottom: 80px; 

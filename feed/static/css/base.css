@@ -117,4 +117,12 @@ html, body {
     #nav-bar {
         padding-top: 8px;
     }
+
+    #navbarNav {
+        display: none;
+    }
+
+    #nexus-collapse{
+        color: transparent !important;
+    }
 }
