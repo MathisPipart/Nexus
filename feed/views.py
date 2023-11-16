@@ -19,7 +19,6 @@ def home(request):
             posts = Post.objects.all()
             form = AddPost()
             return HttpResponseRedirect("/")
-            # return render(request, "feed.html", {'posts': posts, 'form': form})
 
     else :    
         posts = Post.objects.all()
@@ -27,3 +26,9 @@ def home(request):
         form = AddPost()
 
     return render(request, "feed.html", {'posts': posts, 'form': form})
+
+def delete_post(request, post_id):
+    if request.method == 'POST':
+        post = Post.objects.get(id=post_id)
+        post.delete()
+        return HttpResponseRedirect('/')

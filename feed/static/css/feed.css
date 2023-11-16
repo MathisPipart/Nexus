@@ -211,12 +211,29 @@
     cursor: pointer;
 }
 
-.option_de_post{
+.poubelle{
     position: absolute;
     right: 3%;
     top: 7%;
     color: #ff0000 !important;
     font-weight: bold;
+}
+
+.poubelle:hover{
+    box-shadow: 0px 0px 10px 5px rgba(255,0,0,0.34);
+}
+
+.poubelle:active {
+    background-color: yellow;
+    box-shadow: 120px 80px 40px 20px #0ff;
+}
+
+#invisible {
+    display: none;
+}
+
+#not-invisible {
+    display: block;
 }
 
 @media (max-width: 768px) {
