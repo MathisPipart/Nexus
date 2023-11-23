@@ -8,5 +8,47 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Classement </h1>
+<h1>Classement</h1>
+<div class="container">
+
+    <div class="section club-section">
+      <div class="title">CLUB</div>
+      <div class="podium">
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Première place club">
+          <p>Club Poker</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place club">
+          <p>Club Musique</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Troisième place club">
+          <p>ESIEE SPACE</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="section student-section">
+      <div class="title">ETUDIANT</div>
+      <div class="podium">
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Première place étudiant">
+          <p>Ahmed Rais</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place étudiant">
+          <p>Maxime Lombardo</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Troisième place étudiant">
+          <p>Pierre Alla</p>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+
+    
 {% endblock %}
