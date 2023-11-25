@@ -6,10 +6,9 @@
     <!-- Inclusion des scripts et styles de FullCalendar -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
     <script>
-
     document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
+        const calendarEl = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarEl, {
         timeZone: 'UTC',
         initialView: 'timeGridWeek',
         height: 'auto',
