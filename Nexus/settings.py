@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "clubs",
     "classement",
     "profil",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,22 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'default',
+        'toolbar_default': [
+            ['Bold', 'Italic', 'Underline', 'Strike'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'],
+            ['Source'],
+        ],
+        'width': '100%',
+        'height': '200px',
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
