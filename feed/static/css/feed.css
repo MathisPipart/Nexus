@@ -224,8 +224,7 @@
 }
 
 .poubelle:active {
-    background-color: yellow;
-    box-shadow: 120px 80px 40px 20px #0ff;
+    box-shadow: 120px 80px 40px 20px rgba(255,0,0,0.75);
 }
 
 #invisible {

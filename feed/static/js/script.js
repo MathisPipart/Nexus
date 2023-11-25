@@ -85,38 +85,12 @@ function showAllBlocks() {
     }
 }
 
-// document.getElementById("run-script-btn").addEventListener("click", function() {
-
-//     alert("- START -");
-
-//     fetch('/run-script/')
-//     .then(response => response.json())
-//     .then(data => alert(data.message));
-
-//     alert("- END -");
-// });
-
-// document.getElementById("submit_posts").addEventListener("click", function() {
-
-//     // alert("- START -");
-
-//     fetch('/run-script/')
-//     .then(response => response.json())
-//     .then(data => alert(data.message));
-
-//     // alert("- END -");
-//     //reload the web page
-//     location.reload();
-
-// });
-
 // Ajouter un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
 window.addEventListener('resize', function() {
     // Réafficher les blocs en fonction de la largeur de la fenêtre
     showAllBlocks();
 });
 
-// Appelez la fonction showAllBlocks pour afficher les blocs au chargement de la page
 showAllBlocks();
 
 

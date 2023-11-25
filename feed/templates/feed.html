@@ -38,7 +38,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <h3>Ajouter un post</h3>
-            <form method="post" action="/feed/">
+            <form method="post" action="/feed/" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 {{form.as_p}}
@@ -62,6 +62,11 @@
 
                 <h3>{{ post.titre }}</h3>
                 <p>{{ post.contenu|safe }}</p>
+
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Image du post" style="max-width: 100%;">
+                {% endif %}
+
                 <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
             </article>
         {% endfor %}
