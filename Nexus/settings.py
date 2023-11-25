@@ -135,7 +135,6 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline', 'Strike'],
             ['TextColor', 'BGColor'],
             ['Smiley', 'SpecialChar'],
-            ['Source'],
         ],
         'width': '100%',
         'height': '200px',
