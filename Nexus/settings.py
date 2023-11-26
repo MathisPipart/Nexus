@@ -130,14 +130,20 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'default',
-        'toolbar_default': [
-            ['Bold', 'Italic', 'Underline', 'Strike'],
+        'toolbar': 'Custom',  
+        'toolbar_Custom': [ 
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ['NumberedList', 'BulletedList', 'Blockquote'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['Font', 'FontSize'],
             ['TextColor', 'BGColor'],
             ['Smiley', 'SpecialChar'],
+            ['Undo', 'Redo'],
         ],
-        'width': '100%',
         'height': '200px',
+        'RemoveButton': 'Format,Source,Save,Templates,Undo,Cut,Copy,Redo,NewPage,ExportPdf,Preview,Print,Find,Replace,Paste,PasteText,PasteFromWord,SelectAll,Form,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,RemoveFormat,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,Anchor,HorizontalRule,PageBreak,Iframe,Styles,Format,ShowBlocks,About',
     }
 }
 
