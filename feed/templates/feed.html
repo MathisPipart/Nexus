@@ -34,19 +34,16 @@
         </button>
 
         <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <h3>Ajouter un post</h3>
+                <form method="post" action="/feed/" enctype="multipart/form-data">
 
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <h3>Ajouter un post</h3>
-            <form method="post" action="/feed/" enctype="multipart/form-data">
-
-                {% csrf_token %}
-                {{form.as_p}}
-                <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add post </button>
-            </form>
-
-        </div>
-
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add post </button>
+                </form>
+            </div>
         </div>
 
         {% for post in posts %}

@@ -37,3 +37,6 @@ def delete_post(request, post_id):
         if post.image:
             os.remove(post.image.path)
         return HttpResponseRedirect('/')
+    
+def err404(request):
+    return render(request, 'err404.html')

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "classement",
     "profil",
     "ckeditor",
+    "err404",
 ]
 
 MIDDLEWARE = [

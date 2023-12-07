@@ -11,5 +11,14 @@ class AddPost(forms.Form):
     
     image = forms.ImageField(required=False, 
                             widget=forms.FileInput(
-                                attrs={'title': 'Image du post', 'placeholder': 'Image du post'},
-                                ))
+                                attrs={'title': 'Image du post',
+                                        'placeholder': 'Image du post'},))
+
+
+    # image = forms.FileField(required=False, widget = forms.TextInput(attrs={
+    #     'title': 'Image du post', 
+    #     'placeholder': 'Image du post',
+    #     "type": "File",
+    #     "class": "form-control",
+    #     "multiple": "True",
+    # }), label = "IMAGE")
