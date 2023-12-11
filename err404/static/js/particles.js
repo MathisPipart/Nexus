@@ -260,3 +260,11 @@ window.onload = function () {
   loop();
   setInterval(loop, 1000 / 60);
 };
+
+
+// even listener for resize
+window.addEventListener("resize", function () {
+  (w = canvas.width = window.innerWidth),
+  (h = canvas.height = window.innerHeight);
+  loop();
+});
