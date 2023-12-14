@@ -76,6 +76,10 @@ html, body {
     margin-right: 1%;
 }
 
+#nav-right :hover {
+    filter: drop-shadow(cyan 0px 0px 4px);
+}
+
 #nav-right img {
     filter: brightness(0) invert(1);
 }

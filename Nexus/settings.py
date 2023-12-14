@@ -137,7 +137,7 @@ CKEDITOR_CONFIGS = {
             ['NumberedList', 'BulletedList', 'Blockquote'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
-            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['Image', 'HorizontalRule', 'SpecialChar'],
             ['Font', 'FontSize'],
             ['TextColor', 'BGColor'],
             ['Smiley', 'SpecialChar'],

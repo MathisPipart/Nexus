@@ -38,5 +38,13 @@ def delete_post(request, post_id):
             os.remove(post.image.path)
         return HttpResponseRedirect('/')
     
+def modify_post(request, post_id):
+    if request.method == 'POST':
+        post = Post.objects.get(id=post_id)
+        post.titre = request.POST['titre']
+        post.contenu = request.POST['contenu']
+        post.save()
+        return HttpResponseRedirect('/')
+    
 def err404(request):
     return render(request, 'err404.html')
