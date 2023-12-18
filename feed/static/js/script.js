@@ -1,6 +1,7 @@
 //alert("Max la saucisse");
 
-console.log("Max la saucisse");
+//print test in cosol
+console.log("joel la grosse pute");
 
 function myFunction(button) {
     var target = $(button).attr('data-target');
