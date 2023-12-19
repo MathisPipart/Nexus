@@ -8,5 +8,82 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Classement </h1>
+<h1>Classement</h1>
+
+<div class="container">
+    <div class="section club-section">
+      <div class="title">CLUB</div>
+       <div class="podium">
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Première place club">
+          <p>{{ premier_club.nom }}</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place club">
+          <p>{{ deuxieme_club.nom }}</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Troisième place club">
+          <p>{{ troisieme_club.nom }}</p>
+        </div>
+       </div>
+    </div>
+  
+    <div class="section student-section">
+      <div class="title">ETUDIANT</div>
+      <div class="podium">
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Première place étudiant">
+          <p>{{ premier_utilisateur.prenom }} {{ premier_utilisateur.nom }}</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place étudiant">
+          <p>{{ deuxieme_utilisateur.prenom }} {{ deuxieme_utilisateur.nom }}</p>
+        </div>
+        <div class="award">
+          <img src="{% static 'img/trophy.png' %}" alt="Troisième place étudiant">
+          <p>{{ troisieme_utilisateur.prenom }} {{ troisieme_utilisateur.nom }}</p>
+        </div>
+      </div>
+      <a class="triangle" href="/feed">
+        <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
+      </a> 
+    </div>
+  
+</div>
+  
+<h1>Classement complet des Utilisateurs</h1>
+<table class="classement_global">
+    <tr>
+        <th>Rang</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Score</th>
+    </tr>
+    {% for utilisateur in utilisateurs %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ utilisateur.nom }}</td>
+        <td>{{ utilisateur.prenom }}</td>
+        <td>{{ utilisateur.score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h1>Classement complet des Clubs</h1>
+<table class="classement_global">
+    <tr>
+        <th>Rang</th>
+        <th>Nom</th>
+        <th>Score</th>
+    </tr>
+    {% for club in clubs %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ club.nom }}</td>
+        <td>{{ club.score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    
 {% endblock %}
