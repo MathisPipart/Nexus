@@ -47,4 +47,4 @@ def modify_post(request, post_id):
         return HttpResponseRedirect('/')
     
 def err404(request):
-    return render(request, 'err404.html')
+    return render(request, '404.html', status=404)
