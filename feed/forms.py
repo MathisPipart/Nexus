@@ -14,7 +14,10 @@ class AddPost(forms.Form):
     #                             attrs={'title': 'Image du post',
     #                                     'placeholder': 'Image du post'},))
 
-    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True,
+                                                                        'title': 'multiple images', 
+                                                                        'placeholder': 'multiple images',
+                                                                        }))
 
 
     # image = forms.FileField(required=False, widget = forms.TextInput(attrs={

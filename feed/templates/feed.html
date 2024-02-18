@@ -60,9 +60,10 @@
                 <h3>{{ post.titre }}</h3>
                 <p>{{ post.contenu|safe }}</p>
 
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="Image du post" style="max-width: 100%;">
-                {% endif %}
+                {% for image in post.images.all %}
+                    <img src="{{ image.image.url }}" alt="Image du post" style="max-width: 100%;" 
+                    width="100" height="100">
+                {% endfor %}
 
                 <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
             </article>
