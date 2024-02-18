@@ -12,10 +12,11 @@ def home(request):
             titre = form.cleaned_data["titre"]
             contenu = form.cleaned_data["contenu"]
             image = form.cleaned_data.get("image")
+            files = request.FILES.getlist('file_field')
             nouveau_post = Post(
                 titre = titre,
                 contenu = contenu,
-                image = image 
+                image = files 
             )
             nouveau_post.save()
             posts = Post.objects.all()

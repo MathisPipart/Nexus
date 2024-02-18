@@ -9,10 +9,12 @@ class AddPost(forms.Form):
     
     contenu = forms.CharField(widget=CKEditorWidget(config_name='default'))
     
-    image = forms.ImageField(required=False, 
-                            widget=forms.FileInput(
-                                attrs={'title': 'Image du post',
-                                        'placeholder': 'Image du post'},))
+    # image = forms.ImageField(required=False, 
+    #                         widget=forms.FileInput(
+    #                             attrs={'title': 'Image du post',
+    #                                     'placeholder': 'Image du post'},))
+
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
 
     # image = forms.FileField(required=False, widget = forms.TextInput(attrs={
