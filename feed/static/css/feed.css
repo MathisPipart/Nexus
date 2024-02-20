@@ -225,7 +225,7 @@
 }
 
 .poubelle:active {
-    box-shadow: 120px 80px 40px 20px rgba(255,0,0,0.75);
+    box-shadow: 120px 8px 80px 30px rgba(255,0,0,0.85);
 }
 
 
