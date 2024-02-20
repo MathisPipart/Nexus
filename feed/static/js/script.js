@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log("start image resize")
     
-    const posts = document.querySelectorAll('.f_post');
+    const posts = document.querySelectorAll('.post_images');
 
     posts.forEach(posts => {
         const images = posts.querySelectorAll('img');
