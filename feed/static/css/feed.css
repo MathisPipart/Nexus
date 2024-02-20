@@ -228,6 +228,11 @@
     box-shadow: 120px 80px 40px 20px rgba(255,0,0,0.75);
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 #invisible {
     display: none;
 }

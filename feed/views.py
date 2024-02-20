@@ -20,23 +20,6 @@ def home(request):
                 Image.objects.create(post=post, image=f)
             
             return HttpResponseRedirect('/')
-        
-        
-        
-        # if form.is_valid():
-        #     titre = form.cleaned_data["titre"]
-        #     contenu = form.cleaned_data["contenu"]
-        #     image = form.cleaned_data.get("image")
-        #     files = request.FILES.getlist('file_field')
-        #     nouveau_post = Post(
-        #         titre = titre,
-        #         contenu = contenu,
-        #         image = files
-        #     )
-        #     nouveau_post.save()
-        #     posts = Post.objects.all()
-        #     form = AddPost()
-        #     return HttpResponseRedirect("/")
 
     else:
         posts = Post.objects.all()
@@ -49,18 +32,16 @@ def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
         post.delete()
-        # delete the image file
-        if post.images:
-            os.remove(post.image.path)
         return HttpResponseRedirect('/')
-    
-def modify_post(request, post_id):
-    if request.method == 'POST':
-        post = Post.objects.get(id=post_id)
-        post.titre = request.POST['titre']
-        post.contenu = request.POST['contenu']
-        post.save()
-        return HttpResponseRedirect('/')
+
+# /!\ TODO : 
+# def modify_post(request, post_id):
+#     if request.method == 'POST':
+#         post = Post.objects.get(id=post_id)
+#         post.titre = request.POST['titre']
+#         post.contenu = request.POST['contenu']
+#         post.save()
+#         return HttpResponseRedirect('/')
     
 def err404(request):
     return render(request, 'err404.html')
