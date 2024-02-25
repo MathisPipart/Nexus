@@ -58,11 +58,10 @@
                 </form>
 
                 <h3>{{ post.titre }}</h3>
-                <p>{{ post.contenu|safe }}</p>
 
-                {% comment %} {% for image in post.images.all %}
-                    <img src="{{ image.image.url }}" alt="Image du post" style="max-width: 100%;">
-                {% endfor %} {% endcomment %}
+                <div class="post_text">
+                    <p>{{ post.contenu|safe }}</p>
+                </div>
 
                 <div class="post_images">
                     {% for image in post.images.all %}
