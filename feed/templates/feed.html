@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load my_custom_tags %}
 {% block title %} Feed {% endblock %}
 
 {% block content %}
@@ -76,20 +77,67 @@
     </main>
 
     <aside class="f_conversations" id="feed-content id_">
+
+        <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
+
+            <button type="submit" class="boutonRecherche">🔍</button>
+            <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">
+            
+        </form>
+
         <br>
         <h3>Conversation</h3>
-        <hr>
         <br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
+
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        
     </aside>
 
     <div class="floating-button">
