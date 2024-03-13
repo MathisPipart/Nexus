@@ -4,18 +4,19 @@ from .models import Post
 from .forms import AddPost
 import os
 
+
 def home(request):
     if request.method == "POST":
-        form = AddPost(request.POST, request.FILES) 
+        form = AddPost(request.POST, request.FILES)
 
         if form.is_valid():
             titre = form.cleaned_data["titre"]
             contenu = form.cleaned_data["contenu"]
             image = form.cleaned_data.get("image")
             nouveau_post = Post(
-                titre = titre,
-                contenu = contenu,
-                image = image 
+                titre=titre,
+                contenu=contenu,
+                image=image
             )
             nouveau_post.save()
             posts = Post.objects.all()
@@ -29,6 +30,7 @@ def home(request):
 
     return render(request, "feed.html", {'posts': posts, 'form': form})
 
+
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
@@ -37,7 +39,8 @@ def delete_post(request, post_id):
         if post.image:
             os.remove(post.image.path)
         return HttpResponseRedirect('/')
-    
+
+
 def modify_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
@@ -45,6 +48,7 @@ def modify_post(request, post_id):
         post.contenu = request.POST['contenu']
         post.save()
         return HttpResponseRedirect('/')
-    
+
+
 def err404(request):
     return render(request, '404.html', status=404)

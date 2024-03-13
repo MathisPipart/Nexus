@@ -57,7 +57,7 @@
     display: block;
     height: 100vh;
     overflow-y: scroll;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     flex: 2;
     width: 50%;
     padding: 10px;
@@ -112,9 +112,9 @@
 }
 
 .f_post {
-    border-radius: 30px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    padding: 50px; 
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 50px;
     margin-left: 4%;
     margin-right: 4%;
     margin-bottom: 7%;
@@ -124,9 +124,9 @@
 .post-date {
     position: absolute;
     bottom: 1px;
-    right: 20px; 
+    right: 20px;
     color: gray;
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 .floating-button {

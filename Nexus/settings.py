@@ -131,8 +131,8 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Custom',  
-        'toolbar_Custom': [ 
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
             ['NumberedList', 'BulletedList', 'Blockquote'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load my_custom_tags %}
 {% block title %} Feed {% endblock %}
 
 {% block content %}
@@ -19,7 +20,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar pellentesque erat. Praesent non nisi non elit feugiat eleifend. 
             Suspendisse placerat risus eu justo sodales, nec accumsan augue dignissim. Morbi mollis eros vitae tellus rhoncus, quis finibus libero pellentesque. 
             Nam id eleifend nisl, ac viverra magna. Curabitur magna ante, finibus vitae suscipit quis, commodo et enim. 
-            Duis ullamcorper et sem elementum rutrum. Donec a fringilla felis. Donec ipsum dui, sodales ac felis in, vulputate bibendum dolor. <br/><br/>
+            Duis ullamcorper et sem elementum rutrum. Donec a fringilla felis. Donec ipsum dui, sodales ac felis in, vulputate bibendum dolor. <br/><br/><br/><br/><br/><br/>
             Cras vel turpis imperdiet erat fringilla dapibus. Morbi rutrum euismod aliquam. Vestibulum lobortis tellus at magna interdum fermentum.
             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
             Nullam accumsan rutrum felis. In sit amet convallis lorem, vitae semper augue. Integer nisl magna, tempor vel facilisis sed, volutpat a urna. 
@@ -58,11 +59,16 @@
                 </form>
 
                 <h3>{{ post.titre }}</h3>
-                <p>{{ post.contenu|safe }}</p>
 
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="Image du post" style="max-width: 100%;">
-                {% endif %}
+                <div class="post_text">
+                    <p>{{ post.contenu|safe }}</p>
+                </div>
+
+                <div class="post_images">
+                    {% for image in post.images.all %}
+                        <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
+                    {% endfor %}
+                </div>
 
                 <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
             </article>
@@ -71,20 +77,67 @@
     </main>
 
     <aside class="f_conversations" id="feed-content id_">
+
+        <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
+
+            <button type="submit" class="boutonRecherche">🔍</button>
+            <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">
+            
+        </form>
+
         <br>
         <h3>Conversation</h3>
-        <hr>
         <br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
-        <p>Listes des conversations</p><br><br>
+
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        <div class="liste_de_conversation">
+            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
+            <p>Conversation</p>
+        </div>
+        
     </aside>
 
     <div class="floating-button">
