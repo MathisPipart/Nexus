@@ -1,0 +1,375 @@
+.f_feed {
+    display: flex;
+    margin: auto;
+}
+
+.menu-button {
+    display: none;
+}
+
+.barreDeRecherche {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.TexteRecherche {
+    padding: 10px;
+    border: none;
+    flex-grow: 1;
+    outline: none;
+}
+
+.boutonRecherche {
+    padding: 6px 10px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 200%;
+    background-color: white;
+}
+
+.boutonRecherche:hover {
+    background-color: #ddd;
+}
+
+.f_events_search {
+    display: block;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 5px 0px 15px 5px rgba(0, 0, 0, 0.10);
+    width: 25%;
+    padding: 10px;
+}
+
+.f_posts {
+    display: block;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    flex: 2;
+    width: 50%;
+    padding: 10px;
+}
+
+.f_conversations {
+    display: block;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 5px 0px 30px 8px rgba(0, 0, 0, 0.30);
+    width: 25%;
+    padding: 10px;
+}
+
+.f_conversations h3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 2vw;
+    font-family:  'Playfair Display', 'Georgia', Times, 'Times New Roman', serif;
+}
+
+.f_conversations hr {
+    width: 60%;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+    background-color: #000 !important;
+    opacity: 1;
+}
+
+.f_events_search h3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 2vw;
+    font-family:  'Playfair Display', 'Georgia', Times, 'Times New Roman', serif;
+}
+
+.f_events_search hr {
+    width: 60%;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+    background-color: #000 !important;
+    opacity: 1;
+}
+
+#feed-content{
+    padding-bottom: 2%;
+}
+
+.f_post {
+    border-radius: 30px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    padding: 50px; 
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 7%;
+    position: relative;
+}
+
+.post-date {
+    position: absolute;
+    bottom: 1px;
+    right: 20px; 
+    color: gray;
+    font-size: 12px; 
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.floating-button button {
+    display: none;
+}
+
+#dropdown-button{
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+#dropdown-button:hover{
+    background-color: #eee;
+}
+
+#myBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 26%;
+    padding: 10px;
+    background-color:#A158FF;
+    color: white;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
+}
+
+#submit_posts {
+    bottom: 10px;
+    right: 26%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color:#A158FF;
+    color: white;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
+}
+
+
+.popup {
+    display: none;
+    z-index: 1;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(218, 218, 218, 0.1);
+    border-radius: 30px;
+    overflow-y: auto;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+  /* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.no-scroll {
+    overflow: hidden; 
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.poubelle{
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    color: #ff0000 !important;
+    font-weight: bold;
+    border-radius: 15%;
+}
+
+/* ca marche pas */
+/* .poubelle img{
+    filter : drop-shadow(5px 5px 15px rgba(255,0,0,1)); 
+} */
+
+.poubelle:hover{
+    box-shadow: 0px 0px 10px 5px rgba(255,0,0,0.34);
+}
+
+.poubelle:active {
+    box-shadow: 120px 8px 80px 30px rgba(255,0,0,0.85);
+}
+
+.f_conversations {
+    padding-bottom: 4%;
+}
+
+.liste_de_conversation {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden; 
+}
+
+.liste_de_conversation img {
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+}
+
+.liste_de_conversation span {
+    font-size: 1rem; 
+}
+
+.liste_de_conversation:hover {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.liste_de_conversation:active {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+
+
+
+.post_images {
+    display: grid;
+    /* Adjust the grid-template-columns to create fewer columns */
+    grid-template-columns: repeat(3, 1fr); /* 4 columns for large screens */
+    gap: 8px; /* Adjust gap for spacing between images */
+}
+
+.post_images img {
+    /* center each image un the center of each case of the grid */
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1200px) {
+.post_images {
+    grid-template-columns: repeat(2, 1fr); /* 3 columns for medium screens */
+    }
+}
+
+@media screen and (max-width: 800px) {
+.post_images {
+    grid-template-columns: repeat(1, 1fr); /* 2 columns for small screens */
+    }
+}
+
+
+.f_conversations.p{
+    border : 1px solid #A158FF;
+}
+
+
+#invisible {
+    display: none;
+}
+
+#not-invisible {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #myBtn {
+        bottom: 80px; 
+        right: 3%;
+    }
+
+    .boutton_switch_page{
+        background-color:#A158FF;
+        border-radius:42px;
+        border: #A158FF;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:28px;
+        text-decoration:none;
+        text-shadow:0px 0px 0px #2f6627;
+        position: fixed;
+        font-size: 28px;
+        padding: 2px 16px 2px 16px;
+        bottom: 20px; 
+        right: 3%;
+        border-radius: 42px; 
+    }
+
+    #button_switch_page {
+        display: block;
+    }
+
+    .floating-button button {
+        display: block;
+        border-radius: 50%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+    
+    .f_posts,
+    .f_conversations,
+    .f_events_search {
+        width: 100%;
+    }
+
+    .f_conversations h3, .f_events_search h3{
+        font-size: 8vw;
+    }
+
+    .popup {
+        padding-bottom: 80px;
+    }
+
+}
