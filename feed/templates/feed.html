@@ -29,6 +29,7 @@
     
     <main class="f_posts" id="feed-content">
 
+
         <button id="myBtn">
             <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
         </button>
@@ -45,6 +46,10 @@
                 </form>
             </div>
         </div>
+
+        {% if posts_size == 0 %}
+            <h2>Aucun post publié</h2>
+        {% endif %}
 
         {% for post in posts %}
             <article class="f_post">
