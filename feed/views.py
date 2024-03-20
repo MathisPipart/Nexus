@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from .models import Post, Image
 from .forms import AddPost
@@ -28,10 +28,19 @@ def home(request):
 
     return render(request, "feed.html", {'posts': posts, 'form': form})
 
+# def delete_post(request, post_id):
+#     if request.method == 'POST':
+#         post = Post.objects.get(id=post_id)
+#         post.delete()
+#         return HttpResponseRedirect('/')
+    
+
 def delete_post(request, post_id):
     if request.method == 'POST':
-        post = Post.objects.get(id=post_id)
-        post.delete()
+        post = get_object_or_404(Post, id=post_id)
+        for image in post.images.all():
+            image.image.delete(save=False)
+            post.delete()
         return HttpResponseRedirect('/')
 
 # /!\ TODO : 
