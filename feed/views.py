@@ -40,7 +40,7 @@ def delete_post(request, post_id):
         post = get_object_or_404(Post, id=post_id)
         for image in post.images.all():
             image.image.delete(save=False)
-            post.delete()
+        post.delete()
         return HttpResponseRedirect('/')
 
 # /!\ TODO : 
