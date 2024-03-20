@@ -3,6 +3,29 @@
 //print test in cosol
 console.log("joel");
 
+// // fonction pour calculer la hauteur et la largeur des images en fontions de leur nombre
+// document.addEventListener('DOMContentLoaded', function() {
+
+//     console.log("start image resize")
+    
+//     const posts = document.querySelectorAll('.post_images');
+
+//     posts.forEach(posts => {
+//         const images = posts.querySelectorAll('img');
+//         const numberOfImages = images.length;
+
+//         console.log("number of images: " + numberOfImages);
+        
+//         let width = numberOfImages > 1 ? 100 / numberOfImages : 100; // Calcule la largeur. Si un seul image, utilise 100%.
+        
+//         images.forEach(image => {
+//             image.style.width = `${width}%`;
+//             console.log("image width: " + width + "%");
+//         });
+//     });
+// });
+
+
 function myFunction(button) {
     var target = $(button).attr('data-target');
     console.log("data-target value: " + target);

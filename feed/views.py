@@ -33,6 +33,7 @@ def home(request):
     return render(request, "feed.html", {'posts': posts, 'form': form, 'posts_size': posts_size})
 
 
+
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
