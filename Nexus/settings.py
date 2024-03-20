@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "profil",
     "ckeditor",
     "err404",
+    "login"
 ]
 
 MIDDLEWARE = [
