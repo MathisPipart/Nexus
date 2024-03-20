@@ -25,4 +25,5 @@ urlpatterns = [
     path("clubs/", include("clubs.urls")),
     path("classement/", include("classement.urls")),
     path("profil/", include("profil.urls")),
+    path("404/", include("err404.urls")),
 ]

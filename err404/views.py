@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
 def err404(request):
-    return render(request, '404.html', status=404)
+    return render(request, '404.html')
