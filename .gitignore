@@ -41,3 +41,10 @@ db_old.sqlite3
 *.pyc
 *.pyc
 *.pyc
+*.pyc
+*.pyc
+*.pyc
+/classement/__pycache__
+/feed/__pycache__
+/calendrier/__pycache__
+/Nexus/__pycache__
