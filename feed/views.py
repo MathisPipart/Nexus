@@ -34,6 +34,8 @@ def home(request):
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
+        for image in post.images.all():
+            image.image.delete(save=False)
         post.delete()
         return HttpResponseRedirect('/')
 
