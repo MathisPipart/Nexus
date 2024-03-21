@@ -48,3 +48,5 @@ db_old.sqlite3
 /feed/__pycache__
 /calendrier/__pycache__
 /Nexus/__pycache__
+*.pyc
+/Nexus/__pycache__
