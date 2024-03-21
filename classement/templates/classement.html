@@ -4,10 +4,16 @@
 {% block title %} Classement {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/classement.css' %}">
+<link rel="stylesheet" href="{% static 'css/classement.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/afficherClassementsComplet.js' %}"></script>
 {% endblock %}
 
 {% block content %}
+
+
 <h1>Classement</h1>
 
 <div class="container">
@@ -27,6 +33,9 @@
           <p>{{ troisieme_club.nom }}</p>
         </div>
        </div>
+       <a class="triangleClub">
+        <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
+      </a> 
     </div>
   
     <div class="section student-section">
@@ -45,45 +54,51 @@
           <p>{{ troisieme_utilisateur.prenom }} {{ troisieme_utilisateur.nom }}</p>
         </div>
       </div>
-      <a class="triangle" href="/feed">
+      <a class="triangleEtudiant">
         <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
       </a> 
     </div>
   
 </div>
   
-<h1>Classement complet des Utilisateurs</h1>
-<table class="classement_global">
-    <tr>
-        <th>Rang</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Score</th>
-    </tr>
-    {% for utilisateur in utilisateurs %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td>{{ utilisateur.nom }}</td>
-        <td>{{ utilisateur.prenom }}</td>
-        <td>{{ utilisateur.score }}</td>
-    </tr>
-    {% endfor %}
-</table>
 
-<h1>Classement complet des Clubs</h1>
-<table class="classement_global">
-    <tr>
-        <th>Rang</th>
-        <th>Nom</th>
-        <th>Score</th>
-    </tr>
-    {% for club in clubs %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td>{{ club.nom }}</td>
-        <td>{{ club.score }}</td>
-    </tr>
-    {% endfor %}
-</table>
-    
+<div class="classement_Etudiant">
+  <h1>Classement complet des Utilisateurs</h1>
+  <table class="classement_global">
+      <tr>
+          <th>Rang</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Score</th>
+      </tr>
+      {% for utilisateur in utilisateurs %}
+      <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ utilisateur.nom }}</td>
+          <td>{{ utilisateur.prenom }}</td>
+          <td>{{ utilisateur.score }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+
+<div class="classement_Club">
+  <h1>Classement complet des Clubs</h1>
+  <table class="classement_global">
+      <tr>
+          <th>Rang</th>
+          <th>Nom</th>
+          <th>Score</th>
+      </tr>
+      {% for club in clubs %}
+      <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ club.nom }}</td>
+          <td>{{ club.score }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+
+
 {% endblock %}
