@@ -96,7 +96,6 @@ top: 60px;
 transform: scale(0.8);
 }
 
-
 .classement_global{
 margin-top: 5%;
 margin-bottom: 5%;
@@ -112,8 +111,33 @@ border-collapse: collapse;
   padding: 8px;
 }
 
-.student-section .triangle {
-  display: block; /* Change l'affichage pour le traitement en tant que bloc */
-  margin-top: 200px; /* Ajustez cette valeur pour déplacer le triangle plus bas */
+.student-section .triangleEtudiant {
+  display: block;
+  margin-top: 50px;
+}
+
+.club-section .triangleClub {
+  display: block;
+  margin-top: 50px;
+}
+
+.classement_Etudiant, .classement_Club {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s, max-height 0.5s ease-in-out, visibility 0.5s;
+}
+
+.classement_Etudiant.visible, .classement_Club.visible {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px; /* Ajustez selon la hauteur maximale de votre contenu */
+}
+
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
 }
 
