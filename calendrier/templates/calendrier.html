@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/calendrier.css' %}" />
+{% endblock %}
+
 {% block content %}
 <head>
     <!-- Inclusion des scripts et styles de FullCalendar -->
@@ -26,8 +30,8 @@
           omitZeroMinute: true,
           meridiem: 'short'
         },
-        slotMinTime: '00:00:00', // Heure de début de la grille de temps
-        slotMaxTime: '24:00:00', // Heure de fin de la grille de temps
+        slotMinTime: '07:00:00', // Heure de début de la grille de temps
+        slotMaxTime: '20:00:00', // Heure de fin de la grille de temps
         scrollTime: '07:00:00', // Définir le défilement initial à 7h du matin
         editable: true,
         events: [
