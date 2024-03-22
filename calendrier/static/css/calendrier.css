@@ -1,0 +1,14 @@
+body,
+html {
+    overflow: visible;
+}
+
+.calendrier {
+    padding-top: 70px !important;
+}
+
+#nav-bar {
+    /* lock the top bar to avoid it to disaper whenb scolling */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;

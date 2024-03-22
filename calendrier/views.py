@@ -12,7 +12,8 @@ import pytz
 def vueCalendrier(request):
     # URL du calendrier iCal fournie
     #ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=4195&projectId=11&calType=ical&nbWeeks=52"
-    ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=1148,4786,4787&projectId=11&calType=ical&nbWeeks=52"
+    # ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=1148,4786,4787&projectId=11&calType=ical&nbWeeks=52"
+    ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=3346,4195&projectId=11&calType=ical&nbWeeks=52"
     # Importer les événements depuis l'URL iCal
     importEvent(ical_url)
 
@@ -68,9 +69,3 @@ def importEvent(url):
             event.end_time = end_dt
 
             event.save()
-
-
-
-
-
-

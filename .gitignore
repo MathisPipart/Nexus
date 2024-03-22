@@ -1,0 +1,3 @@
+
+*.pyc
+/calendrier/__pycache__
