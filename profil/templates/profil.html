@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="profile-header">
-        <img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="100" height="100">
+        <img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="100" height="100">
         <h1 class="profile-name">Joël MBIAPA KETCHECKMEN</h1>
         <div class="coin-container">
             <span>2 624</span>
@@ -20,12 +20,12 @@
       
     <div class="settings">
         <div class="card">
-          <h2>Paramètre</h2>
+          <h2>Paramètres</h2>
 
           <table class="tabParametreActivite">
             <tr>
               <td class="logo"><input type="checkbox" id="notifications" checked> </td>
-              <td class="texte">Notifications</td>
+              <td><span class="texte">Notifications</span></td>
             </tr>
             <tr>
               <td class="logo"><input type="checkbox" id="sound"> </td>
@@ -36,41 +36,41 @@
               <td class="texte"></div>Volume</div></td>
             </tr>
             <tr>
-              <td class="logo"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40"></td>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/QR_Code.png');"></td>
               <td class="texte">Scanner QR Code</td>
+            </tr>
+            <tr>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/deconnexion.png');"></td>
+              <td class="texte">Déconnexion</td>
             </tr>
           </table>
         </div>
       
         <div class="card">
-          <h2>Activité</h2>
+          <h2>Activités</h2>
           <table class="tabParametreActivite">
             <tr>
-              <td class="logo"><img src="{% static 'img/like.png' %}" alt="like" width="30" height="30"></td>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/like.png');"></td>
               <td class="texte">Likes</td>
             </tr>
             <tr>
-              <td class="logo"><input type="button" class="comment-button" style="background-image: url('/static/img/no_avatar.jpg'); width: 40px; height: 40px; border: none; cursor: pointer; background-size: cover;" aria-label="Comment" /> </td>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/commentaire.png');"> </td>
               <td class="texte">Commentaires</td>
             </tr>
             <tr>
-              <td class="logo"><input type="button" id="historique"></td>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/historique.png');"></td>
               <td class="texte">Historique de recherhce</td>
             </tr>
             <tr>
-              <td class="logo"><input type="button" id="enregistrement"></td>
+              <td class="logo"><input type="button" style="background-image: url('/static/img/etoile.png');"></td>
               <td class="texte">Posts enregistrés</td>
             </tr>
             <tr>
-              <td class="logo"><input type="button" id="enregistrement"></td>
-              <td class="texte">Posts enregistrés</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="reset" id="resetRech"></td>
+              <td class="logo"><input type="reset" value="" style="background-image: url('/static/img/retour.png');"></td>
               <td class="texte">Effacer Historique de recherche</td>
             </tr>
             <tr>
-              <td class="logo"><input type="reset" id="resetConv"></td>
+              <td class="logo"><input type="reset" value="" style="background-image: url('/static/img/poubelle.png');"></td>
               <td class="texte">Effacer conversations</td>
             </tr>
           </table>
@@ -82,15 +82,15 @@
         <h2>Abonnements</h2>
         <table class="tabAbonnements">
           <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
           </tr>
           <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.jpg' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
+            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
           </tr>
         </table>
         
