@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path("", include("feed.urls")),
     path("feed/", include("feed.urls")),
     path("calendrier/", include("calendrier.urls")),
     path("clubs/", include("clubs.urls")),
@@ -28,4 +29,4 @@ urlpatterns = [
     path("404/", include("err404.urls")),
     path('accounts/', include('allauth.urls')),
     path("", include('login.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

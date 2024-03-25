@@ -1,19 +1,28 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #03254E;
+    /*background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);*/
+}
+
 .container{
     display: flex;
-    border: 1px solid blue;
-    height: 100vh;
+    height: 100%;
 }
 
 .left{
-    border: 1px solid black;
     flex: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);
+    /*border-radius: 20px;*/
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .right{
-    border: 1px solid black;
     flex: 50%;
     display: flex;
     align-items: center;
@@ -45,6 +54,7 @@ a:visited{
     justify-content: space-evenly;
     align-items: center;
     width: 30%;
+    background-color: white;
 }
 
 .google-button-logo{

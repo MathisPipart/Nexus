@@ -13,8 +13,7 @@
 {% load socialaccount %}
 <div class="container">
     <div class="left">
-        <h2>Nexus</h2>
-        <img src="{% static 'img/Black_logo.png' %}" alt="logo Nexus" width="40px" height="40px">
+        <img src="{% static 'img/Black_logo.png' %}" alt="logo Nexus" width="80%" height="30%">
     </div>
     <div class="right">
         <a href="{% provider_login_url 'google' %}?next=/">
@@ -31,10 +30,5 @@
         </a>
     </div>
 </div>
-
-    {% if user.is_authenticated %}
-        <p>You are signed in as {{ user.username }}</p>
-        <a href="logout">Logout</a>
-    {% endif %}
 </body>
 </html>
