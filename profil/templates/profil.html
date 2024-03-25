@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{% static 'css/profil.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+    <script src="{% static 'js/parametres.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <div class="profile-header">
@@ -23,17 +26,17 @@
           <h2>Paramètres</h2>
 
           <table class="tabParametreActivite">
-            <tr>
-              <td class="logo"><input type="checkbox" id="notifications" checked> </td>
-              <td><span class="texte">Notifications</span></td>
+            <tr id="notification">
+              <td class="logo"><input type="checkbox" id="checkboxNotif" checked> </td>
+              <td class="texte">Activer les notifications</td>
             </tr>
-            <tr>
-              <td class="logo"><input type="checkbox" id="sound"> </td>
-              <td class="texte">Son</td>
+            <tr id="son">
+              <td class="logo"><input type="checkbox" id="checkboxSon" checked> </td>
+              <td class="texte">Activer le son</td>
             </tr>
             <tr>
               <td class="logo"><div class="volume-control"><input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider"></td>
-              <td class="texte"></div>Volume</div></td>
+              <td class="texte"></div>Gestion du volume</div></td>
             </tr>
             <tr>
               <td class="logo"><input type="button" style="background-image: url('/static/img/QR_Code.png');"></td>
