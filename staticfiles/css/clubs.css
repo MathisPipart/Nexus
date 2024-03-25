@@ -1,0 +1,58 @@
+body,
+html {
+    overflow: visible;
+}
+
+.club-card {
+    height: 10%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.club-card img {
+    width: 40%;
+    height: 40%;
+    object-fit: cover;
+    border-radius: 15px 50px;
+    padding: 0.5%;
+}
+
+.club-card:hover {
+    transform: translateY(-5px);
+}
+
+.club-info {
+    padding: 10px;
+    color: #333;
+}
+
+.club-info h2 {
+    margin-top: 0;
+}
+
+.club-info p {
+    margin-bottom: 0;
+    font-size: 0.9em;
+}
+
+.club-info .follow-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #5c6bc0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.club-info .follow-btn:hover {
+    background-color: #3949ab;
+}
