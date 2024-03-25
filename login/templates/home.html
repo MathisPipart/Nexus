@@ -11,19 +11,21 @@
 </head>
 <body>
 {% load socialaccount %}
-{% csrf_token %}
 <div class="container">
     <div class="left">
         <h2>Nexus</h2>
+        <img src="{% static '' %}" alt="logo Nexus">
     </div>
     <div class="right">
-        <h2>Right part</h2>
-
-            <h1>Google Login</h1>
         <a href="{% provider_login_url 'google' %}?next=/">
             <div class="content">
                 <div class="google-button">
-                        Login with Google
+                    <figure class="google-button-logo">
+                        <img src="{% static 'img/img.png' %}" alt="google logo" width="40px" height="40px">
+                    </figure>
+                    <article class="login-text">
+                        <p>Se connecter</p>
+                    </article>
                 </div>
             </div>
         </a>
