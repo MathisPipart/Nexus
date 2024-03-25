@@ -26,6 +26,6 @@ urlpatterns = [
     path("classement/", include("classement.urls")),
     path("profil/", include("profil.urls")),
     path("404/", include("err404.urls")),
-    path("accounts/", include("allauth.urls")),
+    path('accounts/', include('allauth.urls')),
     path("", include('login.urls')),
 ]
