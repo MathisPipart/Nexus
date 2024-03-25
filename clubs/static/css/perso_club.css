@@ -1,0 +1,13 @@
+img.Baniere {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50px;
+    padding: 0.5%;
+}
+
+img.pdp {
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+}

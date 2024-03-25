@@ -6,13 +6,16 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/clubs.css' %}" />
-{% endblock %}
-
-{% block extra_javascript %}
-  <script src="{% static 'js/clubs.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/perso_club.css' %}" />
 {% endblock %}
 
 {% block content %}
-  <p>Présenation du club musqiue</p>
+  <div>
+    <img class="Baniere" src="{% static 'img/musique.png' %}" alt="Baniere Club Musique" />
+  </div>
+
+  <div>
+    <img class="pdp" src="{% static 'img/PP_musique.jpg' %}" alt="photo de profil" />
+    <h1>Club Musique</h1>
+  </div>
 {% endblock %}
