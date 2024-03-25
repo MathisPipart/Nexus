@@ -1,13 +1,95 @@
+body,
+html {
+    overflow: visible;
+}
+
+.spacer {
+    height: 70px;
+}
+
+.footer {
+    height: 30px;
+}
+
+#nav-bar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.Baniere {
+    display: flex;
+    justify-content: center;
+}
+
 img.Baniere {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 50px;
-    padding: 0.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.2%;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.pdp {
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 img.pdp {
     width: 10%;
     height: 10%;
     border-radius: 50%;
+    margin-left: 2%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1%;
+}
+
+p {
+    font-size: 1.5em;
+    margin-top: 1%;
+}
+
+.description {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.post_images {
+    display: grid;
+    /* Adjust the grid-template-columns to create fewer columns */
+    grid-template-columns: repeat(3, 1fr);
+    /* 4 columns for large screens */
+    gap: 8px;
+    /* Adjust gap for spacing between images */
+}
+
+.post_images img {
+    /* center each image un the center of each case of the grid */
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.post_du_club {
+    height: 50%;
+    width: 50%;
 }

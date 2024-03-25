@@ -1,7 +1,7 @@
 //alert("Max la saucisse");
 
 //print test in cosol
-console.log("joel");
+// console.log("joel");
 
 // // fonction pour calculer la hauteur et la largeur des images en fontions de leur nombre
 // document.addEventListener('DOMContentLoaded', function() {
