@@ -14,7 +14,7 @@
 {% block content %}
     <div class="profile-header">
         <img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="100" height="100">
-        <h1 class="profile-name">Joël MBIAPA KETCHECKMEN</h1>
+        <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
         <div class="coin-container">
             <span>2 624</span>
             <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">
