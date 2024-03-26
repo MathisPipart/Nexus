@@ -2,8 +2,11 @@ from django.shortcuts import render, HttpResponse
 from django.http import HttpResponseRedirect, JsonResponse
 from .models import Post, Image
 from .forms import AddPost
+from django.contrib.auth.decorators import login_required
 import os
 
+
+@login_required
 def home(request):
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES)
@@ -30,7 +33,7 @@ def home(request):
     return render(request, "feed.html", {'posts': posts, 'form': form, 'posts_size': posts_size})
 
 
-
+@login_required
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
@@ -38,6 +41,7 @@ def delete_post(request, post_id):
             image.image.delete(save=False)
         post.delete()
         return HttpResponseRedirect('/')
+
 
 # /!\ TODO :
 # def modify_post(request, post_id):

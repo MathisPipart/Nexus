@@ -2,8 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #03254E;
-    /*background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);*/
+    background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);
 }
 
 .container{
@@ -16,11 +15,16 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);
+    /*background: linear-gradient(90deg, #A259FF 0%, #5551FF 100%);*/
     /*border-radius: 20px;*/
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
+    /*border-bottom-right-radius: 20px;*/
+    /*border-top-right-radius: 20px;*/
 }
+
+.left img{
+    filter: brightness(0) invert(1);
+}
+
 
 .right{
     flex: 50%;
