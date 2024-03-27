@@ -12,10 +12,10 @@ def home(request):
     return render(request, "home.html")
 
 
+def denied_access(request):
+    return render(request, "closed.html")
+
+
 def logout_view(request):
     logout(request)
     return redirect("/")
-
-
-"""def vueLogin(request):
-    return render(request, "login.html")"""
