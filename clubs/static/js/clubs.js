@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    document.getElementById('followBtn').addEventListener('click', function() {
-        var currentValue = this.value;
-        var numberPattern = /\d+/g;
-        var currentFollowers = parseInt(currentValue.match(numberPattern), 10);
-        
-        currentFollowers++;
-        
-        // Mise à jour de la valeur du bouton avec le nouveau nombre d'abonnés
-        this.value = currentFollowers + ' abonnés';
+    document.getElementById('followBtnA').addEventListener('click', function() {
+        if (this.value === "s'abonner") {
+            this.value = "123 abonnés";
+            this.style.backgroundColor = '#5551FF';
+        } else {
+            this.value = "s'abonner";
+            this.style.backgroundColor = '';
+            this.style.color = '';
+        }
     });
 
     // FOLLOW BUTTONS B
@@ -47,6 +47,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 0);
       });
     });
+
+    document.getElementById('followBtnB').addEventListener('click', function() {
+        if (this.value === "s'abonner") {
+            this.value = "123 abonnés";
+            this.style.backgroundColor = '#5551FF';
+        } else {
+            this.value = "s'abonner";
+            this.style.backgroundColor = '';
+            this.style.color = '';
+        }
+    });
+
 
 
     // CONVERSATION BUTTONS A
