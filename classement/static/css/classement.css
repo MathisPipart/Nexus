@@ -147,26 +147,12 @@ border-collapse: collapse;
 }
 
 
-
-.podium{
-  border: 1px solid #b6b6b6;
-}
-
-
 @media screen and (max-width: 768px) {
-  .podium{
-    border: 1px solid #b6b6b6;
-  }
-  .award:nth-child(1){
-    border: 1px solid #b6b6b6;
-  }
   .award:nth-child(2){
-    border: 1px solid #b6b6b6;
     left: 0 !important;
     margin: 0 !important;
   }
   .award:nth-child(3){
-    border: 1px solid #b6b6b6;
     right: 0 !important;
     margin: 0 !important;
   }
