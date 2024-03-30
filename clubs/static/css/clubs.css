@@ -383,7 +383,7 @@ html {
         height: auto;
         position: relative;
         order: -1;
-        border-radius: 15px 15px 0 0;
+        border-radius: 0;
         padding: 0;
     }
 
