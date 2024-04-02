@@ -19,7 +19,7 @@ def home(request):
             for f in request.FILES.getlist('file_field'):
                 Image.objects.create(post=post, image=f)
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/feed/')
 
     else:
         posts = Post.objects.all()
@@ -37,7 +37,7 @@ def delete_post(request, post_id):
         for image in post.images.all():
             image.image.delete(save=False)
         post.delete()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/feed/')
 
 # /!\ TODO :
 # def modify_post(request, post_id):
