@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.vueLogin, name="vueLogin"),
+    path("", views.home),
+    path("logout", views.logout_view)
 ]
