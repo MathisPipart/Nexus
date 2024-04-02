@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Clubs et Assos
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/perso_club.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="spacer"></div>
+
+  <div>
+    <img class="Baniere" src="{% static 'img/musique.png' %}" alt="Baniere Club Musique" />
+  </div>
+
+  <div class="little_spacer"></div>
+
+  <h1 class="full_center">Club Musique 🎸🥁🎹</h1>
+
+  <div class="full_center">
+    <img class="pdp" src="{% static 'img/PP_musique.jpg' %}" alt="photo de profil" />
+
+    <ul class="Burreau">
+      <h2>Membres du burreau :</h2>
+      <li>Président : @romlef77</li>
+      <li>Vice-Présidents : @lucas_poisot & @bastienn.tt</li>
+      <li>Secrétaire : @martin_dgrc</li>
+      <li>Trésorier : gdradam</li>
+    </ul>
+  </div>
+
+  <div class="little_spacer"></div>
+
+  <div class="description">
+    <p>Le club musique est un club qui a pour but de réunir les passionnés de musique. Que vous soyez musicien ou simple amateur, vous êtes les bienvenus. Nous organisons des concerts, des ateliers, des jam sessions et bien d'autres événements. N'hésitez pas à nous rejoindre !</p>
+  </div>
+
+  <div class="center_feed">
+    <div class="post_du_club">
+      {% for post in posts %}
+        <article class="f_post">
+          <form action="{% url 'delete_post' post.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="poubelle"><img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;" /></button>
+          </form>
+
+          <h3>{{ post.titre }}</h3>
+
+          <div class="post_text">
+            <p>{{ post.contenu|safe }}</p>
+          </div>
+
+          <div class="post_images">
+            {% for image in post.images.all %}
+              <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post" />
+            {% endfor %}
+          </div>
+
+          <p class="post-date">{{ post.date_de_creation|date:'l d F Y, H \h i' }} | ID : {{ post.id }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="footer"></div>
+{% endblock %}

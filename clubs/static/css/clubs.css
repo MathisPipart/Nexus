@@ -3,8 +3,8 @@ html {
     overflow: visible;
 }
 
-.club-card {
-    height: 10%;
+.club-cardA {
+    z-index: 1000;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -13,46 +13,388 @@ html {
     transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    position:relative;
+    height: auto;
+    cursor: pointer;
 }
 
-.club-card img {
+.club-cardA:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-cardA:active:not(.prevent-active-style) {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+.nom_ClubA{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.pdpA{
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.club_baniereA img{
     width: 40%;
-    height: 40%;
+    height: 100%;
+    object-fit: cover; /* This will ensure the image covers the full area without stretching */
+    position: absolute;
     object-fit: cover;
     border-radius: 15px 50px;
     padding: 0.5%;
+    right: 0;
+    top: 0;
 }
 
-.club-card:hover {
-    transform: translateY(-5px);
+.tabClubA {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.club-info {
+.tabClubA td {
+    padding: 8px;
+}
+
+.tabClubA td img.pdpA {
+    width: 100%;
+}
+
+.tabClubA tr td:first-child {
+    width: 10%;
+    text-align: center;
+}
+.tabClubA tr td:nth-child(3) {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.tabClubA tr td:nth-child(4) {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.tabClubA td:empty {
+    width: 10px;
+}
+
+.follow-btnA,
+.conv-btnA {
+    cursor: pointer;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+.tabClubA tr td:last-child {
+    text-align: right;
+    width: 1%; 
+}
+
+.follow-btnA {
+    background-color: #5551FF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px; 
+    float: right;
+}
+.conv-btnA {
+    margin-top: 10px;
+    background-color: #5551FF; 
+    background-image: url('/static/img/commentaire_blanc.png'); 
+    
+    border: none;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.conv-btnA img{
+    filter: brightness(0) invert(1);
+}
+
+.club-infoA {
+    width: 60%;
     padding: 10px;
     color: #333;
 }
+.club-infoA p{
+    margin-left: 2%;
+    font-size: 0.9em;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 1%;
+}
 
-.club-info h2 {
+.club-infoA h2 {
     margin-top: 0;
 }
 
-.club-info p {
-    margin-bottom: 0;
-    font-size: 0.9em;
-}
-
-.club-info .follow-btn {
+.club-infoA .follow-btnA {
     display: inline-block;
     padding: 10px 20px;
     color: white;
-    background-color: #5c6bc0;
+    background-color: rgba(161, 88, 255, 0.85);
     text-decoration: none;
     border-radius: 5px;
     font-size: 0.8em;
     margin-top: 10px;
 }
 
-.club-info .follow-btn:hover {
-    background-color: #3949ab;
+.club-infoA .follow-btnA:hover {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-infoA .follow-btnA:active {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+.club-infoA .conv-btnA:hover {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-infoA .conv-btnA:active {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+
+
+
+
+
+
+.club-cardB {
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.club-cardB:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-cardB:active:not(.prevent-active-style) {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+.nom_ClubB {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    width: 72%;
+}
+
+.pdpB {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.club_baniereB {
+    flex: 0 0 40%;
+    position: relative;
+}
+
+.club_baniereB img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px 15px;
+    object-fit: cover; /* This will ensure the image covers the full area without stretching */
+    position: absolute;
+    object-fit: cover;
+    padding: 1%;
+    padding-bottom: 1%;
+    right: 0;
+    top: 0;
+}
+
+.tabClubB {
+    border-collapse: collapse;
+    width: 100%; 
+    margin: auto;
+}
+
+.tabClubB td {
+    padding: 8px;
+}
+
+.tabClubB td img.pdpB {
+    width: 100%;
+    height: auto;
+}
+
+.tabClubB tr td:first-child {
+    margin: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tabClubB tr td:nth-child(3){
+    padding: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tabClubB td:empty {
+    width: 10px;
+}
+
+.follow-btnB,
+.conv-btnB {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.follow-btnB {
+    background-color: #5551FF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+.conv-btnB {
+    margin-top: 10px;
+    background-color: #5551FF; 
+    background-image: url('/static/img/commentaire_blanc.png'); 
+    
+    border: none;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.club-infoB {
+    flex: 1;
+    padding: 10px;
+    max-width: 60%;
+    color: #333;
+}
+
+.club-infoB p {
+    font-size: 0.9em;
+    text-align: justify;
+    margin: 2%;
+}
+
+.club-infoB h2 {
+    margin-top: 0;
+}
+
+.club-infoB .follow-btnB {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(161, 88, 255, 0.85);
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.club-infoB .follow-btnB:hover {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-infoB .follow-btnB:active {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+.club-infoB .conv-btnB:hover {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
+}
+
+.club-infoB .conv-btnB:active {
+    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
+}
+
+
+
+
+@media screen and (max-width: 710px) {
+    .club-cardA {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .club_baniereA,
+    .club_baniereA img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        order: -1;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .club-infoA {
+        width: auto;
+    }
+    
+    .club-infoA p {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 3%;
+    }
+
+    .tabClubA tr td:first-child,
+    .tabClubA tr td:nth-child(3),
+    .tabClubA tr td:nth-child(4),
+    .tabClubA tr td:last-child {
+        width: auto;
+    }
+
+
+    .club-cardB {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .club_baniereB,
+    .club_baniereB img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        order: -1;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .club-infoB {
+        width: auto;
+        max-width: none;
+    }
+
+    .club-infoB p {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 3%;
+    }
 }
