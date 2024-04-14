@@ -7,9 +7,9 @@ def vueClubs(request):
 
 
 
-def club_musique(request):
+def club_details(request):
     posts = Post.objects.all().order_by('-date_de_creation')
     posts_size = len(posts)
     posts = reversed(posts)
     
-    return render(request, "club_musique.html", {'posts': posts, 'posts_size': posts_size})
+    return render(request, "club_details.html", {'posts': posts, 'posts_size': posts_size})
