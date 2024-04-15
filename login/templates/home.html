@@ -11,6 +11,17 @@
 </head>
 <body>
 {% load socialaccount %}
+<div class="parent-alert-box">
+    <div class="alert-box" id="alert-box">
+        <div class="title">
+            <h2>Compte non-esiee</h2>
+            <button id="cross-button">
+                <img src="{% static 'img/cross.png' %}" alt="Croix" width="50%" height="50%">
+            </button>
+        </div>
+        <p>Ce compte ne dispose pas des authorisations nécessaires pour accéder au site.</p>
+    </div>
+</div>
 <div class="container">
     <div class="left">
         <img src="{% static 'img/Black_logo.png' %}" alt="logo Nexus" width="80%" height="30%">
@@ -34,5 +45,29 @@
     <p>You are signed in as {{ user.username }}</p>
     <a href="logout">Logout</a>
 {% endif %}
+<script>
+    let button = document.getElementById("cross-button");
+    let alertBox = document.getElementById("alert-box");
+    //let state = false;
+    let state = {{ request.session.state|default:'false' }};
+    if(state===true){
+        alertBox.style.display = "visible";
+    }
+    else{
+        alertBox.style.display = "none";
+    }
+    button.addEventListener("click", () => {
+        console.log("jopel");
+        state = false;
+        console.log(state);
+
+        if(state === false){
+            alertBox.style.display = "none";
+        }
+        else{
+            alertBox.style.display = "visible";
+        }
+    })
+</script>
 </body>
 </html>

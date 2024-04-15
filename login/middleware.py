@@ -14,4 +14,5 @@ class SocialAuthExceptionMiddleware:
     def process_exception(self, request, exception):
         if isinstance(exception, EmailNotAllowedException):
             messages.error(request, exception.args[0])
-            return redirect('/access_denied')
+            request.session['state'] = True
+            return redirect('/')
