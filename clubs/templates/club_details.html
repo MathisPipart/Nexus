@@ -18,8 +18,7 @@
 
   <div class="little_spacer"></div>
 
-  <h1 class="full_center">Club {{ club_type|capfirst }}</h1> // Affichage dynamique du club
-
+  <h1 class="full_center">Club {{ club_type|capfirst }}</h1>
   <div class="full_center">
     <img class="pdp" src="{% static 'img/PP_no.png' %}" alt="photo de profil place holder" />
 
@@ -39,13 +38,12 @@
   </div>
 
   <div class="center_feed">
-    {% comment %} <div class="post_du_club">
+    <div class="post_du_club">
+      <h2>Posts du club</h2>
+
       {% for post in posts %}
         <article class="f_post">
-          <form action="{% url 'delete_post' {{ post.id }} %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="poubelle"><img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;" /></button>
-          </form>
+          {% csrf_token %}
 
           <h3>{{ post.titre }}</h3>
 
@@ -62,7 +60,7 @@
           <p class="post-date">{{ post.date_de_creation|date:'l d F Y, H \h i' }} | ID : {{ post.id }}</p>
         </article>
       {% endfor %}
-    </div> {% endcomment %}
+    </div>
   </div>
 
   <div class="footer"></div>
