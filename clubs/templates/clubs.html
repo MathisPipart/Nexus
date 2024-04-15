@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  <a href="club_details" style="text-decoration: none; color: inherit;">
+  <a href="{% url 'club_details' 'musique' %}" style="text-decoration: none; color: inherit;">
     <div class="club-cardA">
       <div class="club-infoA">
         <table class="tabClubA">
@@ -39,7 +39,7 @@
     </div>
   </a>
 
-  <a href="club_details" style="text-decoration: none; color: inherit;">
+  <a href="{% url 'club_details' 'BDE' %}" style="text-decoration: none; color: inherit;">
     <div class="club-cardB">
       <div class="club_baniereB">
         <img src="{% static 'img/musique.png' %}" alt="Image Club Musique" />
@@ -50,7 +50,7 @@
             <td>
               <img class="pdpB" src="{% static 'img/no_avatar.jpg' %}" alt="photo de profil" />
             </td>
-            <td class="nom_ClubB">Club Musique</td>
+            <td class="nom_ClubB">Club BDE</td>
             <td>
               <input id="followBtnB" type="button" class="follow-btnB" value="s'abonner" />
             </td>
