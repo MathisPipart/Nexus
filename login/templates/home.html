@@ -49,15 +49,15 @@
     let button = document.getElementById("cross-button");
     let alertBox = document.getElementById("alert-box");
     //let state = false;
-    let state = {{ request.session.state|default:'false' }};
+    let state = {{ request.session.state|yesno:"true,false" }};
+    console.log(state);
     if(state===true){
         alertBox.style.display = "visible";
     }
-    else{
+    else if(state===false){
         alertBox.style.display = "none";
     }
     button.addEventListener("click", () => {
-        console.log("jopel");
         state = false;
         console.log(state);
 
