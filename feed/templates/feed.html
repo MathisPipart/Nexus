@@ -54,13 +54,17 @@
         {% for post in posts %}
             <article class="f_post">
 
-                <form action="{% url 'delete_post' post.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="poubelle">
-                        <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
-                    </button>
+                {% if post.user == user %}
 
-                </form>
+                    <form action="{% url 'delete_post' post.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="poubelle">
+                            <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
+                        </button>
+                    </form>
+
+                {% endif %}
+
 
                 <h3>{{ post.titre }}</h3>
 
@@ -74,7 +78,10 @@
                     {% endfor %}
                 </div>
 
-                <p class="post-date">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
+                {% if post.user %}
+                    <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</p>
+                {% endif %}
+                <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
             </article>
         {% endfor %}
 

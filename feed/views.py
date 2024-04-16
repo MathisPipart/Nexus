@@ -12,7 +12,9 @@ def home(request):
             # Create and save the post instance
             post = Post(
                 titre=form.cleaned_data['titre'],
-                contenu=form.cleaned_data['contenu'])
+                contenu=form.cleaned_data['contenu']
+                )
+            post.user = request.user
             post.save()
 
             # Save each file as an Image instance linked to the post

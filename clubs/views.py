@@ -11,9 +11,4 @@ def club_details(request, club_type):
     posts = Post.objects.all().order_by('-date_de_creation')
     posts_size = len(posts)
     posts = reversed(posts)
-
-    context = {
-        'club_type': club_type
-    }
-    
-    return render(request, "club_details.html", {'posts': posts, 'posts_size': posts_size})
+    return render(request, "club_details.html", {'posts': posts, 'posts_size': posts_size, 'club_type': club_type})
