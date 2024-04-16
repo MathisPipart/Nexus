@@ -27,11 +27,27 @@
 {% endblock %}
 
 {% block content %}
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
-  </head>
-
   <body>
-    <div class="calendrier" id="calendar"></div>
+    <div class="calendrier">
+
+      {% if form.is_valid %}
+      <div class="calendrier" id="calendar">
+          <!-- Contenu du calendrier -->
+          <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+      </div>
+      {% else %}
+          <div class="form-container">
+              <p>Entrez l'URL de votre emploi du temps</p>
+              <form method="post" class="Test">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <input type="url" name="url" class="form-control" placeholder="Entrez votre URL ici">
+                  </div>
+                  <button type="submit">Soumettre l'URL</button>
+              </form>
+          </div>
+      {% endif %}
+
+
   </body>
 {% endblock %}
