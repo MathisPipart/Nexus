@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/perso_club.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/club_details.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -50,13 +50,20 @@
 
   <div class="little_spacer"></div>
 
+  <hr>
+
   <div class="description">
     <p>{{ clubs.description }}</p>
   </div>
 
+  <hr>
+
+  
+  <div class="little_spacer"></div>
+
   <div class="center_feed">
     <div class="post_du_club">
-      <h2>Posts du club</h2>
+      <h2 class="centered" >Posts du club</h2>
 
       {% for post in posts %}
         <article class="f_post">

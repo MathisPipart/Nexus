@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  <a href="{% url 'club_details' 'musique' %}" style="text-decoration: none; color: inherit;">
+  {% comment %} <a href="{% url 'club_details' 'musique' %}" style="text-decoration: none; color: inherit;">
     <div class="club-cardA">
       <div class="club-infoA">
         <table class="tabClubA">
@@ -64,19 +64,88 @@
     </div>
   </a>
 
-  {% for club in clubs %}
-    <p>{{ club.id }}</p>
+  
+    <p> ------------------------- </p>
+    <p> ------------------------- </p>
+    <p> ------------------------- </p>
+    <p> ------------------------- </p>
+    <p> ------------------------- </p>
+    <p> ------------------------- </p>
 
-    {% if {{ club.id }} % 2 == 0 %}
-      <p>pair</p>
+  {% for club in clubs %}
+  
+  {% if club.id|divisibleby:2 %}
+    <p class='red'>{{ club.id }}</p>
+    <p class='red'>pair</p>
+      <p class='red'>{{ club.nom }}</p>
     {% else %}
-      <p>impair</p>
+    <p class='green'>{{ club.id }}</p>
+      <p class='green'> impair</p>
+      <p class='green'>{{ club.nom }}</p>
     {% endif %}
-    <p>{{ club.nom }}</p>
-    <img src="{{ club.banniere.url }}" alt="Banniere du club" />
+    
 
     <p> ------------------------- </p>
 
+  {% endfor %} {% endcomment %}
+
+
+  {% for club in clubs %}
+    
+    {% if club.id|divisibleby:2 %}
+      <a href="{% url 'club_details' club.nom %}" style="text-decoration: none; color: inherit;">
+        <div class="club-cardA">
+          <div class="club-infoA">
+          <table class="tabClubA">
+            <tr>
+            <td>
+              <img class="pdpA" src="{{ club.photo.url }}" alt="photo de profil" />
+            </td>
+            <td class="nom_ClubA">{{ club.nom }}</td>
+            <td>
+              <input id="followBtnA" type="button" class="follow-btnA" value="s'abonner" />
+            </td>
+            <td>
+              <input type="button" class="conv-btnA" />
+            </td>
+            </tr>
+          </table>
+          <p>{{ club.description }}</p>
+          </div>
+          <div class="club_baniereA" >
+            <img src="{{ club.banniere.url }}" alt="Banniere du club" />
+          </div>
+        </div>
+      </a>
+    {% else %}
+      <a href="{% url 'club_details' club.nom %}" style="text-decoration: none; color: inherit;">
+      <div class="club-cardB">
+        <div class="club_baniereB">
+          <img src="{{ club.banniere.url }}" alt="Banniere du club" />
+        </div>
+        <div class="club-infoB">
+          <table class="tabClubB">
+            <tr>
+              <td>
+              <img class="pdpB" src="{{ club.photo.url }}" alt="photo de profil" />
+            </td>
+              <td class="nom_ClubB">{{ club.nom }}</td>
+              <td>
+                <input id="followBtnB" type="button" class="follow-btnB" value="s'abonner" />
+              </td>
+              <td>
+                <input type="button" class="conv-btnB" />
+              </td>
+            </tr>
+          </table>
+        <p>{{ club.description }}</p>
+        </div>
+      </div>
+    </a>
+  {% endif %}
+
+    
   {% endfor %}
+
 
 {% endblock %}
