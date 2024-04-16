@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 import os
 
 
-@login_required
+#@login_required
+# To be added in prod
 def home(request):
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES)
@@ -33,7 +34,8 @@ def home(request):
     return render(request, "feed.html", {'posts': posts, 'form': form, 'posts_size': posts_size})
 
 
-@login_required
+
+#@login_required
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
