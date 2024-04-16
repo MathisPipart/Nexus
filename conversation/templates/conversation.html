@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Conversations {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/conversation.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/conversation.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="list_conversation">
+    <h1>Conversations</h1>
+
+    <div id="boxMyBtt">
+        <button id="myBtt">
+            <p>+</p>
+        </button>
+    </div>
+
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h3>Ajouter une conversation</h3>
+            <form id="conversationForm" method="post" action="/conversation/" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add conversation </button>
+            </form>
+        </div>
+    </div>    
+
+    <div id="scroll_list">
+        {% for conv in conversations %}
+            <p>{{ conv.contenu }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

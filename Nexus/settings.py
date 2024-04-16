@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "err404",
     "login",
+    "conversation",
     "django.contrib.sites",
     "allauth",
     "allauth.account",

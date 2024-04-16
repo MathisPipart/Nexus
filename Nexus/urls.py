@@ -29,5 +29,6 @@ urlpatterns = [
     path("profil/", include("profil.urls")),
     path("404/", include("err404.urls")),
     path('accounts/', include('allauth.urls')),
+    path("conversation/", include("conversation.urls")),
     path("", include('login.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
