@@ -23,3 +23,34 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Récupération de tous les boutons correspondant aux conversations
+    var conversationButtons = document.querySelectorAll('.conversation');
+
+    // Ajout d'un écouteur d'événement de clic à chaque bouton
+    conversationButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Récupération de l'ID de la conversation à partir de l'attribut data
+            var conversationId = button.dataset.conversationId;
+
+            // Envoi d'une requête AJAX pour récupérer les messages de cette conversation
+            fetch('/conversation/messages/' + conversationId)
+                .then(response => response.json())
+                .then(data => {
+                    // Mise à jour du contenu de messages_container avec les messages récupérés
+                    var messagesContainer = document.getElementById('messages_container');
+                    messagesContainer.innerHTML = ''; // Effacer le contenu actuel
+                    data.forEach(function(message) {
+                        var messageElement = document.createElement('p');
+                        messageElement.textContent = message.contenu + ' - Auteur: ' + message.auteur;
+                        messagesContainer.appendChild(messageElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching messages:', error);
+                });
+        });
+    });
+});
+

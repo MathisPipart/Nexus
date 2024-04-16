@@ -10,6 +10,12 @@ class Conversation(models.Model):
     contenu = models.TextField()
     users = models.ManyToManyField(User, blank=True)
 
+class Message(models.Model):
+    id = models.AutoField(primary_key=True)
+    contenu = models.TextField()
+    auteur = models.ForeignKey(User, on_delete=models.CASCADE)
+    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+
 @receiver(post_save, sender=Conversation)
 def add_current_user_to_conversation(sender, instance, created, current_user=None, **kwargs):
     if created:

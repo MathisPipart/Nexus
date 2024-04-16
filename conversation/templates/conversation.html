@@ -36,10 +36,16 @@
 
     <div id="scroll_list">
         {% for conv in conversations %}
-            <p>{{ conv.contenu }}</p>
+            <!-- Ajouter un identifiant unique pour chaque paragraphe correspondant à la conversation -->
+            <button class="conversation" data-conversation-id="{{ conv.id }}">{{ conv.contenu }}</button>
         {% endfor %}
     </div>
 </div>
 
+<div id="messages_container">
+    {% for message in messages %}
+        <p class="message">{{ message.contenu }} - Auteur: {{ message.auteur }}</p>
+    {% endfor %}
+</div>
 
 {% endblock %}
