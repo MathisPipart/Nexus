@@ -43,8 +43,8 @@ body, html {
 
 }
 
-.title img:hover{
-    /*filter: brightness(0) invert(1);*/
+.title img:hover {
+    filter: invert(100%);
     cursor: pointer;
 }
 
