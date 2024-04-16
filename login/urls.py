@@ -3,6 +3,5 @@ from . import views
 
 urlpatterns = [
     path("", views.home),
-    path("logout", views.logout_view),
-    path("access_denied", views.denied_access)
+    path("logout", views.logout_view)
 ]
