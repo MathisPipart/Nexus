@@ -20,7 +20,7 @@
         <table class="tabClubA">
           <tr>
             <td>
-              <img class="pdpA" src="{% static 'img/no_avatar.jpg' %}" alt="photo de profil" />
+              <img class="pdpA" src="{{ clubs.photo.url }}" alt="photo de profil" />
             </td>
             <td class="nom_ClubA">Club Musique</td>
             <td>
@@ -31,7 +31,7 @@
             </td>
           </tr>
         </table>
-        <p>Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club ! Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club ! Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club !</p>
+        <p>{{ clubs.description }}</p>
       </div>
       <div class="club_baniereA">
         <img src="{% static 'img/musique.png' %}" alt="Image Club Musique" />
@@ -39,7 +39,7 @@
     </div>
   </a>
 
-  <a href="{% url 'club_details' 'BDE' %}" style="text-decoration: none; color: inherit;">
+  <a href="{% url 'club_details' 'bde' %}" style="text-decoration: none; color: inherit;">
     <div class="club-cardB">
       <div class="club_baniereB">
         <img src="{% static 'img/musique.png' %}" alt="Image Club Musique" />
@@ -48,7 +48,7 @@
         <table class="tabClubB">
           <tr>
             <td>
-              <img class="pdpB" src="{% static 'img/no_avatar.jpg' %}" alt="photo de profil" />
+              <img class="pdpB" src="{{ clubs.photo.url }}" alt="photo de profil" />
             </td>
             <td class="nom_ClubB">Club BDE</td>
             <td>
@@ -64,53 +64,19 @@
     </div>
   </a>
 
-  <a href="club_details" style="text-decoration: none; color: inherit;">
-    <div class="club-cardA">
-      <div class="club-infoA">
-        <table class="tabClubA">
-          <tr>
-            <td>
-              <img class="pdpA" src="{% static 'img/no_avatar.jpg' %}" alt="photo de profil" />
-            </td>
-            <td class="nom_ClubA">Club Musique</td>
-            <td>
-              <input type="button" class="follow-btnA" value="123 abonnés" />
-            </td>
-            <td>
-              <input type="button" class="conv-btnA" />
-            </td>
-          </tr>
-        </table>
-        <p>Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club !</p>
-      </div>
-      <div class="club_baniereA">
-        <img src="{% static 'img/musique.png' %}" alt="Image Club Musique" />
-      </div>
-    </div>
-  </a>
+  {% for club in clubs %}
+    <p>{{ club.id }}</p>
 
-  <a href="club_details" style="text-decoration: none; color: inherit;">
-    <div class="club-cardB">
-      <div class="club_baniereB">
-        <img src="{% static 'img/musique.png' %}" alt="Image Club Musique" />
-      </div>
-      <div class="club-infoB">
-        <table class="tabClubB">
-          <tr>
-            <td>
-              <img class="pdpB" src="{% static 'img/no_avatar.jpg' %}" alt="photo de profil" />
-            </td>
-            <td class="nom_ClubB">Club Musique</td>
-            <td>
-              <input type="button" class="follow-btnB" value="123 abonnés" />
-            </td>
-            <td>
-              <input type="button" class="conv-btnB" />
-            </td>
-          </tr>
-        </table>
-        <p>Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club ! Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club ! Rejoignez le club musique et laissez votre passion s'exprimer ! Découvrez, partagez et créez des mélodies inoubliables ensemble. Que vous soyez débutant ou expert, votre note a sa place ici. Vivez l'harmonie, vivez la musique, vivez le club !</p>
-      </div>
-    </div>
-  </a>
+    {% if {{ club.id }} % 2 == 0 %}
+      <p>pair</p>
+    {% else %}
+      <p>impair</p>
+    {% endif %}
+    <p>{{ club.nom }}</p>
+    <img src="{{ club.banniere.url }}" alt="Banniere du club" />
+
+    <p> ------------------------- </p>
+
+  {% endfor %}
+
 {% endblock %}
