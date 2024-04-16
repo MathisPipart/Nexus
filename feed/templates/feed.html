@@ -50,12 +50,13 @@
         {% if posts_size == 0 %}
             <h2>Aucun post publié</h2>
             {{ user.userprofile.url }}
+            {{ user.userprofile.role }}
         {% endif %}
 
         {% for post in posts %}
             <article class="f_post">
 
-                {% if post.user == user %}
+                {% if post.user == user and user.userprofile.role != 'user' %}
 
                     <form action="{% url 'delete_post' post.id %}" method="post">
                         {% csrf_token %}
