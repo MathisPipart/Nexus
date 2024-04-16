@@ -49,6 +49,7 @@
 
         {% if posts_size == 0 %}
             <h2>Aucun post publié</h2>
+            {{ user.userprofile.url }}
         {% endif %}
 
         {% for post in posts %}
