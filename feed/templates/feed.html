@@ -29,10 +29,11 @@
     
     <main class="f_posts" id="feed-content">
 
-
+        {% if user.userprofile.role != "user" %}
         <button id="myBtn">
             <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
         </button>
+        {% endif %}
 
         <div id="myPopup" class="popup">
             <div class="popup-content">
@@ -42,7 +43,7 @@
 
                     {% csrf_token %}
                     {{form.as_p}}
-                    <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add post </button>
+                    <button class="btn btn-primary" id="submit_posts" type="submit", name="save"> Add post </button>
                 </form>
             </div>
         </div>
