@@ -2,8 +2,12 @@ from django.shortcuts import render, HttpResponse
 from django.http import HttpResponseRedirect, JsonResponse
 from .models import Post, Image
 from .forms import AddPost
+from django.contrib.auth.decorators import login_required, permission_required
 import os
 
+
+@login_required
+# To be added in prod
 def home(request):
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES)
@@ -33,6 +37,7 @@ def home(request):
 
 
 
+#@login_required
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
@@ -40,6 +45,7 @@ def delete_post(request, post_id):
             image.image.delete(save=False)
         post.delete()
         return HttpResponseRedirect('/feed/')
+
 
 # /!\ TODO :
 # def modify_post(request, post_id):
