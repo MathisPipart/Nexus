@@ -14,7 +14,11 @@
 {% block content %}
     <div class="profile-header">
 {#        <img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="100" height="100">#}
+        {% if user.socialaccount_set.all.0.get_avatar_url %}
         <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="Photo de Profil" width="100" height="100">
+        {% else %}
+            <img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="100" height="100">
+        {% endif %}
         <h1 class="profile-name">{{user.first_name}} {{user.last_name}}</h1>
         <div class="coin-container">
             <span>2624</span>
@@ -37,7 +41,7 @@
             </tr>
             <tr>
               <td class="logo"><div class="volume-control"><input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider"></td>
-              <td class="texte"></div>Gestion du volume</div></td>
+              <td class="texte"><div>Gestion du volume</div></td>
             </tr>
             <tr>
               <td class="logo"><input type="button" style="background-image: url('/static/img/QR_Code.png');"></td>
@@ -81,14 +85,24 @@
           
         </div>
       </div>
-      
+
       <div class="abonnement">
         <h2>Abonnements</h2>
-        <table class="tabAbonnements">
+      <div class="abonnement-child">
+          {% for club in user.userprofile.get_subscribed_clubs %}
+              <a href="{% url 'club_details' club.nom %}" style="text-decoration: none; color: inherit;">
+                  <div class="subscribed-clubs">
+                    <img src="{{ club.photo.url }}" alt="photo de club" width="80" height="80">
+                    <p>{{ club.nom }}</p>
+                  </div>
+              </a>
+        {% endfor %}
+      </div>
+{% comment %}        <table class="tabAbonnements">
           <tr>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
-            <td><a href="/clubs/club_musique" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
+            <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
           </tr>
           <tr>
@@ -96,7 +110,17 @@
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
           </tr>
-        </table>
+        </table>{% endcomment %}
+{% comment %}        {% for club in user.userprofile.get_subscribed_clubs %}
+            <tr>
+                <td>
+                    <div class="menu-item">
+                        <img src="{{ club.photo.url }}" alt="photo de club" width="40" height="40">
+                        {{ club.nom }}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}{% endcomment %}
       </div>
 
       <div class="abonnementMobile">
@@ -108,7 +132,7 @@
           <tr>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
           </tr>  
-            <td><a href="/clubs/club_musique" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
+            <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
           <tr>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
           </tr>

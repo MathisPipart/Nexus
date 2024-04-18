@@ -29,10 +29,11 @@
     
     <main class="f_posts" id="feed-content">
 
-
+        {% if user.userprofile.role != "user" %}
         <button id="myBtn">
             <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
         </button>
+        {% endif %}
 
         <div id="myPopup" class="popup">
             <div class="popup-content">
@@ -42,7 +43,7 @@
 
                     {% csrf_token %}
                     {{form.as_p}}
-                    <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Add post </button>
+                    <button class="btn btn-primary" id="submit_posts" type="submit", name="save"> Add post </button>
                 </form>
             </div>
         </div>
@@ -50,12 +51,13 @@
         {% if posts_size == 0 %}
             <h2>Aucun post publié</h2>
             {{ user.userprofile.url }}
+            {{ user.userprofile.role }}
         {% endif %}
 
         {% for post in posts %}
             <article class="f_post">
 
-                {% if post.user == user %}
+                {% if post.user == user and user.userprofile.role != 'user' %}
 
                     <form action="{% url 'delete_post' post.id %}" method="post">
                         {% csrf_token %}
