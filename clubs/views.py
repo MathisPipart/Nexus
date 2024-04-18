@@ -33,13 +33,11 @@ def club_details(request, club_type):
 @login_required
 def subscribe_to_club(request):
     if request.method == 'POST':
-        form = SubscribeForm(request.POST)
-        if form.is_valid():
-            club = form.cleaned_data['club']
-            club.membres.add(request.user)  # Ajoute l'utilisateur aux membres du club
-            return redirect('vueClubs')  # Rediriger vers une page appropriée après l'inscription
+        club_id = request.POST.get('club_id')
+        club = Info_Clubs.objects.get(id=club_id)
+        club.membres.add(request.user)
+        return redirect('vueClubs')
     else:
-        form = SubscribeForm()
+        return render(request, '404.html')
 
-    return render(request, 'subscribe.html', {'form': form})
 
