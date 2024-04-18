@@ -10,6 +10,7 @@ application = get_wsgi_application()
 # Importez le modèle de votre post
 from feed.models import Post
 
+
 def delete_all_posts():
     # Récupérez tous les posts de la base de données
     posts = Post.objects.all()
@@ -19,7 +20,7 @@ def delete_all_posts():
         post.delete()
 
     print("Tous les posts ont été supprimés de la base de données.")
-    
+
 
 if __name__ == "__main__":
     delete_all_posts()
