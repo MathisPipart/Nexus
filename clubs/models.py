@@ -25,14 +25,14 @@ class Info_Clubs(models.Model):
     def get_all_fields(self):
         return model_to_dict(self)
 
+
 class Subscription(models.Model):
     club = models.ForeignKey(Info_Clubs, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date_subscribed = models.DateField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('club', 'user')  # Assure qu'une paire club-utilisateur est unique
+        unique_together = ('club', 'user')  # A user can only subscribe once to a club
 
     def __str__(self):
         return f"{self.user.username} subscribed to {self.club.nom}"
-

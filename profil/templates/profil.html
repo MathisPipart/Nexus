@@ -88,7 +88,7 @@
       
       <div class="abonnement">
         <h2>Abonnements</h2>
-        <table class="tabAbonnements">
+{% comment %}        <table class="tabAbonnements">
           <tr>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
@@ -100,7 +100,17 @@
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
             <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
           </tr>
-        </table>
+        </table>{% endcomment %}
+        {% for club in user.userprofile.get_subscribed_clubs %}
+            <tr>
+                <td>
+                    <div class="menu-item">
+                        <img src="{{ club.photo.url }}" alt="photo de club" width="40" height="40">
+                        {{ club.nom }}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
       </div>
 
       <div class="abonnementMobile">

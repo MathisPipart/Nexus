@@ -28,12 +28,8 @@
             </td>
             <td class="nom_ClubA">{{ club.nom }}</td>
             <td>
-              <form action="{% url 'subscribe-to-club' %}" method="post">
-                {% csrf_token %}
                 <input type="hidden" name="club_id" value="{{ club.id }}">
                 <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
-              </form>
-
             </td>
             <td>
               <input type="button" class="conv-btnA" />
@@ -61,11 +57,8 @@
             </td>
               <td class="nom_ClubB">{{ club.nom }}</td>
               <td>
-                  <form action="{% url 'subscribe-to-club' %}" method="post">
-                    {% csrf_token %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
                     <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
-                  </form>
               </td>
               <td>
                 <input type="button" class="conv-btnB" />
