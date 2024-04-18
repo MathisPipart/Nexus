@@ -13,39 +13,37 @@
   <div class="spacer"></div>
 
   <div>
-    <img class="Baniere" src="{% static 'img/musique.png' %}" alt="Baniere Club Musique" />
+    <img class="Baniere" src="{% static 'img/banner_no.png' %}" alt="Baniere Place Holder" />
   </div>
 
   <div class="little_spacer"></div>
 
-  <h1 class="full_center">Club Musique 🎸🥁🎹</h1>
-
+  <h1 class="full_center">Club {{ club_type|capfirst }}</h1>
   <div class="full_center">
-    <img class="pdp" src="{% static 'img/PP_musique.jpg' %}" alt="photo de profil" />
+    <img class="pdp" src="{% static 'img/PP_no.png' %}" alt="photo de profil place holder" />
 
     <ul class="Burreau">
       <h2>Membres du burreau :</h2>
-      <li>Président : @romlef77</li>
-      <li>Vice-Présidents : @lucas_poisot & @bastienn.tt</li>
-      <li>Secrétaire : @martin_dgrc</li>
-      <li>Trésorier : gdradam</li>
+      <li>Président : @XXXXXXXXXX</li>
+      <li>Vice-Présidents : @XXXXXXXXXX & @XXXXXXXXXX</li>
+      <li>Secrétaire : @XXXXXXXXXX</li>
+      <li>Trésorier : @XXXXXXXXXX</li>
     </ul>
   </div>
 
   <div class="little_spacer"></div>
 
   <div class="description">
-    <p>Le club musique est un club qui a pour but de réunir les passionnés de musique. Que vous soyez musicien ou simple amateur, vous êtes les bienvenus. Nous organisons des concerts, des ateliers, des jam sessions et bien d'autres événements. N'hésitez pas à nous rejoindre !</p>
+    <p>Le club XXXXX est un club qui a _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ !</p>
   </div>
 
   <div class="center_feed">
     <div class="post_du_club">
+      <h2>Posts du club</h2>
+
       {% for post in posts %}
         <article class="f_post">
-          <form action="{% url 'delete_post' post.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="poubelle"><img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;" /></button>
-          </form>
+          {% csrf_token %}
 
           <h3>{{ post.titre }}</h3>
 
