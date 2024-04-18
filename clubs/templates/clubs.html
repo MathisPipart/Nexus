@@ -29,7 +29,7 @@
             <td class="nom_ClubA">{{ club.nom }}</td>
             <td>
                 <input type="hidden" name="club_id" value="{{ club.id }}">
-                <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
+                <input type="submit" class="follow-btnA follow-btn-all" value="S'abonner">
             </td>
             <td>
               <input type="button" class="conv-btnA" />
@@ -57,8 +57,8 @@
             </td>
               <td class="nom_ClubB">{{ club.nom }}</td>
               <td>
-                    <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
+                  <input type="hidden" name="club_id" value="{{ club.id }}">
+                  <input type="submit" class="follow-btnB follow-btn-all" value="S'abonner">
               </td>
               <td>
                 <input type="button" class="conv-btnB" />
@@ -73,6 +73,35 @@
 
     
   {% endfor %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const subscribeButtons = document.querySelectorAll('.follow-btn-all');
+    subscribeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const clubId = this.previousElementSibling.value; // Assurez-vous que l'input hidden avec l'ID du club est juste avant le bouton dans le DOM
+            fetch('{% url "subscribe_to_club" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `club=${clubId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    alert('Abonnement réussi!');
+                } else {
+                    alert('Erreur lors de l\'abonnement');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+</script>
 
 
 {% endblock %}
