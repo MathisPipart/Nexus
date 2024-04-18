@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import model_to_dict
+from django.contrib.auth.decorators import user_passes_test
 
 
 class Info_Clubs(models.Model):

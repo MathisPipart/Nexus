@@ -28,8 +28,13 @@
             </td>
             <td class="nom_ClubA">{{ club.nom }}</td>
             <td>
-                <input type="hidden" name="club_id" value="{{ club.id }}">
-                <input type="submit" class="follow-btnA follow-btn-all" value="S'abonner">
+                {% if club.is_user_subscribed %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="unsubscribe-btnA unsubscribe-btn-all" value="Se désabonner">
+                {% else %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="follow-btnA follow-btn-all" value="S'abonner">
+                {% endif %}
             </td>
             <td>
               <input type="button" class="conv-btnA" />
@@ -93,8 +98,39 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if(data.status === 'success') {
                     alert('Abonnement réussi!');
+                    this.value = 'Abonné';
+                    this.disabled = true;
                 } else {
                     alert('Erreur lors de l\'abonnement');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const unsubscribeButtons = document.querySelectorAll('.unsubscribe-btn-all');
+    unsubscribeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const clubId = this.previousElementSibling.value;
+            fetch('{% url "unsubscribe_to_club" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `club=${clubId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    alert('Désabonnement réussi!');
+                    this.value = 'S\'abonner';
+                    this.disabled = false;
+                } else {
+                    alert('Erreur lors du désabonnement');
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -105,3 +141,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 {% endblock %}
+

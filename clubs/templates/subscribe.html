@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>S'abonner à un club</h2>
+<h2>{% if action == 'subscribe' %}S'abonner à un club{% else %}Se désabonner d'un club{% endif %}</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">S'abonner</button>
+    <button type="submit">{% if action == 'subscribe' %}S'abonner{% else %}Se désabonner{% endif %}</button>
 </form>
 {% endblock %}

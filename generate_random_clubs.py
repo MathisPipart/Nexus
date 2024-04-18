@@ -50,6 +50,7 @@ def generate_random_clubs(n):
             tresorier2=tresorier2,
         )
         new_club.save()
+    print("clubs generated")
 
 
 if __name__ == "__main__":
