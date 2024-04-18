@@ -1,12 +1,13 @@
 from faker import Faker
 from django.core.files.base import ContentFile
-from clubs.models import Info_Clubs
 import base64
 import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Nexus.settings")
 application = get_wsgi_application()
+
+from clubs.models import Info_Clubs
 
 # Initialize the Faker library
 fake = Faker()
