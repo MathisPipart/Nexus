@@ -10,21 +10,40 @@ import pytz
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import URLForm  # Assurez-vous d'importer URLForm de forms.py
+from django.contrib.auth.decorators import login_required
+from login.models import UserProfile
 
+# def vueCalendrier(request):
+#     form = URLForm(request.POST or None)
+#     if form.is_valid():
+#         #ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=3346,4195&projectId=11&calType=ical&nbWeeks=52"
+#         # https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=1543,1788&projectId=11&calType=ical&nbWeeks=52               E3FI
+#         ical_url = form.cleaned_data['url']
+#         importEvent(ical_url)
+#         events = Event.objects.all()
+#         return render(request, "calendrier.html", {"events": events, "form": form})
+#     else:
+#         form = URLForm()
+#     return render(request, "calendrier.html", {"form": form})
+
+
+
+@login_required
 def vueCalendrier(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     form = URLForm(request.POST or None)
-    if form.is_valid():
-        #ical_url = "https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=3346,4195&projectId=11&calType=ical&nbWeeks=52"
-        # https://planif.esiee.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=1543,1788&projectId=11&calType=ical&nbWeeks=52               E3FI
+
+    if request.method == 'POST' and form.is_valid():
         ical_url = form.cleaned_data['url']
+        user_profile.url = ical_url
+        user_profile.save()
         importEvent(ical_url)
-        events = Event.objects.all()
-        return render(request, "calendrier.html", {"events": events, "form": form})
-    else:
-        form = URLForm()
-    return render(request, "calendrier.html", {"form": form})
+    elif user_profile.url:
+        importEvent(user_profile.url)
 
+    events = Event.objects.all()
 
+    return render(request, "calendrier.html", {"events": events, "form": form, "url": user_profile.url})
 
 
 """def importEvent(url):
