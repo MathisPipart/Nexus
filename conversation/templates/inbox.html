@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Inbox {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
+
+    <div class="conversation-main-container">
+        <aside class="left-part">
+            <div class="inbox-container">
+                <section class="inbox-top-part">
+                    <div class="top-part-left-side">
+                        <h3>@{{ user.username }}</h3>
+                        <div class="little_spacer"></div>
+                        <h5>Messages</h5>
+                    </div>
+
+                    <div class="top-part-right-side">
+                        <button class="new-message-btn">
+                            <img src="{% static 'img/add_post.png' %}" alt="Nouvelle conversation" style="width: 28px; height: 28px;">
+                        </button>
+                    </div>
+                </section>
+
+                <section class="inbox-bottom-part">
+                    <div class="inbox-list-message">
+                        {% for message in messages %}
+                            <a href="" class="inbox-message-card {% if active_direct == message.user.username %}active{% endif %}">
+                                {% if message.user.socialaccount_set.all.0.get_avatar_url %}
+                                    <img src="{{ message.user.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+                                {% else %}
+                                    <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+                                {% endif %}
+
+                                <div class="card-information">
+                                    <p>{{ message.user.first_name }} {{ message.user.last_name }}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <main class="right-part">
+            <div class="message-container">
+                <div class="message-header">
+                    <h1>Header</h1>
+                </div>
+
+                <div class="message-content-part">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+                        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+                        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+                        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+                        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+                        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+                        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+                        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
+                        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
+                        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
+                        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
+                        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+                        doloremque. Quaerat provident commodi consectetur veniam similique ad
+                        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
+                        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
+                        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+                        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
+                        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
+                        quasi aliquam eligendi, placeat qui corporis!
+                    </p>
+                </div>
+            </div>
+
+            <div class="message-input-container">
+{#                <p>#}
+{#                    Message input container#}
+{#                </p>#}
+{#                <input type="text" class="message-input" placeholder="Ecrire un message...">#}
+{#                <button class="send-message-btn">#}
+{#                    <img src="{% static 'img/send.png' %}" alt="Envoyer" style="width: 28px; height: 28px;">#}
+{#                </button>#}
+                <form method="post" action="" class="form-message">
+                    {% csrf_token %}
+                    <input type="hidden" name="to_user" value="{{ active_direct }}">
+                    <input type="text" name="body" class="message-input" placeholder="Votre message...">
+                    <button class="send-message-btn">
+                        Envoyer
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+{% endblock %}
