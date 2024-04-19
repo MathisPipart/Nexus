@@ -82,7 +82,7 @@
                 </div>
 
                 {% if post.user %}
-                    <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</p>
+                    <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }} - club : {{ post.club.nom }}</p>
                 {% endif %}
                 <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
             </article>

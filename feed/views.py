@@ -16,7 +16,8 @@ def home(request):
             # Create and save the post instance
             post = Post(
                 titre=form.cleaned_data['titre'],
-                contenu=form.cleaned_data['contenu']
+                contenu=form.cleaned_data['contenu'],
+                club=form.cleaned_data['club']
                 )
             post.user = request.user
             post.save()

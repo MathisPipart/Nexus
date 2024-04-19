@@ -1,6 +1,7 @@
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.fields import RichTextUploadingField
+from clubs.models import Info_Clubs
 
 
 class AddPost(forms.Form):
@@ -19,7 +20,7 @@ class AddPost(forms.Form):
                                                                         'title': 'multiple images',
                                                                         'accept': 'image/*',
                                                                         }))
-
+    club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post'}))
 
 # limit the type of file to be uploaded to images only
     # file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True,

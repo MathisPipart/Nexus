@@ -105,12 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if(data.status === 'success') {
                     if(isSubscribing) {
-                        alert('Abonnement réussi!');
+                        //alert('Abonnement réussi!');
                         this.value = 'Se désabonner';
                         this.classList.remove('follow-btn-all');
                         this.classList.add('unsubscribe-btn-all');
                     } else {
-                        alert('Désabonnement réussi!');
+                        //alert('Désabonnement réussi!');
                         this.value = "S'abonner";
                         this.classList.remove('unsubscribe-btn-all');
                         this.classList.add('follow-btn-all');

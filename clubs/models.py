@@ -20,9 +20,10 @@ class Info_Clubs(models.Model):
     tresorier2 = models.CharField(max_length=50, blank=True)
     membres = models.ManyToManyField(User, through='Subscription', related_name='clubs_subscribed')
 
+    # def __str__(self):
+    #     return self.nom + " " + self.description + " " + self.president + " " + self.vp1 + " " + self.vp2 + " " + self.secretaire + " " + self.tresorier
     def __str__(self):
-        return self.nom + " " + self.description + " " + self.president + " " + self.vp1 + " " + self.vp2 + " " + self.secretaire + " " + self.tresorier
-
+        return self.nom
     def get_all_fields(self):
         return model_to_dict(self)
 
