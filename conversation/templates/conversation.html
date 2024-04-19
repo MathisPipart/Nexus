@@ -48,4 +48,14 @@
     {% endfor %}
 </div>
 
+<div id="message_input_container">
+    <h2>Écrire un message :</h2>
+    <form id="messageForm" method="post" action="{% url 'conversation' %}">
+        {% csrf_token %}
+        <textarea name="message_content" id="message_content" rows="4" cols="50"></textarea>
+        <input type="hidden" name="conversation_id" value="{{ conversation.id }}">
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+
 {% endblock %}
