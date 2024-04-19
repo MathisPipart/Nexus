@@ -20,3 +20,6 @@ class UserProfile(models.Model):
         default=UserRole.USER
     )
 
+    def get_subscribed_clubs(self):
+        return self.user.clubs_subscribed.all()
+

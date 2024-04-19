@@ -6,58 +6,85 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/perso_club.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/club_details.css' %}" />
 {% endblock %}
 
 {% block content %}
   <div class="spacer"></div>
 
   <div>
-    <img class="Baniere" src="{% static 'img/banner_no.png' %}" alt="Baniere Place Holder" />
+    <img class="Baniere" src="{{ clubs.banniere.url }}" alt="Banniere du club" />
   </div>
 
   <div class="little_spacer"></div>
 
-  <h1 class="full_center">Club {{ club_type|capfirst }}</h1>
-  <div class="full_center">
-    <img class="pdp" src="{% static 'img/PP_no.png' %}" alt="photo de profil place holder" />
+  <h1 class="nom_club">{{ clubs.nom }}</h1>
+  <div class="little_spacer"></div>
+  <div class="centered">
+    <img class="pdp" src="{{ clubs.photo.url }}" alt="Photo de profil" />
 
     <ul class="Burreau">
-      <h2>Membres du burreau :</h2>
-      <li>Président : @XXXXXXXXXX</li>
-      <li>Vice-Présidents : @XXXXXXXXXX & @XXXXXXXXXX</li>
-      <li>Secrétaire : @XXXXXXXXXX</li>
-      <li>Trésorier : @XXXXXXXXXX</li>
+      <h4>Membres du bureau :</h4>
+      <li>
+        Président : <a href="https://instagram.com/{{ clubs.president }}">@{{ clubs.president }}</a>
+      </li>
+      <li>
+        Vice-Présidents :
+        <a href="https://instagram.com/{{ clubs.vp1 }}">@{{ clubs.vp1 }}</a>
+
+        {% if clubs.vp2 %}
+          et <a href="https://instagram.com/{{ clubs.vp2 }}">@{{ clubs.vp2 }}</a>
+        {% endif %}
+
+        {% if clubs.vp3 %}
+          et <a href="https://instagram.com/{{ clubs.vp3 }}">@{{ clubs.vp3 }}</a>
+        {% endif %}
+      </li>
+      <li>
+        Secrétaire : <a href="https://instagram.com/{{ clubs.secretaire }}">@{{ clubs.secretaire }}</a>
+      </li>
+      <li>
+        Trésorier : <a href="https://instagram.com/{{ clubs.tresorier }}">@{{ clubs.tresorier }}</a>
+      </li>
     </ul>
   </div>
 
   <div class="little_spacer"></div>
 
+  <hr>
+
   <div class="description">
-    <p>Le club XXXXX est un club qui a _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ !</p>
+    <p>{{ clubs.description }}</p>
   </div>
+
+  <hr>
+
+  
+  <div class="little_spacer"></div>
 
   <div class="center_feed">
     <div class="post_du_club">
-      <h2>Posts du club</h2>
+      <h2 class="centered" >Posts du club</h2>
+        <div class="little_spacer"></div>
 
       {% for post in posts %}
         <article class="f_post">
-          {% csrf_token %}
+            <h3>{{ post.titre }}</h3>
 
-          <h3>{{ post.titre }}</h3>
+            <div class="post_text">
+                <p>{{ post.contenu|safe }}</p>
+            </div>
 
-          <div class="post_text">
-            <p>{{ post.contenu|safe }}</p>
-          </div>
+            <div class="post_images">
+                {% for image in post.images.all %}
+                    <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
+                {% endfor %}
+            </div>
 
-          <div class="post_images">
-            {% for image in post.images.all %}
-              <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post" />
-            {% endfor %}
-          </div>
-
-          <p class="post-date">{{ post.date_de_creation|date:'l d F Y, H \h i' }} | ID : {{ post.id }}</p>
+            {% if post.user %}
+                <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</p>
+            {% endif %}
+            <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
         </article>
       {% endfor %}
     </div>
