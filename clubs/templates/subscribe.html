@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>S'abonner à un club</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">S'abonner</button>
+</form>
+{% endblock %}

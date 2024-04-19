@@ -53,3 +53,5 @@ db_old.sqlite3
 *.pyc
 *.pyc
 *.pyc
+*.pyc
+/feed/__pycache__
