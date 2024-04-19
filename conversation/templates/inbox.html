@@ -49,40 +49,68 @@
                 </div>
 
                 <div class="message-content-part">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                        quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-                        sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                        recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-                        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-                        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-                        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-                        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-                        doloremque. Quaerat provident commodi consectetur veniam similique ad
-                        earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-                        fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-                        suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-                        modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-                        totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-                        quasi aliquam eligendi, placeat qui corporis!
-                    </p>
+                    {% for direct in directs %}
+                        {% if direct.sender == request.user %}
+
+                            <section class="chat-message-right">
+                                <div>
+                                    <p class="chat-message-right-body">{{ direct.body }}</p>
+                                </div>
+
+                                <div class="chat-message-right-info-part">
+                                    <a href="">
+                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                        {% else %}
+                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                        {% endif %}
+                                    </a>
+                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M. Y" }}</p>
+                                </div>
+                            </section>
+
+{#                            <section class="chat-message-left">#}
+{#                                <div class="chat-message-left-info-part">#}
+{#                                    <a href="">#}
+{#                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}#}
+{#                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">#}
+{#                                        {% else %}#}
+{#                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">#}
+{#                                        {% endif %}#}
+{#                                    </a>#}
+{#                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>#}
+{#                                </div>#}
+{##}
+{#                                <div>#}
+{#                                    <p class="chat-message-left-body">{{ direct.body }}</p>#}
+{#                                </div>#}
+{#                            </section>#}
+
+                        {% else %}
+
+                            <section class="chat-message-left">
+                                <div class="chat-message-left-info-part">
+                                    <a href="">
+                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                        {% else %}
+                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                        {% endif %}
+                                    </a>
+                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>
+                                </div>
+
+                                <div class="chat-message-left-body">
+                                    <p>{{ direct.body }}</p>
+                                </div>
+                            </section>
+
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="message-input-container">
-{#                <p>#}
-{#                    Message input container#}
-{#                </p>#}
-{#                <input type="text" class="message-input" placeholder="Ecrire un message...">#}
-{#                <button class="send-message-btn">#}
-{#                    <img src="{% static 'img/send.png' %}" alt="Envoyer" style="width: 28px; height: 28px;">#}
-{#                </button>#}
                 <form method="post" action="" class="form-message">
                     {% csrf_token %}
                     <input type="hidden" name="to_user" value="{{ active_direct }}">
