@@ -54,3 +54,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var messageForm = document.getElementById('messageForm');
+    messageForm.addEventListener('submit', function(event) {
+        print("iciiiiiiiiiiii !!!!!!");
+        event.preventDefault(); // Empêche la soumission du formulaire par défaut
+        
+        // Récupération des données du formulaire
+        var formData = new FormData(messageForm);
+        
+        // Création de la requête AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ''); // Envoie la requête POST vers la même page actuelle
+        xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}'); // Ajout du jeton CSRF
+        
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Réussite de la requête, vous pouvez ajouter un traitement supplémentaire ici si nécessaire
+                console.log('Message envoyé avec succès');
+                // Vous pouvez également rafraîchir la liste des messages si nécessaire
+            } else {
+                // Gestion des erreurs
+                console.error('Erreur lors de l\'envoi du message');
+            }
+        };
+        
+        xhr.send(formData); // Envoi des données du formulaire via AJAX
+    });
+});

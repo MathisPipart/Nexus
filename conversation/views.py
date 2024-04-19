@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from .models import Conversation, Message
 from .forms import ConversationForm, MessageForm
+from django.contrib.auth.decorators import login_required
 
 def create_conversation(request):
     # Récupérer l'ID de l'utilisateur à partir de la requête
@@ -35,4 +36,15 @@ def get_conversation_messages(request, conversation_id):
     
     # Convertir les messages en liste JSON et les renvoyer
     return JsonResponse(list(messages), safe=False)
+
+@login_required
+def send_message(request):
+    print("Dans la méthode create_conversation")
+    if request.method == 'POST':
+        content = request.POST.get('message_content')
+        conversation_id = request.POST.get('conversation_id')
+        if content and conversation_id:
+            message = Message.objects.create(contenu=content, auteur=request.user, conversation_id=conversation_id)
+            # Vous pouvez ajouter une logique supplémentaire ici si nécessaire
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
