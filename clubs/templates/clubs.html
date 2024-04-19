@@ -28,8 +28,13 @@
             </td>
             <td class="nom_ClubA">{{ club.nom }}</td>
             <td>
-                <input type="hidden" name="club_id" value="{{ club.id }}">
-                <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
+               {% if club.is_user_subscribed %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner">
+                {% else %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="follow-btn-all" value="S'abonner">
+                {% endif %}
             </td>
             <td>
               <input type="button" class="conv-btnA" />
@@ -57,8 +62,13 @@
             </td>
               <td class="nom_ClubB">{{ club.nom }}</td>
               <td>
+               {% if club.is_user_subscribed %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input id="followBtnA" type="submit" class="follow-btnA" value="S'abonner">
+                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner">
+                {% else %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="follow-btn-all" value="S'abonner">
+                {% endif %}
               </td>
               <td>
                 <input type="button" class="conv-btnB" />
@@ -73,6 +83,48 @@
 
     
   {% endfor %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.follow-btn-all, .unsubscribe-btn-all');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const clubId = this.previousElementSibling.value;
+            const isSubscribing = this.classList.contains('follow-btn-all');
+            const url = isSubscribing ? '{% url "subscribe_to_club" %}' : '{% url "unsubscribe_to_club" %}';
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `club=${clubId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    if(isSubscribing) {
+                        alert('Abonnement réussi!');
+                        this.value = 'Se désabonner';
+                        this.classList.remove('follow-btn-all');
+                        this.classList.add('unsubscribe-btn-all');
+                    } else {
+                        alert('Désabonnement réussi!');
+                        this.value = "S'abonner";
+                        this.classList.remove('unsubscribe-btn-all');
+                        this.classList.add('follow-btn-all');
+                    }
+                } else {
+                    alert('Erreur lors de l\'action');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+</script>
 
 
 {% endblock %}
+
