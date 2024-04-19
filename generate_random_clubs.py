@@ -54,4 +54,4 @@ def generate_random_clubs(n):
 
 
 if __name__ == "__main__":
-    generate_random_clubs(30)  # Generate 10 random clubs
+    generate_random_clubs(6) 
