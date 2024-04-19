@@ -14,12 +14,14 @@
 {% block content %}
 
 <div id="list_conversation">
-    <h1>Conversations</h1>
+    <div class="list-conv-title-container">
+        <h1>@{{ user.username }}</h1>
 
-    <div id="boxMyBtt">
-        <button id="myBtt">
-            <p>+</p>
-        </button>
+        <div id="boxMyBtt">
+            <button id="myBtt">
+                <p>+</p>
+            </button>
+        </div>
     </div>
 
     <div id="myPopup" class="popup">
@@ -34,6 +36,7 @@
         </div>
     </div>    
 
+    <h2>Messages</h2>
     <div id="scroll_list">
         {% for conv in conversations %}
             <!-- Ajouter un identifiant unique pour chaque paragraphe correspondant à la conversation -->
@@ -46,6 +49,21 @@
     {% for message in messages %}
         <p class="message">{{ message.contenu }} - Auteur: {{ message.auteur }}</p>
     {% endfor %}
+
+    <div class="message-area-container">
+{#        <form id="messageForm" method="post" action="/message/" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#            <input type="hidden" name="conversation_id" value="{{ conversation.id }}">#}
+{#            <textarea name="contenu" id="contenu" placeholder="Message"></textarea>#}
+{#            <button class="btn btn-primary" id="submit_posts" type="submit", name"save"> Send message </button>#}
+{#        </form>#}
+        <form id="conversationForm" method="post" action="/conversation/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+{#            <textarea class="message-area" name="message-content" placeholder="Votre message">#}
+{#            </textarea>#}
+        </form>
+    </div>
 </div>
 
 {% endblock %}

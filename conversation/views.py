@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Conversation, Message
-from .forms import ConversationForm
+from .forms import ConversationForm, MessageForm
 
 def create_conversation(request):
     # Récupérer l'ID de l'utilisateur à partir de la requête
@@ -12,8 +12,10 @@ def create_conversation(request):
     conversations = Conversation.objects.filter(users__id=user_id)
     if request.method == 'POST':
         form = ConversationForm(request.POST, current_user=request.user, default_id=default_id)
+        msgForm = MessageForm(request.POST)
         if form.is_valid():
             form.save()
+
     else:
         form = ConversationForm(current_user=request.user, default_id=default_id)
     return render(request, 'conversation.html', {'form': form, 'conversations': conversations})

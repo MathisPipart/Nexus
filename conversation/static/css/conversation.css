@@ -18,13 +18,30 @@ body, html {
     padding-bottom: 5%
 }
 
-#list_conversation h1{
+.list-conv-title-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 5%;
-    padding-bottom: 2%;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+#list_conversation h1{
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*padding-top: 5%;*/
+    /*padding-bottom: 2%;*/
+    padding-left: 1%;
+    font-size: 2vw;
+}
+
+#list_conversation h2{
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*padding-top: 5%;*/
+    /*padding-bottom: 2%;*/
+    padding-left: 2%;
+    font-size: 1em;
 }
 
 #scroll_list button{
@@ -95,17 +112,26 @@ body, html {
 
 #messages_container{
     display: block;
-    margin-left: 40%;
-    width: 50%;
-    height: 50%;
-    padding-top: 3%;
+    /*margin-left: 40%;*/
+    /*width: 50%;*/
+    height: 100vh;
+    /*padding-top: 3%;*/
+    /*background-color: grey;*/
 }
 
-#messages_container p {
-    background-color: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding: 2%;
-    border-radius: 10px;
+.message-area-container {
+    /*background-color: red;*/
 }
+
+.message-form {
+    /*background-color: blue;*/
+}
+
+/*#messages_container p {*/
+/*    background-color: #f1f1f1;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: left;*/
+/*    padding: 2%;*/
+/*    border-radius: 10px;*/
+/*}*/

@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 from .models import Conversation
 
 class ConversationForm(forms.ModelForm):
@@ -11,7 +12,7 @@ class ConversationForm(forms.ModelForm):
     def __init__(self, *args, current_user=None, default_id=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['contenu'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Contenu'})
-        
+
         if current_user:
             self.current_user = current_user
         if default_id:
@@ -26,3 +27,8 @@ class ConversationForm(forms.ModelForm):
         if commit:
             conversation.save()
         return conversation
+
+class MessageForm(forms.Form):
+    content = forms.CharField(label="Message", max_length=100,
+                            widget=forms.TextInput(
+                                attrs={'title': 'Titre du post', 'placeholder': 'votre Message...'}))
