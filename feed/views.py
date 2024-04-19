@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 import os
 
 
-@login_required
+#@login_required
 # To be added in prod
 def home(request):
     if request.method == "POST":
