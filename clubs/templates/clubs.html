@@ -28,12 +28,12 @@
             </td>
             <td class="nom_ClubA">{{ club.nom }}</td>
             <td>
-                {% if club.is_user_subscribed %}
+               {% if club.is_user_subscribed %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input type="submit" class="unsubscribe-btnA unsubscribe-btn-all" value="Se désabonner">
+                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner">
                 {% else %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input type="submit" class="follow-btnA follow-btn-all" value="S'abonner">
+                    <input type="submit" class="follow-btn-all" value="S'abonner">
                 {% endif %}
             </td>
             <td>
@@ -62,8 +62,13 @@
             </td>
               <td class="nom_ClubB">{{ club.nom }}</td>
               <td>
-                  <input type="hidden" name="club_id" value="{{ club.id }}">
-                  <input type="submit" class="follow-btnB follow-btn-all" value="S'abonner">
+               {% if club.is_user_subscribed %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner">
+                {% else %}
+                    <input type="hidden" name="club_id" value="{{ club.id }}">
+                    <input type="submit" class="follow-btn-all" value="S'abonner">
+                {% endif %}
               </td>
               <td>
                 <input type="button" class="conv-btnB" />
@@ -80,41 +85,14 @@
   {% endfor %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const subscribeButtons = document.querySelectorAll('.follow-btn-all');
-    subscribeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const clubId = this.previousElementSibling.value; // Assurez-vous que l'input hidden avec l'ID du club est juste avant le bouton dans le DOM
-            fetch('{% url "subscribe_to_club" %}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': '{{ csrf_token }}'
-                },
-                body: `club=${clubId}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === 'success') {
-                    alert('Abonnement réussi!');
-                    this.value = 'Abonné';
-                    this.disabled = true;
-                } else {
-                    alert('Erreur lors de l\'abonnement');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const unsubscribeButtons = document.querySelectorAll('.unsubscribe-btn-all');
-    unsubscribeButtons.forEach(button => {
+    const buttons = document.querySelectorAll('.follow-btn-all, .unsubscribe-btn-all');
+    buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             const clubId = this.previousElementSibling.value;
-            fetch('{% url "unsubscribe_to_club" %}', {
+            const isSubscribing = this.classList.contains('follow-btn-all');
+            const url = isSubscribing ? '{% url "subscribe_to_club" %}' : '{% url "unsubscribe_to_club" %}';
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -126,11 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if(data.status === 'success') {
-                    alert('Désabonnement réussi!');
-                    this.value = 'S\'abonner';
-                    this.disabled = false;
+                    if(isSubscribing) {
+                        alert('Abonnement réussi!');
+                        this.value = 'Se désabonner';
+                        this.classList.remove('follow-btn-all');
+                        this.classList.add('unsubscribe-btn-all');
+                    } else {
+                        alert('Désabonnement réussi!');
+                        this.value = "S'abonner";
+                        this.classList.remove('unsubscribe-btn-all');
+                        this.classList.add('follow-btn-all');
+                    }
                 } else {
-                    alert('Erreur lors du désabonnement');
+                    alert('Erreur lors de l\'action');
                 }
             })
             .catch(error => console.error('Error:', error));
