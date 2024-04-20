@@ -3,7 +3,7 @@
 {% block title %} Inbox {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/inbox.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
 
     <div class="conversation-main-container">
         <aside class="left-part">
@@ -65,9 +65,26 @@
                                             <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
                                         {% endif %}
                                     </a>
-                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>
+                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M. Y" }}</p>
                                 </div>
                             </section>
+
+{#                            <section class="chat-message-left">#}
+{#                                <div class="chat-message-left-info-part">#}
+{#                                    <a href="">#}
+{#                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}#}
+{#                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">#}
+{#                                        {% else %}#}
+{#                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">#}
+{#                                        {% endif %}#}
+{#                                    </a>#}
+{#                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>#}
+{#                                </div>#}
+{##}
+{#                                <div>#}
+{#                                    <p class="chat-message-left-body">{{ direct.body }}</p>#}
+{#                                </div>#}
+{#                            </section>#}
 
                         {% else %}
 
@@ -80,7 +97,7 @@
                                             <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
                                         {% endif %}
                                     </a>
-                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>
+                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M. Y" }}</p>
                                 </div>
 
                                 <div>
@@ -105,11 +122,4 @@
             </div>
         </main>
     </div>
-
-    <script>
-        window.onload = function() {
-            const messageContent = document.querySelector('.message-content-part');
-            messageContent.scrollTop = messageContent.scrollHeight;
-        }
-    </script>
 {% endblock %}

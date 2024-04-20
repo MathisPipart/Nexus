@@ -83,6 +83,10 @@
     text-decoration: none;
 }
 
+.inbox-message-card.active {
+    background-color: #A259FF;
+}
+
 .inbox-message-card p {
     margin-left: 10px;
 }
