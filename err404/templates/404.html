@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% static 'css/err404.css' %}
 {% block title %} ERROR 404 {% endblock %}
 
 {% block content %}
@@ -18,11 +18,16 @@
         <span>S</span>
     </h1>
 
-    <p> 404 - Page not found </p>
-    <p> NEXUS will be back as soon as possible </p>
+    <p> 404 - Page introuvable </p>
+    <p> NEXUS sera de retour dès que possible </p>
 
 </div>
 
-<script src="{% static 'js/particles.js' %}"></script>
+<div class="footer">
+    <img class="Tumbleweeds" src="{% static 'img/Tumbleweeds.png' %}" alt="Tumbleweeds">
+</div>
+
+
+{% comment %} <script src="{% static 'js/particles.js' %}"></script> {% endcomment %}
 
 {% endblock %}
