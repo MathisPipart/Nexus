@@ -34,7 +34,7 @@ def home(request):
         #posts_size = len(posts)
         #posts = reversed(posts)
         #form = AddPost()
-        posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('-date_de_creation')
+        posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('date_de_creation')
         posts_size = len(posts_subscribed)
         posts_subscribed = reversed(posts_subscribed)
         form = AddPost()
