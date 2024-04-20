@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-
 from .models import Message
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -70,29 +69,39 @@ def send_direct_message(request):
         to_userid = request.POST.get('to_user')
         body = request.POST.get('body')
 
-        # Assurez-vous que to_user_userid est un entier valide et non vide
+        # vérification que to_user_userid est un entier valide et non vide
         try:
             to_user_id = int(to_userid)
         except (ValueError, TypeError):
-            # Vous pouvez ajouter une gestion d'erreur ici si l'ID n'est pas valide
             return redirect('inbox')
 
-        # Utilisez get_object_or_404 pour éviter User.DoesNotExist
+        # get_object_or_404 pour éviter User.DoesNotExist
         to_user = get_object_or_404(User, id=to_user_id)
 
         # Envoi du message
         Message.send_message(from_user, to_user, body)
 
+        # construction de l'url pour rester dans la conv
         conversation_url = reverse('directs_messages', kwargs={'user_id': to_user_id})
         return redirect(conversation_url)
-    # else:
-    #     # Si la méthode n'est pas POST, redirigez ou affichez une erreur appropriée
-    #     return redirect('inbox')
 
+def user_search(request):
+    query = request.GET.get('q') # recupération de la valeur de la requete
+    context = {}
 
+    # si une requete, on cherche dans la bdd, et filtre les users par nom ou prenom
+    if query:
+        users =  User.objects.filter(Q(first_name__icontains=query))
+        users2 = User.objects.filter(Q(last_name__icontains=query))
+        users  = users.union(users2)
 
+        # Paginator : pour faire une pagination affichant les users 8 par 8 si on trouve bcp de personnes
+        paginator = Paginator(users, 8)
+        page_number = request.GET.get('page')
+        users_paginator = paginator.get_page(page_number)
 
+        context = {
+            'users': users_paginator
+        }
 
-
-
-
+    return render(request, "search.html", context)
