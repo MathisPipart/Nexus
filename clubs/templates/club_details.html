@@ -68,25 +68,8 @@
         <div class="little_spacer"></div>
 
       {% for post in posts %}
-        <article class="f_post">
-            <h3>{{ post.titre }}</h3>
-
-            <div class="post_text">
-                <p>{{ post.contenu|safe }}</p>
-            </div>
-
-            <div class="post_images">
-                {% for image in post.images.all %}
-                    <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
-                {% endfor %}
-            </div>
-
-            {% if post.user %}
-                <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</p>
-            {% endif %}
-            <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
-        </article>
-      {% endfor %}
+            {% include "post_template.html" with post=post %}
+        {% endfor %}
     </div>
   </div>
 
