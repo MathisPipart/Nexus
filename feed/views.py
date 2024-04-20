@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import Post, Image
 from .forms import AddPost
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
 import os
 
 
@@ -29,12 +30,16 @@ def home(request):
             return HttpResponseRedirect('/feed/')
 
     else:
-        posts = Post.objects.all()
-        posts_size = len(posts)
-        posts = reversed(posts)
+        #posts = Post.objects.all()
+        #posts_size = len(posts)
+        #posts = reversed(posts)
+        #form = AddPost()
+        posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('-date_de_creation')
+        posts_size = len(posts_subscribed)
+        posts_subscribed = reversed(posts_subscribed)
         form = AddPost()
 
-    return render(request, "feed.html", {'posts': posts, 'form': form, 'posts_size': posts_size})
+    return render(request, "feed.html", {'posts': posts_subscribed, 'form': form, 'posts_size': posts_size})
 
 
 
