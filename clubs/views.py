@@ -20,8 +20,8 @@ def vueClubs(request):
 
 def club_details(request, club_type):
     clubs = Info_Clubs.objects.all().filter(nom=club_type).first()
-
-    posts = Post.objects.all().order_by('-date_de_creation')
+    posts = Post.objects.filter(club=clubs).order_by('-date_de_creation')
+    #posts = Post.objects.all().order_by('-date_de_creation')
     posts_size = len(posts)
     posts = reversed(posts)
 
