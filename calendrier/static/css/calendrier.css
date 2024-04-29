@@ -4,11 +4,87 @@ html {
 }
 
 .calendrier {
-    padding-top: 70px !important;
+    padding-top: 35px !important;
 }
 
 #nav-bar {
     position: fixed;
     width: 100%;
     z-index: 1000;
+}
+
+h1{
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+p{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Test{
+    text-align: center;
+}
+
+/* Styles pour centrer le formulaire */
+.form-container {
+    display: flex; /* Utilise Flexbox */
+    flex-direction: column; /* Organise les éléments en colonne */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    padding-top: 10% !important;
+}
+
+/* Styles pour le formulaire */
+.form-group {
+    margin-bottom: 1em; /* Espace en dessous du groupe de formulaire */
+}
+
+/* Styles pour les input */
+input[type="url"] {
+    width: 100%; /* Largeur à 80% pour ne pas occuper toute la largeur */
+    padding: 12px 20px; /* Padding pour le champ texte */
+    margin: 8px 0; /* Marge au-dessus et en dessous */
+    display: inline-block; /* Rendre le champ en ligne */
+    border: 1px solid #5551FF; /* Bordure grise */
+    border-radius: 4px; /* Bordures arrondies */
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur */
+}
+
+input[type="url"]:focus {
+    border: 1px solid #A259FF; /* Changez la couleur de la bordure ici */
+    box-shadow: 0 0 5px #A259FF; /* Ajoutez une ombre portée avec la même couleur */
+    outline: none; /* Supprime le contour par défaut pour éviter les doublons de contour/bordure */
+}
+
+/* Styles pour le bouton */
+button[type="submit"] {
+    width: 72%; /* Assortir la largeur du champ texte */
+    background-color: #5551FF; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    padding: 14px 20px; /* Padding du bouton */
+    margin: 8px 0; /* Marge au-dessus et en dessous */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Bordures arrondies */
+    cursor: pointer; /* Curseur de la main au survol */
+}
+
+button[type="submit"]:hover {
+    background-color: #A259FF; /* Couleur de fond au survol */
+}
+
+/* Ajout de styles pour responsivité */
+@media screen and (max-width: 600px) {
+    .form-container {
+        padding-top: 20% !important;
+    }
+    
+    input[type="url"], button[type="submit"] {
+        width: 100%; /* Pleine largeur pour les petits écrans */
+    }
 }
