@@ -24,6 +24,17 @@
             <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
         {% endfor %}
     </div>
+    
+    <div class="barreAction">
+        <img src="{% static 'img/coeur_vide.png' %}" 
+             coeurVide="{% static 'img/coeur_vide.png' %}" 
+             coeurRouge="{% static 'img/coeur_rouge.png' %}" 
+             id="likeIcon" class="heart" alt="Cœur vide" onclick="toggleHeart()">
+    </div>
+    
+    
+    
+    
 
     {% if post.user %}
         <p class="post-date_gauche">Posté par : {{ post.user.first_name }} {{ post.user.last_name }} - club : {{ post.club.nom }}</p>
