@@ -120,6 +120,8 @@ WSGI_APPLICATION = 'Nexus.wsgi.application'
 #     }
 # }
 
+#yo mathis
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
