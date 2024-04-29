@@ -24,7 +24,4 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('checkboxSon').addEventListener('click', function(event) {
         event.stopPropagation();
     });
-
-
 });
-

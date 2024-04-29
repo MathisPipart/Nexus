@@ -8,6 +8,41 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+  function resetCalendarUrl() {
+    fetch('reset_calendar_url', {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCookie('csrftoken'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({action: 'reset_url'})
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/calendrier';  // Redirection après la réinitialisation
+      } else {
+        throw new Error('Failed to reset calendar URL');
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  }
+  
+  function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  </script>
     <script src="{% static 'js/parametres.js' %}"></script>
 {% endblock %}
 
@@ -43,13 +78,13 @@
               <td class="logo"><div class="volume-control"><input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider"></td>
               <td class="texte"><div>Gestion du volume</div></td>
             </tr>
-            <tr>
+            <tr onclick="resetCalendarUrl()">
               <td class="logo"><input type="button" style="background-image: url('/static/img/QR_Code.png');"></td>
-              <td class="texte">Scanner QR Code</td>
+              <td class="texte">Changer de Calendrier</td>
             </tr>
             <tr onclick="window.location.href='/logout'">
               <td class="logo"><input type="button" style="background-image: url('/static/img/deconnexion.png');"></td>
-              <td class="texte">Déconnexion</td>
+              <td class="texte">Déconnexion </td>
             </tr>
           </table>
         </div>
