@@ -17,6 +17,35 @@ function toggleHeart() {
     // TODO: Ajoutez ici le code pour mettre à jour l'état du "like" sur le serveur
 }
 
+function toggleCom() {
+    var comIcon = document.getElementById('comIcon');
+
+    comIcon.style.transform = 'scale(0.8)';
+    setTimeout(function() {
+        comIcon.style.transform = 'scale(1)';
+    }, 200);
+}
+
+
+function moveSendButton() {
+    var sendButton = document.getElementById('envoieIcon');
+    sendButton.style.position = 'relative';
+    sendButton.style.top = '-10px';
+    sendButton.style.right = '-10px';
+    sendButton.style.transition = 'transform 0.5s ease';
+
+    setTimeout(function() {
+        sendButton.style.transform = 'scale(0)';
+    }, 100);
+
+    setTimeout(function() {
+        sendButton.style.position = 'static';
+        sendButton.style.top = 'auto';
+        sendButton.style.right = 'auto';
+        sendButton.style.transform = 'scale(1)';
+    }, 600);
+}
+
 function toggleSave() {
     var saveIcon = document.getElementById('saveIcon');
     var emptySave = saveIcon.getAttribute('enregistrerVide');
@@ -34,18 +63,4 @@ function toggleSave() {
     }, 200);
 
     // TODO: Ajoutez ici le code pour mettre à jour l'état du "like" sur le serveur
-}
-
-function moveSendButton() {
-    var sendButton = document.getElementById('envoieIcon');
-    sendButton.style.position = 'absolute';
-    sendButton.style.top = '10px'; // Ajustez cette valeur pour le positionnement vertical
-    sendButton.style.right = '10px'; // Ajustez cette valeur pour le positionnement horizontal
-
-    // Ajoutez un gestionnaire d'événements pour revenir à la position d'origine lors du clic
-    sendButton.addEventListener('click', function() {
-        sendButton.style.position = 'static';
-        sendButton.style.top = 'auto';
-        sendButton.style.right = 'auto';
-    }, { once: true }); // Utilisez { once: true } pour que l'événement ne soit écouté qu'une seule fois
 }
