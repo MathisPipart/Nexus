@@ -29,6 +29,6 @@
         <p class="post-date_gauche">Posté par : {{ post.user.first_name }} {{ post.user.last_name }} - club : {{ post.club.nom }}</p>
     {% endif %}
     <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y - H \h i" }}</p>
-    <!-- <p class="invisible"> ID : {{ post.id }} </p> -->
+    <p class="invisible"> ID : {{ post.id }} </p>
 </article>
 {% endblock %}
