@@ -20,6 +20,7 @@ class Post(models.Model):
     date_de_creation = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     id = models.AutoField(primary_key=True)
+    club = models.ForeignKey('clubs.Info_Clubs', on_delete=models.CASCADE, null=True)
 
 
 class Image(models.Model):

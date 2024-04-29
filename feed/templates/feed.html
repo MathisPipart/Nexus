@@ -55,39 +55,8 @@
         {% endif %}
 
         {% for post in posts %}
-            <article class="f_post">
-
-                {% if post.user == user and user.userprofile.role != 'user' %}
-
-                    <form action="{% url 'delete_post' post.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="poubelle">
-                            <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
-                        </button>
-                    </form>
-
-                {% endif %}
-
-
-                <h3>{{ post.titre }}</h3>
-
-                <div class="post_text">
-                    <p>{{ post.contenu|safe }}</p>
-                </div>
-
-                <div class="post_images">
-                    {% for image in post.images.all %}
-                        <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
-                    {% endfor %}
-                </div>
-
-                {% if post.user %}
-                    <p class="post-date_gauche">user = {{ post.user }} - Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</p>
-                {% endif %}
-                <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y, H \h i" }} | ID : {{ post.id }} </p>
-            </article>
+            {% include "post_template.html" with post=post %}
         {% endfor %}
-
     </main>
 
     <aside class="f_conversations" id="feed-content">
