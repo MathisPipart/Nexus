@@ -336,6 +336,11 @@ html {
     border: 1px solid #A158FF;
 }
 
+#calendar-container {
+    width: 100%; /* Adjust the width as needed */
+    margin-bottom: 20px; /* Space below the calendar */
+}
+
 
 #invisible {
     display: none;

@@ -5,6 +5,7 @@ from .forms import AddPost
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 import os
+from calendrier.models import Event
 
 
 #@login_required
@@ -39,7 +40,9 @@ def home(request):
         posts_subscribed = reversed(posts_subscribed)
         form = AddPost()
 
-    return render(request, "feed.html", {'posts': posts_subscribed, 'form': form, 'posts_size': posts_size})
+    events = Event.objects.all()
+
+    return render(request, "feed.html", {"events": events, 'posts': posts_subscribed, 'form': form, 'posts_size': posts_size})
 
 
 
