@@ -156,6 +156,12 @@ html {
     position: relative;
 }
 
+#dropdown-button-not-round {
+    border: none;
+    padding: 10px 20px;
+    position: relative;
+}
+
 #dropdown-button:hover {
     background-color: #eee;
 }
@@ -341,6 +347,18 @@ html {
     margin-bottom: 20px; /* Space below the calendar */
 }
 
+
+.toggle-controls {
+    margin-bottom: 10px; /* Spacing below the controls */
+}
+
+.toggle-controls input[type="checkbox"] {
+    margin-right: 5px; /* Spacing between the checkbox and the label */
+}
+
+.toggle-controls label {
+    margin-right: 20px; /* Spacing between each control set */
+}
 
 #invisible {
     display: none;
