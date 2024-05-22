@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import model_to_dict
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class UserRole(models.TextChoices):
@@ -19,7 +22,19 @@ class UserProfile(models.Model):
         choices=UserRole.choices,
         default=UserRole.USER
     )
+    score = models.IntegerField(blank=True, null=True)
 
     def get_subscribed_clubs(self):
         return self.user.clubs_subscribed.all()
+    
+    def get_all_fields(self):
+        return model_to_dict(self)
 
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+post_save.connect(create_user_profile, sender=User)

@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .models import Utilisateur
-from .models import Club
+from login.models import UserProfile
+from clubs.models import Info_Clubs
 
 # Create your views here.
 def vueClassement(request):
-    utilisateurs = Utilisateur.objects.all().order_by('-score')
-    clubs = Club.objects.all().order_by('-score')
+    utilisateurs = UserProfile.objects.all()
+    clubs = Info_Clubs.objects.all()
     context = {
         'utilisateurs': utilisateurs,
         'premier_utilisateur': utilisateurs[0] if len(utilisateurs) > 0 else None,

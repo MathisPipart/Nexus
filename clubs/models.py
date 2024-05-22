@@ -19,6 +19,7 @@ class Info_Clubs(models.Model):
     tresorier = models.CharField(max_length=50)
     tresorier2 = models.CharField(max_length=50, blank=True)
     membres = models.ManyToManyField(User, through='Subscription', related_name='clubs_subscribed')
+    score = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.nom + " " + self.description + " " + self.president + " " + self.vp1 + " " + self.vp2 + " " + self.secretaire + " " + self.tresorier
