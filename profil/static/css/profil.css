@@ -31,7 +31,7 @@ body , html{
 }
 
 .profile-name {
-    margin-top: 30px;
+    margin-top: 5vh;
     font-size: 24px;
     font-weight: bold;
     color: black;
@@ -55,61 +55,9 @@ body , html{
     height: 50px;
 }
 
-/* .card {
-    display: block;
-    border: 1px solid #b6b6b6;
-    background-color: white;
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-} */
-
-/*.card h2 {
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}*/
-
-/* .tabParametreActivite {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-    border-collapse: collapse;
-    cursor: pointer;
-} */
-
-.tabParametreActivite{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.tabParametreActivite .logo{
-    width: 20%;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-}
-
 .logo img{
     display: block; /* Faites en sorte que l'image soit traitée comme un bloc pour permettre le centrage */
     margin: 0 auto;
-}
-
-.tabParametreActivite tr:hover {
-    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.34);
-}
-
-.tabParametreActivite tr:active {
-    box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
 }
 
 .card{
@@ -164,62 +112,6 @@ input[type="checkbox"] {
     height: 30px;
     cursor: pointer; 
 }
-.volume-control {
-    display: flex;
-    width: 75%; /* Ajustez selon la largeur désirée */
-    height: 10px; /* Ajustez selon la hauteur désirée */
-    margin-left: 12%;
-}
-
-.volume-slider {
-    width: 100%;
-    cursor: pointer;
-    -webkit-appearance: none; /* Pour supprimer l'apparence par défaut dans WebKit */
-    appearance: none;
-    background: transparent;
-
-}
-
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20%; /* Largeur de la poignée */
-    height: 20%; /* Hauteur de la poignée */
-    background: #A259FF; /* Couleur de la poignée */
-    cursor: pointer;
-    border-radius: 50%; /* Rendre la poignée circulaire */
-}
-
-.volume-slider::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8px;
-    cursor: pointer;
-    background: #5551FF; /* Couleur de la piste */
-    border-radius: 5px; /* Arrondir les angles de la piste */
-}
-
-.volume-slider:focus {
-    outline: none; /* Supprimer le contour lors de la sélection */
-}
-
-/* Pour les navigateurs qui ne sont pas WebKit */
-.volume-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #5551FF;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.volume-slider::-moz-range-track {
-    width: 100%;
-    height: 8px;
-    cursor: pointer;
-    background: #A259FF;
-    border-radius: 5px;
-}
-
-
 
 input[type="button"] {
     width: 40px; 
@@ -295,17 +187,7 @@ input[type="reset"] {
     box-shadow: 0px 0px 10px 5px rgba(161, 88, 255, 0.85);
 }
 
-/*.menu-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    font-size: 16px;
-}  */
-
 .abonnement-child{
-/*    display: flex;
-    flex-direction: row;*/
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
@@ -337,15 +219,6 @@ input[type="reset"] {
 .menu-item img {
     margin-right: 10px;
 }
-
-
-/*.settings{
-    !* display: grid; *!
-    !* grid-template-columns: 1fr 1fr; *!
-    gap: 40px;
-    margin: 50px;
-}*/
-
 
 .footer {
     text-align: center;
