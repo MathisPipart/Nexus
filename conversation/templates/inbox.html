@@ -44,49 +44,60 @@
 
         <main class="right-part">
             <div class="message-container">
-                <div class="message-header">
-                    <h1>Header</h1>
-                </div>
+                <section class="message-header">
+                    <div class="message-header-pp">
+                        {% if active_direct.socialaccount_set.all.0.get_avatar_url %}
+                            <img src="{{ active_direct.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                        {% else %}
+                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                        {% endif %}
+                    </div>
+                    <h1>{{ active_direct.first_name }}</h1>
+                </section>
 
                 <div class="message-content-part">
                     {% for direct in directs %}
                         {% if direct.sender == request.user %}
 
-                            <section class="chat-message-right">
-                                <div>
+                            <article class="chat-message-right">
+                                <div class="chat-message-right-content">
                                     <p class="chat-message-right-body">{{ direct.body }}</p>
+                                    <div class="chat-message-right-info-part">
+                                        <a href="">
+                                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                            {% else %}
+                                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                            {% endif %}
+                                        </a>
+                                    </div>
                                 </div>
 
-                                <div class="chat-message-right-info-part">
-                                    <a href="">
-                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
-                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
-                                        {% else %}
-                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
-                                        {% endif %}
-                                    </a>
-                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>
-                                </div>
-                            </section>
+                                <p style="font-size:10px; color: black;">
+                                    {{ direct.date|date:"d M, Y H:i" }}
+                                </p>
+                            </article>
 
                         {% else %}
 
-                            <section class="chat-message-left">
-                                <div class="chat-message-left-info-part">
-                                    <a href="">
-                                        {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
-                                            <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
-                                        {% else %}
-                                            <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
-                                        {% endif %}
-                                    </a>
-                                    <p style="font-size:10px; color: black;">{{ direct.date|date:"d M, Y" }}</p>
-                                </div>
-
-                                <div>
+                            <article class="chat-message-left">
+                                <div class="chat-message-left-content">
+                                    <div class="chat-message-left-info-part">
+                                        <a href="">
+                                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                            {% else %}
+                                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                            {% endif %}
+                                        </a>
+                                    </div>
                                     <p class="chat-message-left-body">{{ direct.body }}</p>
                                 </div>
-                            </section>
+
+                                <p style="font-size:10px; color: black;">
+                                    {{ direct.date|date:"d M, Y H:i" }}
+                                </p>
+                            </article>
 
                         {% endif %}
                     {% endfor %}
@@ -94,7 +105,7 @@
             </div>
 
             <div class="message-input-container">
-                <form method="post" action="{% url 'send_direct_message' %}" class="form-message">
+                <form method="post" action="{% url 'send_direct_message' %}" class="form-message" autocomplete="off">
                     {% csrf_token %}
                     <input type="hidden" name="to_user" value="{{ active_direct.id }}">
                     <input type="text" name="body" class="message-input" placeholder="Votre message...">

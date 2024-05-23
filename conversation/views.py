@@ -40,7 +40,6 @@ def directs_messages(request, user_id):
     directs = Message.objects.filter(user=request.user, recipient=active_direct)
     directs.update(is_read=True)
 
-    # /!\ attention au risque de deux utilisateur avec le même username /!\
     for message in messages:
         if message['user'].id == active_direct.id:
             message['unread'] = 0
@@ -52,6 +51,7 @@ def directs_messages(request, user_id):
     }
 
     return render(request, "inbox.html", context)
+
 
 def send_direct_message(request):
     # from_user = request.user
@@ -85,15 +85,16 @@ def send_direct_message(request):
         conversation_url = reverse('directs_messages', kwargs={'user_id': to_user_id})
         return redirect(conversation_url)
 
+
 def user_search(request):
     query = request.GET.get('q') # recupération de la valeur de la requete
     context = {}
 
     # si une requete, on cherche dans la bdd, et filtre les users par nom ou prenom
     if query:
-        users =  User.objects.filter(Q(first_name__icontains=query))
+        users = User.objects.filter(Q(first_name__icontains=query))
         users2 = User.objects.filter(Q(last_name__icontains=query))
-        users  = users.union(users2)
+        users = users.union(users2)
 
         # Paginator : pour faire une pagination affichant les users 8 par 8 si on trouve bcp de personnes
         paginator = Paginator(users, 8)

@@ -8,7 +8,7 @@
     <main>
         <div class="search-container">
             <h2>Nouveau message</h2>
-            <form method="get" action="" class="search">
+            <form method="get" action="" class="search" autocomplete="off">
                 <h3>À :</h3>
                 <input type="text" placeholder="Recherchez un compte..." name='q' value="{{ request.GET.q }}" class="search-bar">
                 <button class="search-button">Search</button>
@@ -17,12 +17,6 @@
             <hr>
 
             <form method="post" action="" class="search-results">
-{#                    <h3>Search Results</h3>#}
-{#                    <ul>#}
-{#                        <li>Result 1</li>#}
-{#                        <li>Result 2</li>#}
-{#                        <li>Result 3</li>#}
-{#                    </ul>#}
                     {% for user in users %}
                         <a href="{% url 'directs_messages' user.id %}" class="search-results-card">
                             {% if user.socialaccount_set.all.0.get_avatar_url %}
