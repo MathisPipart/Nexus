@@ -3,6 +3,10 @@ html {
     overflow: visible;
 }
 
+.spacer {
+    height: 10px;
+}
+
 .club-cardA {
     z-index: 1000;
     background-color: #fff;
