@@ -26,7 +26,7 @@
             <td>
               <img class="pdpA" src="{{ club.photo.url }}" alt="photo de profil" />
             </td>
-            <td class="nom_ClubA">{{ club.nom }}</td>
+            <td class="nom_ClubA">{{ club.nom_affiche }}</td>
             <td>
                {% if club.is_user_subscribed %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
@@ -60,7 +60,7 @@
               <td>
               <img class="pdpB" src="{{ club.photo.url }}" alt="photo de profil" />
             </td>
-              <td class="nom_ClubB">{{ club.nom }}</td>
+              <td class="nom_ClubB">{{ club.nom_affiche }}</td>
               <td>
                {% if club.is_user_subscribed %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">

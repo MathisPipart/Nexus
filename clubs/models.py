@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import user_passes_test
 class Info_Clubs(models.Model):
     id = models.AutoField(primary_key=True)
     nom = models.CharField(max_length=50)
+    nom_affiche = models.CharField(max_length=50, default='')
     description = models.TextField()
     banniere = models.ImageField(upload_to='clubs/')
     photo = models.ImageField(upload_to='clubs/')

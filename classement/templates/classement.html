@@ -22,15 +22,15 @@
        <div class="podium">
         <div class="award">
           <img src="{% static 'img/trophy.png' %}" alt="Première place club">
-          <p>{{ premier_club.nom }}</p>
+          <p>{{ premier_club.nom_affiche }}</p>
         </div>
         <div class="award">
           <img src="{% static 'img/trophy.png' %}" alt="Deuxième place club">
-          <p>{{ deuxieme_club.nom }}</p>
+          <p>{{ deuxieme_club.nom_affiche }}</p>
         </div>
         <div class="award">
           <img src="{% static 'img/trophy.png' %}" alt="Troisième place club">
-          <p>{{ troisieme_club.nom }}</p>
+          <p>{{ troisieme_club.nom_affiche }}</p>
         </div>
        </div>
        <a class="triangleClub">
@@ -93,7 +93,7 @@
       {% for club in clubs %}
       <tr>
           <td>{{ forloop.counter }}</td>
-          <td>{{ club.nom }}</td>
+          <td>{{ club.nom_affiche }}</td>
           <td>{{ club.score }}</td>
       </tr>
       {% endfor %}
