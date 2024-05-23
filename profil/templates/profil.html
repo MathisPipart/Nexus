@@ -65,71 +65,27 @@
           <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">
         </div>
     </div>
-
     <div class="spacer"></div>
-      
-    <!-- <div class="settings">
-        <div class="card">
-          <h2>Paramètres</h2>
-
-          <table class="tabParametreActivite">
-            <tr id="notification">
-              <td class="logo"><input type="checkbox" id="checkboxNotif" checked> </td>
-              <td class="texte">Activer les notifications</td>
-            </tr>
-            <tr id="son">
-              <td class="logo"><input type="checkbox" id="checkboxSon" checked> </td>
-              <td class="texte">Activer le son</td>
-            </tr>
-            <tr>
-              <td class="logo"><div class="volume-control"><input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider"></td>
-              <td class="texte"><div>Gestion du volume</div></td>
-            </tr>
-            <tr onclick="resetCalendarUrl()">
-              <td class="logo"><input type="button" style="background-image: url('/static/img/QR_Code.png');"></td>
-              <td class="texte">Changer de Calendrier</td>
-            </tr>
-            <tr onclick="window.location.href='/logout'">
-              <td class="logo"><input type="button" style="background-image: url('/static/img/deconnexion.png');"></td>
-              <td class="texte">Déconnexion </td>
-            </tr>
-          </table>
+    <div class="card">
+        <h2>Paramètres</h2>
+        <div class="settings">
+            <div class="changer-calendrier">
+                <label>
+                    <input type="button" style="background-image: url('/static/img/QR_Code.png');" onclick="resetCalendarUrl()">
+                    <p>Changer de Calendrier</p>
+                </label>
+            </div>
+            <div class="deconnexion">
+                <label>
+                    <input type="button" style="background-image: url('/static/img/deconnexion.png');" onclick="window.location.href='/logout'">
+                        <p>Déconnexion</p>
+                </label>
+            </div>
         </div>
-      
-        <div class="card">
-          <h2>Activités</h2>
-          <table class="tabParametreActivite">
-            <tr>
-              <td class="logo"><input type="button" style="background-image: url('/static/img/like.png');"></td>
-              <td class="texte">Likes</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="button" style="background-image: url('/static/img/commentaire_noir.png');"> </td>
-              <td class="texte">Commentaires</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="button" style="background-image: url('/static/img/historique.png');"></td>
-              <td class="texte">Historique de recherhce</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="button" style="background-image: url('/static/img/etoile.png');"></td>
-              <td class="texte">Posts enregistrés</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="reset" value="" style="background-image: url('/static/img/retour.png');"></td>
-              <td class="texte">Effacer Historique de recherche</td>
-            </tr>
-            <tr>
-              <td class="logo"><input type="reset" value="" style="background-image: url('/static/img/poubelle.png');"></td>
-              <td class="texte">Effacer conversations</td>
-            </tr>
-          </table>
-          
-        </div>
-      </div> -->
+    </div>
 
-      <div class="abonnement">
-        <h2>Abonnements</h2>
+  <div class="abonnement">
+    <h2>Abonnements</h2>
       <div class="abonnement-child">
           {% for club in user.userprofile.get_subscribed_clubs %}
               <a href="{% url 'club_details' club.nom %}" style="text-decoration: none; color: inherit;">
@@ -140,69 +96,32 @@
               </a>
         {% endfor %}
       </div>
-{% comment %}        <table class="tabAbonnements">
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
-            <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
-          </tr>
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
-          </tr>
-        </table>{% endcomment %}
-{% comment %}        {% for club in user.userprofile.get_subscribed_clubs %}
-            <tr>
-                <td>
-                    <div class="menu-item">
-                        <img src="{{ club.photo.url }}" alt="photo de club" width="40" height="40">
-                        {{ club.nom }}
-                    </div>
-                </td>
-            </tr>
-        {% endfor %}{% endcomment %}
-      </div>
-
-      <div class="abonnementMobile">
-        <h2>Abonnements</h2>
-        <table class="tabAbonnements">
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
-          </tr>
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
-          </tr>  
-            <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
-          </tr>
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
-          </tr>
-          <tr>  
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
-          </tr>
-          <tr>
-            <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="settings">
-        <div class="card">
-          <h2>Paramètres</h2>
-          <div class="changer-calendrier">
-            <input type="button" style="background-image: url('/static/img/QR_Code.png');" onclick="resetCalendarUrl()">
-            <p>Changer de Calendrier</p>
-          </div>
-          <div class="deconnexion">
-            <input type="button" style="background-image: url('/static/img/deconnexion.png');" onclick="window.location.href='/logout'">
-            <p>Déconnexion</p>
-          </div>
-        </div>
-      </div>
+  </div>
+    
+  <div class="abonnementMobile">
+    <h2>Abonnements</h2>
+    <table class="tabAbonnements">
+      <tr>
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
+      </tr>
+      <tr>
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
+      </tr>  
+        <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
+      <tr>
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
+      </tr>
+      <tr>
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
+      </tr>
+      <tr>  
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
+      </tr>
+      <tr>
+        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
+      </tr>
+    </table>
+  </div>
       <div class="footer">
         ESIEE PARIS
       </div>
