@@ -25,9 +25,13 @@ body , html{
     margin-right: 10px;
 }
 
-.profile-name {
+.profile-container{
     flex-grow: 1;
     margin: 0;
+}
+
+.profile-name {
+    margin-top: 30px;
     font-size: 24px;
     font-weight: bold;
     color: black;
@@ -36,15 +40,22 @@ body , html{
 .coin-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Added */
+    justify-content: center;
+}
+
+.text_blanc{
+    color: white;
 }
 
 .coin {
     margin-left: 10px;
 }
 
+.spacer {
+    height: 50px;
+}
 
-.card {
+/* .card {
     display: block;
     border: 1px solid #b6b6b6;
     background-color: white;
@@ -53,6 +64,12 @@ body , html{
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
+} */
+
+.card{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .card h2 {
@@ -65,10 +82,20 @@ body , html{
     margin-bottom: 20px;
 }
 
-.tabParametreActivite{
+/* .tabParametreActivite {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     width: 100%;
     border-collapse: collapse;
     cursor: pointer;
+} */
+
+.tabParametreActivite{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tabParametreActivite .logo{
@@ -272,8 +299,8 @@ input[type="reset"] {
 
 
 .settings{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
     gap: 40px;
     margin: 50px;
 }

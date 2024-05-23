@@ -54,14 +54,21 @@
         {% else %}
             <img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="100" height="100">
         {% endif %}
-        <h1 class="profile-name">{{user.first_name}} {{user.last_name}} -> {{user.userprofile.role}} </h1>
+
+        <div class="profile-container">
+          <h1 class="profile-name">{{user.first_name}} {{user.last_name}}</h1>
+          <p class="text_blanc" > -> {{user.userprofile.role}}</p>
+        </div>
+
         <div class="coin-container">
-            <span>2624</span>
-            <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">
+          <span>2624</span>
+          <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">
         </div>
     </div>
+
+    <div class="spacer"></div>
       
-    <div class="settings">
+    <!-- <div class="settings">
         <div class="card">
           <h2>Paramètres</h2>
 
@@ -119,7 +126,7 @@
           </table>
           
         </div>
-      </div>
+      </div> -->
 
       <div class="abonnement">
         <h2>Abonnements</h2>
@@ -182,7 +189,20 @@
           </tr>
         </table>
       </div>
-      
+
+      <div class="settings">
+        <div class="card">
+          <h2>Paramètres</h2>
+          <div class="changer-calendrier">
+            <input type="button" style="background-image: url('/static/img/QR_Code.png');" onclick="resetCalendarUrl()">
+            <p>Changer de Calendrier</p>
+          </div>
+          <div class="deconnexion">
+            <input type="button" style="background-image: url('/static/img/deconnexion.png');" onclick="window.location.href='/logout'">
+            <p>Déconnexion</p>
+          </div>
+        </div>
+      </div>
       <div class="footer">
         ESIEE PARIS
       </div>
