@@ -1,14 +1,12 @@
 // alert("Max la saucisse");
 // console.log("joel");
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle calendar toggle
     var toggleCalendarCheckbox = document.getElementById('toggle-calendar');
     var calendarContainer = document.getElementById('calendar');
     toggleCalendarCheckbox.addEventListener('change', function() {
         calendarContainer.style.display = this.checked ? 'block' : 'none';
     });
 
-    // Handle lorem ipsum text toggle
     var toggleLoremCheckbox = document.getElementById('toggle-lorem');
     var loremText = document.querySelector('.lorem-text');
     toggleLoremCheckbox.addEventListener('change', function() {
