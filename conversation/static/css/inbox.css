@@ -56,10 +56,15 @@
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.new-message-btn:visited {
+    text-decoration: none;
 }
 
 .inbox-bottom-part {
-    background-color: red;
+    background-color: yellow;
     height: 80vh;
     width: 100%;
     overflow-y: scroll;
@@ -148,6 +153,11 @@
     z-index: 1;
 }
 
+.message-header h1 {
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
 .message-content-part {
     background-color: #00cc66;
     overflow-y: scroll;
@@ -180,12 +190,14 @@
 .chat-message-right {
     justify-content: flex-end;
     padding-right: 10px;
+    margin-left: 10px;
     /*background-color: #00FFFF;*/
 }
 
 .chat-message-left {
     justify-content: flex-start;
     padding-left: 10px;
+    margin-right: 10px;
     /*background-color: #A259FF;*/
 }
 
@@ -199,7 +211,7 @@
     background-color: #00FFFF;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
+    justify-content: center;
     align-items: center;
     text-align: center;
     /*padding: 10px;*/
@@ -228,7 +240,7 @@
 }
 
 .message-input-container {
-    background-color: yellow;
+    background-color: deeppink;
     width: 70%;
     /*height: 5vh;*/
     position: fixed;
@@ -286,6 +298,16 @@
     border-bottom-right-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.no-conversation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .send-message-btn:hover {

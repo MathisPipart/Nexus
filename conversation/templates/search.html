@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Inbox {% endblock %}
+{% block title %} Search {% endblock %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/search.css' %}"/>
@@ -11,7 +11,7 @@
             <form method="get" action="" class="search" autocomplete="off">
                 <h3>À :</h3>
                 <input type="text" placeholder="Recherchez un compte..." name='q' value="{{ request.GET.q }}" class="search-bar">
-                <button class="search-button">Search</button>
+                <button class="search-button">Discuter</button>
             </form>
 
             <hr>
@@ -31,7 +31,7 @@
                         </a>
                     {% endfor %}
             </form>
-
         </div>
     </main>
+
 {% endblock %}

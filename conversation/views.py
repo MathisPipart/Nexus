@@ -6,6 +6,7 @@ from .models import Message
 from django.core.paginator import Paginator
 from django.db.models import Q
 
+
 @login_required
 def inbox(request):
     user = request.user
@@ -13,15 +14,21 @@ def inbox(request):
     active_direct = None
     directs = None
 
-    if messages:
-        message = messages[0]
-        active_direct = message['user']
-        directs = Message.objects.filter(user=user, recipient=message['user'])
+    #if messages:
+    if 'user_id' in request.GET:
+        # message = messages[0]
+        # active_direct = message['user']
+        user_id = request.GET.get('user_id')
+        active_direct = get_object_or_404(User, id=user_id)
+        # directs = Message.objects.filter(user=user, recipient=message['user'])
+        directs = Message.objects.filter(user=user, recipient=active_direct)
         directs.update(is_read=True)
 
     for message in messages:
-        if message['user'].id == active_direct.id:
+        if active_direct and message['user'].id == active_direct.id:
             message['unread'] = 0
+        # if message['user'].id == active_direct.id:
+        #     message['unread'] = 0
 
     context = {
         'directs': directs,
@@ -30,6 +37,7 @@ def inbox(request):
     }
 
     return render(request, "inbox.html", context)
+
 
 def directs_messages(request, user_id):
     user = request.user
@@ -97,12 +105,12 @@ def user_search(request):
         users = users.union(users2)
 
         # Paginator : pour faire une pagination affichant les users 8 par 8 si on trouve bcp de personnes
-        paginator = Paginator(users, 8)
+        paginator = Paginator(users, 5)
         page_number = request.GET.get('page')
         users_paginator = paginator.get_page(page_number)
 
         context = {
-            'users': users_paginator
+            'users': users
         }
 
     return render(request, "search.html", context)
