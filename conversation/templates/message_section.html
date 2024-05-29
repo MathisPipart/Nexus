@@ -1,0 +1,50 @@
+{% load static %}
+
+
+<div class="message-content-part">
+    {% for direct in directs %}
+        {% if direct.sender == request.user %}
+
+            <article class="chat-message-right">
+                <div class="chat-message-right-content">
+                    <p class="chat-message-right-body">{{ direct.body }}</p>
+                    <div class="chat-message-right-info-part">
+                        <a href="">
+                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                            {% else %}
+                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+
+                <p style="font-size:10px; color: black;">
+                    {{ direct.date|date:"d M, Y H:i" }}
+                </p>
+            </article>
+
+        {% else %}
+
+            <article class="chat-message-left">
+                <div class="chat-message-left-content">
+                    <div class="chat-message-left-info-part">
+                        <a href="">
+                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}
+                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                            {% else %}
+                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <p class="chat-message-left-body">{{ direct.body }}</p>
+                </div>
+
+                <p style="font-size:10px; color: black;">
+                    {{ direct.date|date:"d M, Y H:i" }}
+                </p>
+            </article>
+
+        {% endif %}
+    {% endfor %}
+</div>

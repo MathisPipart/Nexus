@@ -11,6 +11,9 @@ from calendrier.models import Event
 #@login_required
 # To be added in prod
 def home(request):
+    posts = Post.objects.all()
+    posts_size = len(posts)
+
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES)
 

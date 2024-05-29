@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Inbox {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}"/>
+
+    <div class="conversation-main-container">
+        <aside class="left-part {% if active_direct %}inactive{% endif %}">
+            <div class="inbox-container">
+                <section class="inbox-top-part">
+                    <div class="top-part-left-side">
+                        <h3>@{{ user.username }}</h3>
+                        <div class="little_spacer"></div>
+                        <h5>Messages</h5>
+                    </div>
+
+                    <div class="top-part-right-side">
+                        <a href="{% url 'user_search' %}" class="new-message-btn">
+                            <img src="{% static 'img/add_post.png' %}" alt="Nouvelle conversation" style="width: 28px; height: 28px;">
+                        </a>
+                    </div>
+                </section>
+
+                <section class="inbox-bottom-part">
+                    <div class="inbox-list-message">
+                        {% for message in messages %}
+                            <a href="{% url 'directs_messages' message.user.id %}" class="inbox-message-card {% if active_direct.id == message.user.id %}active{% endif %}">
+                                {% if message.user.socialaccount_set.all.0.get_avatar_url %}
+                                    <img src="{{ message.user.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+                                {% else %}
+                                    <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+                                {% endif %}
+
+                                <div class="card-information">
+                                    <p>{{ message.user.first_name }} {{ message.user.last_name }}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <main class="right-part {% if active_direct %}active{% endif %}">
+            <div class="message-container">
+                {% if active_direct %}
+                    <section class="message-header">
+
+                        <button class="back-button" onclick="closeChat()">
+                            <img src="{% static 'img/back_icon.svg' %}" alt="Retour" width="25" height="25"/>
+                        </button>
+
+                        <div class="message-header-info">
+                            <div class="message-header-pp">
+                                {% if active_direct.socialaccount_set.all.0.get_avatar_url %}
+                                    <img src="{{ active_direct.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                {% else %}
+                                    <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                {% endif %}
+                            </div>
+                            <h1>{{ active_direct.first_name }}</h1>
+                        </div>
+
+                    </section>
+
+                    {% include 'message_section.html' %}
+                {% else %}
+                    <div class="no-conversation">
+                        <h1>Commencez à discuter</h1>
+                        <a href="{% url 'user_search' %}" class="new-message-btn">
+                            Nouveau message
+                        </a>
+                    </div>
+                {% endif %}
+{#                <div class="message-content-part">#}
+{#                    {% for direct in directs %}#}
+{#                        {% if direct.sender == request.user %}#}
+{##}
+{#                            <article class="chat-message-right">#}
+{#                                <div class="chat-message-right-content">#}
+{#                                    <p class="chat-message-right-body">{{ direct.body }}</p>#}
+{#                                    <div class="chat-message-right-info-part">#}
+{#                                        <a href="">#}
+{#                                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}#}
+{#                                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">#}
+{#                                            {% else %}#}
+{#                                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">#}
+{#                                            {% endif %}#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <p style="font-size:10px; color: black;">#}
+{#                                    {{ direct.date|date:"d M, Y H:i" }}#}
+{#                                </p>#}
+{#                            </article>#}
+{##}
+{#                        {% else %}#}
+{##}
+{#                            <article class="chat-message-left">#}
+{#                                <div class="chat-message-left-content">#}
+{#                                    <div class="chat-message-left-info-part">#}
+{#                                        <a href="">#}
+{#                                            {% if direct.sender.socialaccount_set.all.0.get_avatar_url %}#}
+{#                                                <img src="{{ direct.sender.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">#}
+{#                                            {% else %}#}
+{#                                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">#}
+{#                                            {% endif %}#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                    <p class="chat-message-left-body">{{ direct.body }}</p>#}
+{#                                </div>#}
+{##}
+{#                                <p style="font-size:10px; color: black;">#}
+{#                                    {{ direct.date|date:"d M, Y H:i" }}#}
+{#                                </p>#}
+{#                            </article>#}
+{##}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+            </div>
+
+            {% if active_direct %}
+                <div class="message-input-container">
+                    <form method="post" action="{% url 'send_direct_message' %}" class="form-message" autocomplete="off">
+                        {% csrf_token %}
+                        <input type="hidden" name="to_user" value="{{ active_direct.id }}">
+                        <input type="text" name="body" class="message-input" placeholder="Votre message...">
+                        <button class="send-message-btn" type="submit">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+
+        </main>
+    </div>
+
+    <script src="{% static 'js/inbox.js' %}"></script>
+    <script>
+        const activeDirectId = {{ active_direct.id|default:"null" }};
+        console.log('Active Direct ID:', activeDirectID);
+{#    window.onload = function() {#}
+{#        const messageContent = document.querySelector('.message-content-part');#}
+{#        messageContent.scrollTop = messageContent.scrollHeight;#}
+{##}
+{#        function refreshMessages() {#}
+{#            console.log('Refreshing messages...');#}
+{#            fetch("{% url 'directs_messages' active_direct.id %}")#}
+{#                .then(response => response.text())#}
+{#                .then(html => {#}
+{#                    const parser = new DOMParser();#}
+{#                    const doc = parser.parseFromString(html, 'text/html');#}
+{#                    const newMessages = doc.querySelector('.message-content-part').innerHTML;#}
+{#                    document.querySelector('.message-content-part').innerHTML = newMessages;#}
+{#                    messageContent.scrollTop = messageContent.scrollHeight;#}
+{#                })#}
+{#                .catch(error => console.error('Error refreshing messages:', error));#}
+{#        }#}
+{##}
+{#        setInterval(refreshMessages, 1000);#}
+{#    }#}
+    </script>
+
+{% endblock %}
