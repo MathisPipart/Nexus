@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'css/inbox.css' %}"/>
 
     <div class="conversation-main-container">
-        <aside class="left-part">
+        <aside class="left-part {% if active_direct %}inactive{% endif %}">
             <div class="inbox-container">
                 <section class="inbox-top-part">
                     <div class="top-part-left-side">
@@ -42,18 +42,26 @@
             </div>
         </aside>
 
-        <main class="right-part">
+        <main class="right-part {% if active_direct %}active{% endif %}">
             <div class="message-container">
                 {% if active_direct %}
                     <section class="message-header">
-                        <div class="message-header-pp">
-                            {% if active_direct.socialaccount_set.all.0.get_avatar_url %}
-                                <img src="{{ active_direct.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
-                            {% else %}
-                                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
-                            {% endif %}
+
+                        <button class="back-button" onclick="closeChat()">
+                            <img src="{% static 'img/back_icon.svg' %}" alt="Retour" width="25" height="25"/>
+                        </button>
+
+                        <div class="message-header-info">
+                            <div class="message-header-pp">
+                                {% if active_direct.socialaccount_set.all.0.get_avatar_url %}
+                                    <img src="{{ active_direct.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="50" height="50">
+                                {% else %}
+                                    <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="40" height="40">
+                                {% endif %}
+                            </div>
+                            <h1>{{ active_direct.first_name }}</h1>
                         </div>
-                        <h1>{{ active_direct.first_name }}</h1>
+
                     </section>
 
                     {% include 'message_section.html' %}

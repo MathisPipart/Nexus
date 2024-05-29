@@ -7,7 +7,13 @@
 
     <main>
         <div class="search-container">
-            <h2>Nouveau message</h2>
+            <div class="search-header">
+                <button class="search-cancel-btn" onclick="backToInbox()">
+                    <img src="{% static 'img/back_icon.svg' %}" alt="Retour" width="25" height="25"/>
+                </button>
+                <h2>Nouveau message</h2>
+            </div>
+
             <form method="get" action="" class="search" autocomplete="off">
                 <h3>À :</h3>
                 <input type="text" placeholder="Recherchez un compte..." name='q' value="{{ request.GET.q }}" class="search-bar">
@@ -33,5 +39,7 @@
             </form>
         </div>
     </main>
+
+    <script src="{% static 'js/search.js' %}"></script>
 
 {% endblock %}

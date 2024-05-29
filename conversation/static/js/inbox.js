@@ -31,4 +31,22 @@ window.onload = function() {
 
         setInterval(refreshMessages, 1000);
     }
+
+    // Toggle visibility for mobile view
+    const messageLinks = document.querySelectorAll('.inbox-message-card');
+    messageLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('.left-part').classList.add('inactive');
+            document.querySelector('.right-part').classList.add('active');
+        });
+    });
+}
+
+function closeChat() {
+    document.querySelector('.left-part').classList.remove('inactive');
+    document.querySelector('.right-part').classList.remove('active');
+}
+
+function backToInbox() {
+    window.location.href = "/inbox/";
 }

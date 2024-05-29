@@ -84,7 +84,6 @@
 
 .card-profile-picture {
     border-radius: 50%;
-    border : 1px solid black;
 }
 
 .right-part {
@@ -109,6 +108,11 @@
     z-index: 1;
 }
 
+.message-header-info {
+    display: flex;
+    flex-direction: row;
+}
+
 .message-header h1 {
     margin-top: 7px;
     margin-left: 10px;
@@ -117,7 +121,7 @@
 .message-content-part {
     overflow-y: scroll;
     padding-top: 8vh;
-    padding-bottom: 16vh;
+    padding-bottom: 17vh;
     height: 100%;
 }
 
@@ -169,11 +173,11 @@
 }
 
 .message-input-container {
+    background-color: white;
     width: 70%;
     position: fixed;
     bottom: 0;
     padding: 5px;
-    z-index: 1;
 }
 
 .form-message {
@@ -224,4 +228,46 @@
 
 .little_spacer {
     height: 10px;
+}
+
+.back-button {
+    display: none;
+    background: none;
+    border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .left-part {
+        width: 100%;
+    }
+
+    .right-part {
+        display: none;
+        width: 100%;
+    }
+
+    .right-part.active {
+        display: flex;
+    }
+
+    .left-part.inactive {
+        display: none;
+    }
+
+    .no-conversation {
+        display: none;
+    }
+
+    .back-button {
+        display: block;
+    }
+
+    .message-header {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .message-input-container {
+        width: 100%;
+    }
 }
