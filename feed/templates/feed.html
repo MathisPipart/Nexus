@@ -6,17 +6,17 @@ extra js block
 {% block extra_js %}
 <script>
     var evenements = [
-      {% for event in events %}
-        {
-          id: '{{ event.id }}',
-          title: '{{ event.title }}',
-          start: '{{ event.start_time|date:"c" }}',
-          end: '{{ event.end_time|date:"c" }}',
-          allDay: false
-        }{% if not forloop.last %},{% endif %}
-      {% endfor %}
+        {% for event in events %}
+            {
+                id: '{{ event.id }}',
+                title: '{{ event.title }}',
+                start: '{{ event.start_time|date:"c" }}',
+                end: '{{ event.end_time|date:"c" }}',
+                allDay: false
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
     ];
-  </script>
+</script>
 {% endblock %}
 
 {% block content %}
@@ -56,9 +56,14 @@ extra js block
         <h3>A venir</h3>
         <hr> <br>
 
-        <div class="calendrier" id="calendar">
-            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
-        </div>
+        {% if user.userprofile.url is not None %}
+            <div class="calendrier" id="calendar">
+                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+            </div>
+        {% else %}
+            <a href="/calendrier">Entrez une url dans le calendrier</a>
+        {% endif %}
+
         
         <!-- <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
 
@@ -99,7 +104,7 @@ extra js block
 
         {% if posts_size == 0 %}
             <h2>Aucun post publié</h2>
-            {{ user.userprofile.url }}
+            ur l du calendreir = {{ user.userprofile.url }}
             {{ user.userprofile.role }}
         {% endif %}
 

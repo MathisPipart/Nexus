@@ -18,31 +18,32 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
     let calendar = new FullCalendar.Calendar(calendarEl, {
-    timeZone: 'europe/Paris',
-    initialView: 'listDay',
-    height: 'auto',
-    locale: 'fr',
-    hiddenDays: [ 0 ], // Masquer les dimanches
-    nowIndicator: true, // Afficher la ligne actuelle
-    headerToolbar: {
-        left: '',
-        center: 'title',
-        right: ''
-    },
-    slotLabelFormat: {
-        hour: 'numeric',
-        minute: '2-digit',
-        omitZeroMinute: true,
-        meridiem: 'short'
-    },
-    slotMinTime: '07:00:00', // Heure de début de la grille de temps
-    slotMaxTime: '20:00:00', // Heure de fin de la grille de temps
-    scrollTime: '07:00:00', // Définir le défilement initial à 7h du matin
-    editable: false,
-    events: evenements
+        timeZone: 'europe/Paris',
+        initialView: 'listDay',
+        height: 'auto',
+        locale: 'fr',
+        hiddenDays: [ 0 ],
+        nowIndicator: true,
+        headerToolbar: {
+            left: '',
+            center: 'title',
+            right: ''
+        },
+        slotLabelFormat: {
+            hour: 'numeric',
+            minute: '2-digit',
+            omitZeroMinute: true,
+            meridiem: 'short'
+        },
+        slotMinTime: '07:00:00',
+        slotMaxTime: '20:00:00',
+        scrollTime: '07:00:00',
+        editable: false,
+        events: evenements
+    });
+    calendar.render();
 });
-calendar.render();
-});
+
 
 
 function myFunction(button) {
