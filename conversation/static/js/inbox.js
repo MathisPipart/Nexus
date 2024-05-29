@@ -4,7 +4,7 @@ window.onload = function() {
         messageContent.scrollTop = messageContent.scrollHeight;
 
         function refreshMessages() {
-            console.log('Refreshing messages...');
+            // console.log('Refreshing messages...');
             fetch("/inbox/directs/" + activeDirectId)
                 .then(response => response.text())
                 .then(html => {
@@ -29,7 +29,7 @@ window.onload = function() {
                 .catch(error => console.error('Error refreshing messages:', error));
         }
 
-        setInterval(refreshMessages, 1000);
+        setInterval(refreshMessages, 10000);
     }
 
     // Toggle visibility for mobile view
