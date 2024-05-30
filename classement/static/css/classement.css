@@ -3,6 +3,11 @@ html {
   overflow: visible;
 }
 
+@font-face {
+  font-family: 'Pulang';
+  src: local('Pulang'), url('../fonts/Pulang.ttf') format("truetype");
+}
+
 body{
   color: #000;
   font-family: "Open Sans", sans-serif;
@@ -11,20 +16,35 @@ body{
 h1{
 text-align: center;
 margin-top: 5%;
-margin-bottom: 5%;
-font-family:  'Playfair Display', 'Georgia', Times, 'Times New Roman', serif;
+margin-bottom: 3%;
+font-family: "Pulang";
+font-size: 50px;
 }
 
 .container {
-display: flex;
-justify-content: space-between;
 padding: 20px;
 }
 
 .section {
-width: 50%;
-text-align: center;
-position: relative; /* Ajouté pour le positionnement absolu des awards */
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.club-section .title{
+  background: linear-gradient(0.25turn, #efefef, #e1e1e1);
+  border-radius: 30px;
+  padding: 10px;
+  margin: auto;
+  width: 40%;
+}
+
+.club-section p{
+  margin: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  display: inline-block;
 }
 
 .title {
@@ -40,66 +60,6 @@ display: flex;
 justify-content: center; /* Centré sur l'axe horizontal */
 position: relative; /* Ajouté pour le positionnement absolu des awards */
 height: 150px; /* Hauteur ajustable selon vos besoins */
-}
-
-.award {
-position: absolute; /* Positionnement absolu pour chaque award */
-}
-
-.award img {
-width: 60px;
-height: 60px;
-}
-
-.award p {
-margin-top: 10px;
-}
-
-/* Positionnement des awards pour la section club */
-.club-section .award:nth-child(1) {
-/* Premier award centré */
-left: 50%;
-transform: translateX(-50%);
-top: 0;
-}
-
-.club-section .award:nth-child(2) {
-/* Deuxième award à gauche */
-left: 20%;
-top: 40px;
-transform: scale(0.9); /* Réduction de la taille */
-}
-
-.club-section .award:nth-child(3) {
-/* Troisième award à droite */
-right: 25%;
-top: 60px;
-transform: scale(0.8); /* Réduction supplémentaire de la taille */
-}
-
-/* Tailles spécifiques pour la première place de chaque section */
-.club-section .award:nth-child(1) img, .student-section .award:nth-child(1) img {
-width: 80px;
-height: 80px;
-}
-
-/* De même pour la section étudiant, si nécessaire */
-.student-section .award:nth-child(1) {
-left: 50%;
-transform: translateX(-50%);
-top: 0;
-}
-
-.student-section .award:nth-child(2) {
-left: 20%;
-top: 40px;
-transform: scale(0.9);
-}
-
-.student-section .award:nth-child(3) {
-right: 25%;
-top: 60px;
-transform: scale(0.8);
 }
 
 .classement_global{
@@ -120,11 +80,13 @@ border-collapse: collapse;
 .student-section .triangleEtudiant {
   display: block;
   margin-top: 50px;
+  filter: brightness(0%);
 }
 
 .club-section .triangleClub {
   display: block;
   margin-top: 50px;
+  filter: brightness(0%);
 }
 
 .classement_Etudiant, .classement_Club {
@@ -348,4 +310,19 @@ border-collapse: collapse;
 }
 .the-most img {
   max-width: 100%;
+}
+
+.background{
+  background: linear-gradient(#333333, #350946);
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.back2{
+  left: auto;
+  right: 0;
 }

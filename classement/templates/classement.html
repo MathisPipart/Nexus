@@ -13,26 +13,19 @@
 
 {% block content %}
 
+<div class="background"></div>
+
+<div class="background back2"></div>
 
 <h1>Classement</h1>
 
 <div class="container">
     <div class="section club-section">
       <div class="title">CLUB</div>
-       <div class="podium">
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Première place club">
-          <p>{{ premier_club.nom }}</p>
-        </div>
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place club">
-          <p>{{ deuxieme_club.nom }}</p>
-        </div>
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Troisième place club">
-          <p>{{ troisieme_club.nom }}</p>
-        </div>
-       </div>
+        <img src={{ premier_club.photo }} alt={{ premier_club.photo }} style="max-width: 30px;">
+        <p>{{ premier_club.photo }}</p>
+        <p>{{ deuxieme_club.nom }}</p>
+        <p>{{ troisieme_club.nom }}</p>
        <a class="triangleClub">
         <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
       </a> 
@@ -40,20 +33,9 @@
   
     <div class="section student-section">
       <div class="title">ETUDIANT</div>
-      <div class="podium">
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Première place étudiant">
-          <p>{{ premier_utilisateur.prenom }} {{ premier_utilisateur.nom }}</p>
-        </div>
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Deuxième place étudiant">
-          <p>{{ deuxieme_utilisateur.prenom }} {{ deuxieme_utilisateur.nom }}</p>
-        </div>
-        <div class="award">
-          <img src="{% static 'img/trophy.png' %}" alt="Troisième place étudiant">
-          <p>{{ troisieme_utilisateur.prenom }} {{ troisieme_utilisateur.nom }}</p>
-        </div>
-      </div>
+      <p>{{ premier_utilisateur.prenom }} {{ premier_utilisateur.nom }}</p>
+      <p>{{ deuxieme_utilisateur.prenom }} {{ deuxieme_utilisateur.nom }}</p>
+      <p>{{ troisieme_utilisateur.prenom }} {{ troisieme_utilisateur.nom }}</p>
       <a class="triangleEtudiant">
         <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
       </a> 
