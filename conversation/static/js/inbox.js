@@ -29,7 +29,7 @@ window.onload = function() {
                 .catch(error => console.error('Error refreshing messages:', error));
         }
 
-        setInterval(refreshMessages, 10000);
+        setInterval(refreshMessages, 1000);
     }
 
     // Toggle visibility for mobile view

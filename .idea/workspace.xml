@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26754c21-0016-4e9e-a14f-766eb62528c3" name="Changes" comment="correctifs inbox">
-      <change afterPath="$PROJECT_DIR$/conversation/static/img/back_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conversation/static/js/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversation/static/css/inbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/conversation/static/css/inbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversation/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/conversation/static/css/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversation/static/js/inbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/conversation/static/js/inbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversation/templates/inbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/conversation/templates/inbox.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversation/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/conversation/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="26754c21-0016-4e9e-a14f-766eb62528c3" name="Changes" comment="correctifs inbox" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,28 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.Nexus.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;chat-app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.Nexus.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/conversation/static/img" />
@@ -159,6 +150,7 @@
       <workItem from="1716826769901" duration="16750000" />
       <workItem from="1716844657258" duration="803000" />
       <workItem from="1716893860357" duration="14686000" />
+      <workItem from="1717051185227" duration="266000" />
     </task>
     <task id="LOCAL-00001" summary="correction inbox part message">
       <option name="closed" value="true" />
