@@ -10,29 +10,17 @@ class AddPost(forms.Form):
                                 attrs={'title': 'Titre du post','placeholder': 'Titre du post'}))
     
     contenu = forms.CharField(widget=CKEditorWidget(config_name='default'))
-    
-    # image = forms.ImageField(required=False,
-    #                         widget=forms.FileInput(
-    #                             attrs={'title': 'Image du post',
-    #                                     'placeholder': 'Image du post'},))
 
     file_field = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'multiple': True,
                                                                         'title': 'multiple images',
                                                                         'accept': 'image/*',
                                                                         }))
-    club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post'}))
+    # club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post'}))
+    # club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post', 'disabled': 'true'}))
+    club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.HiddenInput())
 
-# limit the type of file to be uploaded to images only
-    # file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True,
-    #                                                                     'title': 'multiple images',
-    #                                                                     'accept': 'image/*'
-    #                                                                     }))
-
-
-    # image = forms.FileField(required=False, widget = forms.TextInput(attrs={
-    #     'title': 'Image du post', 
-    #     'placeholder': 'Image du post',
-    #     "type": "File",
-    #     "class": "form-control",
-    #     "multiple": "True",
-    # }), label = "IMAGE")
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(AddPost, self).__init__(*args, **kwargs)
+        if user and hasattr(user, 'userprofile'):
+            self.fields['club'].initial = user.userprofile.club

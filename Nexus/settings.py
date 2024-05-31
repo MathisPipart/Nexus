@@ -131,6 +131,10 @@ DATABASES = {
         'PASSWORD': 'Rootnexus77.',
         'HOST': '104.248.254.249',
         'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'use_unicode': True,
+        },
     }
 }
 

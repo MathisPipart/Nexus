@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from clubs.models import Info_Clubs
 
 
 class UserRole(models.TextChoices):
@@ -21,6 +22,7 @@ class UserProfile(models.Model):
         choices=UserRole.choices,
         default=UserRole.USER
     )
+    club = models.ForeignKey(Info_Clubs, on_delete=models.CASCADE, blank=True, null=True)
 
     def get_subscribed_clubs(self):
         return self.user.clubs_subscribed.all()

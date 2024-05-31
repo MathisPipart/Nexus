@@ -58,6 +58,9 @@
         <div class="profile-container">
           <h1 class="profile-name">{{user.first_name}} {{user.last_name}}</h1>
           <p class="text_blanc" > -> {{user.userprofile.role}}</p>
+          {% if user.userprofile.club != null %}
+            <p> club : {{user.userprofile.club}}</p>
+          {% endif %}
         </div>
 
         <div class="coin-container">

@@ -15,33 +15,28 @@ def home(request):
     posts_size = len(posts)
 
     if request.method == "POST":
-        form = AddPost(request.POST, request.FILES)
+        form = AddPost(request.POST, request.FILES, user=request.user)
 
         if form.is_valid():
-            # Create and save the post instance
             post = Post(
                 titre=form.cleaned_data['titre'],
                 contenu=form.cleaned_data['contenu'],
-                club=form.cleaned_data['club']
-                )
+                # club=form.cleaned_data['club']
+                club=request.user.userprofile.club
+            )
             post.user = request.user
             post.save()
 
-            # Save each file as an Image instance linked to the post
             for f in request.FILES.getlist('file_field'):
                 Image.objects.create(post=post, image=f)
 
             return HttpResponseRedirect('/feed/')
 
     else:
-        #posts = Post.objects.all()
-        #posts_size = len(posts)
-        #posts = reversed(posts)
-        #form = AddPost()
         posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('date_de_creation')
         posts_size = len(posts_subscribed)
         posts_subscribed = reversed(posts_subscribed)
-        form = AddPost()
+        form = AddPost(user=request.user)
 
     events = Event.objects.all()
 
