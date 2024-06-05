@@ -1,6 +1,11 @@
 from django import forms
 from urllib.parse import urlparse, parse_qs, urlunparse, urlencode
 
+from icalendar import Calendar
+from django.core.exceptions import ValidationError
+import requests
+
+
 class URLForm(forms.Form):
     url = forms.URLField(label='URL du Calendrier iCal')
 
@@ -22,5 +27,14 @@ class URLForm(forms.Form):
             new_query_string,
             parsed_url.fragment
         ))
+
+        try:
+            response = requests.get(cleaned_url)
+            response.raise_for_status()  # S'assurer que la requête a réussi
+
+            # Vérifier si le contenu est bien un fichier iCal
+            cal = Calendar.from_ical(response.content)
+        except Exception as e:
+            raise ValidationError("L'URL fournie ne semble pas être celle d'un iCal valide.")
 
         return cleaned_url

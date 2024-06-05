@@ -34,13 +34,23 @@
       {% if not user.userprofile.url %}
       <div class="form-container">
           <p>Entrez l'URL de votre emploi du temps</p>
-          <form id="urlForm" method="post" class="Test">
+          <form id="urlForm" method="post" class="Test" autocomplete="off">
               {% csrf_token %}
               <div class="form-group">
                   <input type="url" name="url" class="form-control" value="" placeholder="Entrez votre URL ici">
               </div>
               <button type="submit">Soumettre l'URL</button>
           </form>
+          {% if form.errors %}
+              <div class="error">
+                  {% for field, errors in form.errors.items %}
+                      {% for error in errors %}
+                          <p>{{ error }}</p>
+                      {% endfor %}
+                  {% endfor %}
+              </div>
+          {% endif %}
+
       </div>
   {% else %}
       <div class="calendrier" id="calendar">

@@ -40,6 +40,16 @@ p{
     padding-top: 10% !important;
 }
 
+.error {
+    margin-top: 1%;
+    color: red;
+    font-weight: bold;
+}
+
+.error p {
+    font-size: 1em;
+}
+
 /* Styles pour le formulaire */
 .form-group {
     margin-bottom: 1em; /* Espace en dessous du groupe de formulaire */

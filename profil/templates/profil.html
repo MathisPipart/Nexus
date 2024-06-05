@@ -63,10 +63,10 @@
           {% endif %}
         </div>
 
-        <div class="coin-container">
-          <span>2624</span>
-          <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">
-        </div>
+{#        <div class="coin-container">#}
+{#          <span>2624</span>#}
+{#          <img class="coin" src="{% static 'img/Piece_Nexus.png' %}" alt="Pièce" width="50" height="50">#}
+{#        </div>#}
     </div>
     <div class="spacer"></div>
     <div class="card">
@@ -88,7 +88,7 @@
     </div>
 
   <div class="abonnement">
-    <h2>Abonnements</h2>
+      <h2>Abonnements</h2>
       <div class="abonnement-child">
           {% for club in user.userprofile.get_subscribed_clubs %}
               <a href="{% url 'club_details' club.nom %}" style="text-decoration: none; color: inherit;">
@@ -100,32 +100,8 @@
         {% endfor %}
       </div>
   </div>
-
-  <div class="abonnementMobile">
-    <h2>Abonnements</h2>
-    <table class="tabAbonnements">
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">ESIEE SPACE</div></td>
-      </tr>
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Poker</div></td>
-      </tr>
-        <td><a href="/clubs/club_details" style="text-decoration: none; color: inherit;"><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Musique</div></a></td>
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Hera</div></td>
-      </tr>
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">Club Gaming</div></td>
-      </tr>
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDE</div></td>
-      </tr>
-      <tr>
-        <td><div class="menu-item"><img src="{% static 'img/no_avatar.png' %}" alt="Photo de Profil" width="40" height="40">BDS</div></td>
-      </tr>
-    </table>
+    
+  <div class="footer">
+    ESIEE PARIS
   </div>
-      <div class="footer">
-        ESIEE PARIS
-      </div>
 {% endblock %}

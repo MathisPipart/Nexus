@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 import os
 from calendrier.models import Event
+from conversation.views import inbox
+from conversation.models import Message
 
 
 #@login_required
@@ -13,6 +15,7 @@ from calendrier.models import Event
 def home(request):
     posts = Post.objects.all()
     posts_size = len(posts)
+    messages = Message.get_messages(user=request.user)
 
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES, user=request.user)
@@ -40,8 +43,7 @@ def home(request):
 
     events = Event.objects.all()
 
-    return render(request, "feed.html", {"events": events, 'posts': posts_subscribed, 'form': form, 'posts_size': posts_size})
-
+    return render(request, "feed.html", {"events": events, 'posts': posts_subscribed, 'form': form, 'posts_size': posts_size, 'messages': messages})
 
 
 #@login_required

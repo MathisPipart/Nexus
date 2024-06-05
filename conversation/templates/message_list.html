@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="inbox-list-message">
+    {% for message in messages %}
+        <a href="{% url 'directs_messages' message.user.id %}" class="inbox-message-card {% if active_direct.id == message.user.id %}active{% endif %}">
+            {% if message.user.socialaccount_set.all.0.get_avatar_url %}
+                <img src="{{ message.user.socialaccount_set.all.0.get_avatar_url }}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+            {% else %}
+                <img src="{% static 'img/no_avatar.png' %}" class="card-profile-picture" alt="Photo de Profil" width="100" height="100">
+            {% endif %}
+
+            <div class="card-information">
+                <p>{{ message.user.first_name }} {{ message.user.last_name }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>

@@ -20,168 +20,123 @@ extra js block
 {% endblock %}
 
 {% block content %}
-<div class="f_feed" id="text">
-    <aside class="f_events_search" id="feed-content">
+    <div class="f_feed" id="text">
+        <aside class="f_events_search" id="feed-content">
 
-        <!-- <div class="toggle-controls">
-            <input type="checkbox" id="toggle-calendar" checked>
-            <label for="toggle-calendar">Afficher le calendrier</label>
-            
+            <!-- <div class="toggle-controls">
+                <input type="checkbox" id="toggle-calendar" checked>
+                <label for="toggle-calendar">Afficher le calendrier</label>
+
+                <br>
+
+                <input type="checkbox" id="toggle-lorem" checked>
+                <label for="toggle-lorem">Afficher le texte</label>
+            </div> -->
+
+
+            <!-- <button class="boutton_choix_event" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{% static 'img/oeil.png' %}" alt="boutton_choix_event" style="width: 28px; height: 28px;">
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <label for="toggle-calendar">
+                    <input type="checkbox" id="toggle-calendar" checked>
+                    Afficher le calendrier
+                </label>
+
+                <div class="button_spacer"></div>
+
+                <label for="toggle-lorem">
+                    <input type="checkbox" id="toggle-lorem" checked>
+                    Afficher le texte
+                </label>
+            </div> -->
+
+
+            <h3>A venir</h3>
+            <hr> <br>
+
+            {% if user.userprofile.url is not None %}
+                <div class="calendrier" id="calendar">
+                    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+                </div>
+            {% else %}
+                <a href="/calendrier">Entrez une url depuis la page : calendrier</a>
+            {% endif %}
+
+
+            <!-- <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
+
+                <button type="submit" class="boutonRecherche">🔍</button>
+                <input type="text" name="query" placeholder="Cherchez un club" class="TexteRecherche">
+
+            </form> -->
+
+            <br>
             <br>
 
-            <input type="checkbox" id="toggle-lorem" checked>
-            <label for="toggle-lorem">Afficher le texte</label>
-        </div> -->
+            <!-- <p class="lorem-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar pellentesque erat. Praesent non nisi non elit feugiat eleifend.
+                Suspendisse placerat risus eu justo sodales, nec accumsan augue dignissim. Morbi mollis eros vitae tellus rhoncus, quis finibus libero pellentesque.
+                Nam id eleifend nisl, ac viverra magna. Curabitur magna ante, finibus vitae suscipit quis, commodo et enim.
+            </p> -->
+        </aside>
 
+        <main class="f_posts" id="feed-content">
 
-        <!-- <button class="boutton_choix_event" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-            <img src="{% static 'img/oeil.png' %}" alt="boutton_choix_event" style="width: 28px; height: 28px;">
-        </button>
+            {% if user.userprofile.role != "user" %}
+            <button id="myBtn">
+                <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
+            </button>
+            {% endif %}
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <label for="toggle-calendar">
-                <input type="checkbox" id="toggle-calendar" checked>
-                Afficher le calendrier
-            </label>
+            <div id="myPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close">&times;</span>
+                    <h3>Ajouter un post</h3>
+                    <form method="post" action="/feed/" enctype="multipart/form-data">
 
-            <div class="button_spacer"></div>
-
-            <label for="toggle-lorem">
-                <input type="checkbox" id="toggle-lorem" checked>
-                Afficher le texte
-            </label>
-        </div> -->
-
-
-        <h3>A venir</h3>
-        <hr> <br>
-
-        {% if user.userprofile.url is not None %}
-            <div class="calendrier" id="calendar">
-                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button class="btn btn-primary" id="submit_posts" type="submit", name="save"> Add post </button>
+                    </form>
+                </div>
             </div>
-        {% else %}
-            <a href="/calendrier">Entrez une url depuis la page : calendrier</a>
-        {% endif %}
 
-        
-        <!-- <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
+            {% if posts_size == 0 %}
+                <h2>Aucun post publié</h2>
+            {% endif %}
 
-            <button type="submit" class="boutonRecherche">🔍</button>
-            <input type="text" name="query" placeholder="Cherchez un club" class="TexteRecherche">
-            
-        </form> -->
-        
-        <br>
-        <br>
+            {% for post in posts %}
+                {% include "post_template.html" with post=post %}
+            {% endfor %}
+        </main>
 
-        <!-- <p class="lorem-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar pellentesque erat. Praesent non nisi non elit feugiat eleifend. 
-            Suspendisse placerat risus eu justo sodales, nec accumsan augue dignissim. Morbi mollis eros vitae tellus rhoncus, quis finibus libero pellentesque. 
-            Nam id eleifend nisl, ac viverra magna. Curabitur magna ante, finibus vitae suscipit quis, commodo et enim. 
-        </p> -->
-    </aside>
-    
-    <main class="f_posts" id="feed-content">
+        <aside class="f_conversations" id="feed-content">
+            <br>
+            <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
 
-        {% if user.userprofile.role != "user" %}
-        <button id="myBtn">
-            <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
-        </button>
-        {% endif %}
+                <button type="submit" class="boutonRecherche">🔍</button>
+                <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">
 
-        <div id="myPopup" class="popup">
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <h3>Ajouter un post</h3>
-                <form method="post" action="/feed/" enctype="multipart/form-data">
+            </form>
 
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <button class="btn btn-primary" id="submit_posts" type="submit", name="save"> Add post </button>
-                </form>
+            <br>
+            <h3>Conversation</h3>
+            <hr> <br>
+
+            {% include 'message_list.html' with messages=messages %}
+
+        </aside>
+
+        <div class="floating-button">
+            <button class="boutton_switch_page" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> + </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button id="dropdown-button" class="dropdown-item" data-target="f_events_search" onclick="myFunction(this)">Événements</button>
+                <button id="dropdown-button" class="dropdown-item" data-target="f_posts" onclick="myFunction(this)">Feed</button>
+                <button id="dropdown-button" class="dropdown-item" data-target="f_conversations" onclick="myFunction(this)">Conversations</button>
             </div>
-        </div>
-
-        {% if posts_size == 0 %}
-            <h2>Aucun post publié</h2>
-        {% endif %}
-
-        {% for post in posts %}
-            {% include "post_template.html" with post=post %}
-        {% endfor %}
-    </main>
-
-    <aside class="f_conversations" id="feed-content">
-        <br>
-        <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
-
-            <button type="submit" class="boutonRecherche">🔍</button>
-            <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">
-            
-        </form>
-
-        <br>
-        <h3>Conversation</h3>
-        <hr> <br>
-
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        <div class="liste_de_conversation">
-            <img src="{% static 'img/no_avatar.jpg' %}" alt="No_avatar">
-            <p>Conversation</p>
-        </div>
-        
-    </aside>
-
-    <div class="floating-button">
-        <button class="boutton_switch_page" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> + </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <button id="dropdown-button" class="dropdown-item" data-target="f_events_search" onclick="myFunction(this)">Événements</button>
-            <button id="dropdown-button" class="dropdown-item" data-target="f_posts" onclick="myFunction(this)">Feed</button>
-            <button id="dropdown-button" class="dropdown-item" data-target="f_conversations" onclick="myFunction(this)">Conversations</button>
         </div>
     </div>
-</div>
+
+    <script src="{% static 'js/inbox.js' %}"></script>
 {% endblock %}
