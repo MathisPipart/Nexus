@@ -131,7 +131,12 @@ extra js block
         </aside>
 
         <div class="floating-button">
-            <button class="boutton_switch_page" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> + </button>
+            <!-- <button id="myBtn">
+                <img src="{% static 'img/add_post.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px;">
+            </button> -->
+            <button class="boutton_switch_page" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <img src="{% static 'img/swap.png' %}" alt="Ajouter Post" style="width: 28px; height: 28px; filter:invert(1);">
+            </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <button id="dropdown-button" class="dropdown-item" data-target="f_events_search" onclick="myFunction(this)">Événements</button>
                 <button id="dropdown-button" class="dropdown-item" data-target="f_posts" onclick="myFunction(this)">Feed</button>

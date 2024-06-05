@@ -190,6 +190,7 @@ html {
     border: none;
     border-radius: 42px;
     cursor: pointer;
+    z-index: 2;
 }
 
 #myBtn:active {
@@ -391,12 +392,13 @@ html {
 
 @media (max-width: 768px) {
     #myBtn {
-        bottom: 80px;
+        /* bottom: 80px; */
+        bottom: 15px;
         right: 3%;
     }
 
     .boutton_switch_page {
-        background-color: #A158FF;
+        /* background-color: #A158FF;
         border-radius: 42px;
         border: #A158FF;
         cursor: pointer;
@@ -410,7 +412,17 @@ html {
         padding: 2px 16px 2px 16px;
         bottom: 20px;
         right: 3%;
+        border-radius: 42px; */
+        position: fixed;
+        /* bottom: 15px; */
+        bottom: 80px;
+        right: 3%;
+        padding: 10px;
+        background-color: #A158FF;
+        color: white;
+        border: none;
         border-radius: 42px;
+        cursor: pointer;
     }
 
     #button_switch_page {
