@@ -1,6 +1,18 @@
 {% load static %}
 {% block post_template %}
 <article class="f_post">
+
+    {% if user.userprofile.role == 'moderator' %}
+
+        <form action="{% url 'delete_post' post.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="poubelle">
+                <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
+            </button>
+        </form>
+
+    {% endif %}
+
     {% if post.user == user and user.userprofile.role != 'user' %}
 
         <form action="{% url 'delete_post' post.id %}" method="post">
