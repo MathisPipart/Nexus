@@ -407,4 +407,8 @@ html {
         margin-right: 5%;
         margin-bottom: 3%;
     }
+
+    #unsubscribe_btn{
+        /* color : red; */
+    }
 }

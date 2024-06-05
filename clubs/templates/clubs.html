@@ -30,10 +30,10 @@
             <td>
                {% if club.is_user_subscribed %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner">
+                    <input type="submit" class="unsubscribe-btn-all" value="Se désabonner" id="unsubscribe_btn">
                 {% else %}
                     <input type="hidden" name="club_id" value="{{ club.id }}">
-                    <input type="submit" class="follow-btn-all" value="S'abonner">
+                    <input type="submit" class="follow-btn-all" value="S'abonner" id="unsubscribe_btn">
                 {% endif %}
             </td>
             <!-- <td>

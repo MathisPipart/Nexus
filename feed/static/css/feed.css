@@ -392,9 +392,10 @@ html {
 
 @media (max-width: 768px) {
     #myBtn {
-        /* bottom: 80px; */
-        bottom: 15px;
+        bottom: 80px;
+        /* bottom: 15px; */
         right: 3%;
+        z-index: -1;
     }
 
     .boutton_switch_page {
@@ -414,8 +415,8 @@ html {
         right: 3%;
         border-radius: 42px; */
         position: fixed;
-        /* bottom: 15px; */
-        bottom: 80px;
+        bottom: 15px;
+        /* bottom: 80px; */
         right: 3%;
         padding: 10px;
         background-color: #A158FF;
@@ -442,6 +443,7 @@ html {
     .f_conversations,
     .f_events_search {
         width: 100%;
+        padding-bottom: 8.5vh;
     }
 
     .f_conversations h3,
@@ -459,4 +461,13 @@ html {
         overflow-y: scroll;
     }
 
+    .post_images{
+        padding-bottom: 10px;
+    }
+
+    .post-date_droite{
+        padding-bottom: 15px;
+        right: none;
+        left: 20px;
+    }
 }
