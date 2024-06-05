@@ -128,7 +128,8 @@ html {
 .f_post {
     border-radius: 30px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    padding: 50px;
+    /* padding: 50px; */
+    padding: 20px 50px 50px 50px;
     margin-left: 4%;
     margin-right: 4%;
     margin-bottom: 7%;
@@ -258,7 +259,7 @@ html {
 .poubelle {
     position: absolute;
     right: 3%;
-    top: 3%;
+    top: 6%;
     color: #ff0000 !important;
     font-weight: bold;
     border-radius: 15%;
