@@ -126,7 +126,7 @@ extra js block
             <h3>Messages</h3>
             <hr> <br>
 
-            {% if messages %}
+{#            {% if messages %}#}
 {#                {% include 'message_list.html' with messages=messages %}#}
                 <div class="inbox-list-message">
                     {% for message in messages %}
@@ -145,9 +145,9 @@ extra js block
                         {% endif %}
                     {% endfor %}
                 </div>
-            {% else %}
-                <a href="/inbox/new/">Commencez une conversation</a>
-            {% endif %}
+{#            {% else %}#}
+{#                <a href="/inbox/new/">Commencez une conversation</a>#}
+{#            {% endif %}#}
 
         </aside>
 

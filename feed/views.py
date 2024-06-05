@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 import os
 from calendrier.models import Event
-from conversation.views import inbox
 from conversation.models import Message
 
 
