@@ -441,4 +441,10 @@ html {
         padding-bottom: 80px;
     }
 
+    .inbox-list-message {
+        background-color: green;
+        height: 72vh;
+        overflow-y: scroll;
+    }
+
 }
