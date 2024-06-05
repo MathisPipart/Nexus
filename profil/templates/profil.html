@@ -57,9 +57,8 @@
 
         <div class="profile-container">
           <h1 class="profile-name">{{user.first_name}} {{user.last_name}}</h1>
-          <!-- <p class="text_blanc" > -> {{user.userprofile.role}}</p> -->
           {% if user.userprofile.role == "superuser" %}
-            <p> club : {{user.userprofile.club}}</p>
+            <p class="user_club"> club : {{user.userprofile.club}}</p>
           {% endif %}
         </div>
 
