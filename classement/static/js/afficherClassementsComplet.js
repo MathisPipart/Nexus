@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (toggleEtudiant) {
         toggleEtudiant.addEventListener('click', function(e) {
             e.preventDefault();
-            var rankingSectionEtudiant = document.querySelector('.leaderboard');
+            var rankingSectionEtudiant = document.querySelector('.classement_Etudiant');
             rankingSectionEtudiant.classList.toggle('visible');
             this.querySelector('img').classList.toggle('rotate-180');
         });

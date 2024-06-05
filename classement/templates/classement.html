@@ -17,33 +17,21 @@
 
 <div class="background back2"></div>
 
-<h1>Classement</h1>
+<h1 id="titlePrincipal">⭐Classement⭐</h1>
 
 <div class="container">
-    <div class="section club-section">
-      <div class="title">CLUB</div>
-        <img src={{ premier_club.photo }} alt={{ premier_club.photo }} style="max-width: 30px;">
-        <p>{{ premier_club.photo }}</p>
-        <p>{{ deuxieme_club.nom }}</p>
-        <p>{{ troisieme_club.nom }}</p>
-       <a class="triangleClub">
-        <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
-      </a> 
-    </div>
-  
-    <div class="section student-section">
-      <div class="title">ETUDIANT</div>
-      <p>{{ premier_utilisateur.prenom }} {{ premier_utilisateur.nom }}</p>
-      <p>{{ deuxieme_utilisateur.prenom }} {{ deuxieme_utilisateur.nom }}</p>
-      <p>{{ troisieme_utilisateur.prenom }} {{ troisieme_utilisateur.nom }}</p>
-      <a class="triangleEtudiant">
-        <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
-      </a> 
-    </div>
-  
+  <div class="section student-section">
+    <div class="title">👨‍🎓 ETUDIANT</div>
+    <div class="medal first"><p>1</p></div><p>{{ premier_utilisateur.user.first_name }} {{ premier_utilisateur.user.last_name }}</p>
+    <div class="medal second"><p>2</p></div><p>{{ deuxieme_utilisateur.user.first_name }} {{ deuxieme_utilisateur.user.last_name }}</p>
+    <div class="medal third"><p>3</p></div><p>{{ troisieme_utilisateur.user.first_name }} {{ troisieme_utilisateur.user.last_name }}</p>
+    <a class="triangleEtudiant">
+      <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
+    </a> 
+  </div>
 </div>
   
-<div class="leaderboard">
+<!-- <div class="leaderboard">
   <h1>
     <svg class="ico-cup">
       <use xlink:href="#cup"></use>
@@ -60,6 +48,7 @@
     {% endfor %}
   </ol>
 </div>
+-->
 
 <div class="classement_Etudiant">
   <h1>Classement complet des Utilisateurs</h1>
@@ -80,6 +69,20 @@
       {% endfor %}
   </table>
 </div>
+
+<div class="container">
+  <div class="section club-section">
+    <div class="title">🎉 CLUB</div>
+      <!-- <img src={{ premier_club.photo }} alt={{ premier_club.photo }} style="max-width: 30px;"> -->
+      <div class="medal first"><p>1</p></div><p>{{ premier_club.nom }}</p>
+      <div class="medal second"><p>2</p></div><p>{{ deuxieme_club.nom }}</p>
+      <div class="medal third"><p>3</p></div><p>{{ troisieme_club.nom }}</p>
+     <a class="triangleClub">
+      <img src="{% static 'img/triangle.png' %}" alt="Triangle" style="max-width: 30px;">
+    </a> 
+  </div>
+</div>
+
 
 <div class="classement_Club">
   <h1>Classement complet des Clubs</h1>
