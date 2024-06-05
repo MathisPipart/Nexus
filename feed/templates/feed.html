@@ -20,6 +20,8 @@ extra js block
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+
     <div class="f_feed" id="text">
         <aside class="f_events_search" id="feed-content">
 
@@ -121,7 +123,7 @@ extra js block
             </form>
 
             <br>
-            <h3>Conversation</h3>
+            <h3>Messages</h3>
             <hr> <br>
 
             {% include 'message_list.html' with messages=messages %}
