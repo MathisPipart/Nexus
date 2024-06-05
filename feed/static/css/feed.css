@@ -454,7 +454,6 @@ html {
     }
 
     .inbox-list-message {
-        background-color: green;
         height: 72vh;
         overflow-y: scroll;
     }
