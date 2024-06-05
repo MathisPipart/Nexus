@@ -114,19 +114,23 @@ extra js block
         </main>
 
         <aside class="f_conversations" id="feed-content">
-            <br>
-            <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">
-
-                <button type="submit" class="boutonRecherche">🔍</button>
-                <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">
-
-            </form>
-
-            <br>
+{#            <br>#}
+{#            <form action="#/chemin-vers-votre-script-de-recherche" method="get" class="barreDeRecherche">#}
+{##}
+{#                <button type="submit" class="boutonRecherche">🔍</button>#}
+{#                <input type="text" name="query" placeholder="Cherchez une conversations" class="TexteRecherche">#}
+{##}
+{#            </form>#}
+{##}
+{#            <br>#}
             <h3>Messages</h3>
             <hr> <br>
 
-            {% include 'message_list.html' with messages=messages %}
+            {% if messages %}
+                {% include 'message_list.html' with messages=messages %}
+            {% else %}
+                <a href="/inbox/new/">Commencez une conversation</a>
+            {% endif %}
 
         </aside>
 
