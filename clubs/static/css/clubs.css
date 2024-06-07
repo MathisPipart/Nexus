@@ -347,6 +347,18 @@ html {
     color: cyan;
 }
 
+.follow-btn-all, .unsubscribe-btn-all {
+    background-color: #A158FF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.follow-btn-all:hover, .unsubscribe-btn-all:hover {
+    background-color: #5551FF;
+}
 
 @media screen and (max-width: 710px) {
     .club-cardA {
