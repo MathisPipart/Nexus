@@ -251,4 +251,28 @@ hr {
         height: 80%;
         width: 80%;
     }
+
+    .f_post {
+        padding-bottom: 5%;
+    }
+
+    .post-infos {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        right: 10vw;
+        margin-top: 1vh;
+        margin-bottom: 0;
+    }
+
+    .post-date_droite {
+        position: unset;
+        margin-bottom: 0;
+    }
+
+    .post-date_gauche {
+        position: unset;
+        margin-bottom: 0;
+    }
 }
