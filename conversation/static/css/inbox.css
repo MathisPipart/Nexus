@@ -43,6 +43,10 @@
     text-decoration: none;
 }
 
+.new-message-btn:hover {
+    background-color: #5551FF;
+}
+
 .new-message-btn:visited {
     text-decoration: none;
 }
