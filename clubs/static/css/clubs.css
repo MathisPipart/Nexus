@@ -258,7 +258,7 @@ html {
 }
 
 .tabClubB tr td:nth-child(3){
-    padding: 1;
+    padding: 1px;
     white-space: nowrap;
     vertical-align: middle;
     text-align: center;

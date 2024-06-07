@@ -275,4 +275,11 @@ hr {
         position: unset;
         margin-bottom: 0;
     }
+
+    .description {
+        text-align: justify;
+    }
+    .description p {
+        font-size: 1em;
+    }
 }
