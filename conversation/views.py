@@ -39,6 +39,7 @@ def inbox(request):
     return render(request, "inbox.html", context)
 
 
+@login_required
 def directs_messages(request, user_id):
     user = request.user
     messages = Message.get_messages(user=user)
@@ -61,6 +62,7 @@ def directs_messages(request, user_id):
     return render(request, "inbox.html", context)
 
 
+@login_required
 def send_direct_message(request):
     # from_user = request.user
     # to_user_username = request.POST.get('to_user')
@@ -94,6 +96,7 @@ def send_direct_message(request):
         return redirect(conversation_url)
 
 
+@login_required
 def user_search(request):
     query = request.GET.get('q') # recupération de la valeur de la requete
     context = {}

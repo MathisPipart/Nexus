@@ -45,7 +45,7 @@ def home(request):
     return render(request, "feed.html", {"events": events, 'posts': posts_subscribed, 'form': form, 'posts_size': posts_size, 'messages': messages})
 
 
-#@login_required
+@login_required
 def delete_post(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)

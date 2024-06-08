@@ -32,6 +32,7 @@ def vueCalendrier(request):
     return render(request, "calendrier.html", {"events": events, "form": form, "url": user_profile.url})
 
 
+@login_required
 def importEvent(url):
     Event.objects.all().delete()
     # Télécharger le contenu iCal

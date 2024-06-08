@@ -6,6 +6,7 @@ from .models import Info_Clubs
 from django.http import JsonResponse
 
 
+@login_required
 def vueClubs(request):
     clubs = Info_Clubs.objects.all()
 
@@ -18,6 +19,7 @@ def vueClubs(request):
     return render(request, "clubs.html", context)
 
 
+@login_required
 def club_details(request, club_type):
     clubs = Info_Clubs.objects.all().filter(nom=club_type).first()
     posts = Post.objects.filter(club=clubs).order_by('date_de_creation')
@@ -47,6 +49,7 @@ def subscribe_to_club(request):
     else:
         form = SubscribeForm()
     return render(request, 'subscribe.html', {'form': form})
+
 
 @login_required
 def unsubscribe_to_club(request):
