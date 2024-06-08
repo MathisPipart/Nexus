@@ -9,7 +9,7 @@ from calendrier.models import Event
 from conversation.models import Message
 
 
-#@login_required
+@login_required
 # To be added in prod
 def home(request):
     posts = Post.objects.all()

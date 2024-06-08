@@ -38,7 +38,7 @@ SOCIALACCOUNT_ADAPTER = 'login.adapters.RestrictEmailAdapter'
 
 
 
-LOGIN_URL = "/"
+LOGIN_URL = "/login/"
 
 
 SITE_ID = 4
