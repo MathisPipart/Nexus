@@ -32,7 +32,7 @@ def home(request):
             for f in request.FILES.getlist('file_field'):
                 Image.objects.create(post=post, image=f)
 
-            return HttpResponseRedirect('/feed/')
+            return HttpResponseRedirect('/')
 
     else:
         posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('date_de_creation')
@@ -52,7 +52,7 @@ def delete_post(request, post_id):
         for image in post.images.all():
             image.image.delete(save=False)
         post.delete()
-        return HttpResponseRedirect('/feed/')
+        return HttpResponseRedirect('/')
 
 
 # /!\ TODO :

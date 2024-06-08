@@ -95,7 +95,7 @@ extra js block
                 <div class="popup-content">
                     <span class="close">&times;</span>
                     <h3>Ajouter un post</h3>
-                    <form method="post" action="/feed/" enctype="multipart/form-data">
+                    <form method="post" action="/" enctype="multipart/form-data">
 
                         {% csrf_token %}
                         {{form.as_p}}

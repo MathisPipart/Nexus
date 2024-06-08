@@ -15,4 +15,4 @@ class SocialAuthExceptionMiddleware:
         if isinstance(exception, EmailNotAllowedException):
             messages.error(request, exception.args[0])
             request.session['state'] = True
-            return redirect('/')
+            return redirect('/login/')

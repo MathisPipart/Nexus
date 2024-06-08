@@ -19,32 +19,32 @@
 
         <nav class="navbar navbar-expand-lg bg-primary" id="nav-bar">
             
-            <a class="navbar-toggler" id="nexus-collapse" data-target="#navbarNav" href="/feed"
+            <a class="navbar-toggler" id="nexus-collapse" data-target="#navbarNav" href="/"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <img src="{% static 'img/White_logo.svg' %}" alt="Nexus_Logo"> </a>
 
             <li id="nexus-collapse-liste" class="navbar-toggler">
                 <a class="nav-link dropdown-toggle" href="dropdown" id="navbarDropdown" role="button" 
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/feed">Feed</a>
+                    <a class="dropdown-item" href="/">Feed</a>
                     <a class="dropdown-item" href="/clubs">Clubs & Assos</a>
                     <a class="dropdown-item" href="/calendar">Calendrier</a>
                     <a class="dropdown-item" href="/inbox">Messages</a>
                     <a class="dropdown-item" href="/ranking">Classement</a>
                     <a class="dropdown-item" href="/profil">Mon compte</a>
-                    <a class="dropdown-item" href="/logout">Déconnexion</a>
+                    <a class="dropdown-item" href="/login/logout">Déconnexion</a>
                 </div>
             </li>
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <a href="/feed" id="nav-left"><img src="{% static 'img/White_logo.svg' %}" alt="Nexus_Logo"></a>
+                <a href="/" id="nav-left"><img src="{% static 'img/White_logo.svg' %}" alt="Nexus_Logo"></a>
 
                 <ul class="navbar-nav" id="nav-center">
                     <li class="nav-item">
                         <a class="nav-link" href="/clubs">Clubs & Assos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/feed">Feed</a>
+                        <a class="nav-link" href="/">Feed</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/calendar">Calendrier</a>
@@ -69,7 +69,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" id="drop_right">
                             <a class="dropdown-item" href="/profil">Mon Compte</a>
-                            <a class="dropdown-item" href="/logout">Déconnexion</a>
+                            <a class="dropdown-item" href="/login/logout">Déconnexion</a>
                         </div>
                     </li>
                 </ul>
