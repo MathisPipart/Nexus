@@ -58,7 +58,7 @@ extra js block
             <h3>A venir</h3>
             <hr> <br>
 
-            {% if user.userprofile.url is not None %}
+            {% if user.userprofile.url %}
                 <div class="calendrier" id="calendar">
                     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
                 </div>
