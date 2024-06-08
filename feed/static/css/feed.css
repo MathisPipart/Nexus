@@ -283,10 +283,10 @@ html {
     box-shadow: 120px 8px 80px 30px rgba(255, 0, 0, 0.85);
 }
 
-.inbox-list-message {
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
+/*.inbox-list-message {*/
+/*    padding-top: 1%;*/
+/*    padding-bottom: 1%;*/
+/*}*/
 
 .inbox-message-card {
     display: flex;
@@ -462,10 +462,10 @@ html {
         padding-bottom: 80px;
     }
 
-    .inbox-list-message {
-        height: 72vh;
-        overflow-y: scroll;
-    }
+    /*.inbox-list-message {*/
+    /*    height: 72vh;*/
+    /*    overflow-y: scroll;*/
+    /*}*/
 
     .f_post {
         padding-bottom: 5%;
