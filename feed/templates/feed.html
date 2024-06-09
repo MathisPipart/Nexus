@@ -17,6 +17,15 @@ extra js block
         {% endfor %}
     ];
 </script>
+<script>
+    document.getElementById('submit_posts').addEventListener('click', function(event) {
+        var editorData = CKEDITOR.instances['id_contenu'].getData();
+        if (editorData.trim() === '') {
+            alert("Le contenu du post ne peut pas être vide !");
+            event.preventDefault();
+        }
+    });
+</script>
 {% endblock %}
 
 {% block content %}
