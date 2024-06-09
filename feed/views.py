@@ -15,7 +15,6 @@ def home(request):
     posts = Post.objects.all()
     posts_size = len(posts)
     messages = Message.get_messages(user=request.user)
-    special_clubs = ["bde", "esieespace", "junior", "bds"]
 
     if request.method == "POST":
         form = AddPost(request.POST, request.FILES, user=request.user)
@@ -48,8 +47,7 @@ def home(request):
         'posts': posts_subscribed,
         'form': form,
         'posts_size': posts_size,
-        'messages': messages,
-        'special_clubs': special_clubs
+        'messages': messages
     }
 
     return render(request, "feed.html", context)
