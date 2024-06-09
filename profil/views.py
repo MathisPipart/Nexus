@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 def vueProfil(request):
     return render(request, "profil.html")
 
+
 @require_POST
 @login_required
 def reset_calendar_url(request):

@@ -241,6 +241,24 @@ hr {
     font-size: 12px;
 }
 
+.post-sender {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.post-sender-pp {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.post-sender h3 {
+    margin-left: 1%;
+    margin-top: 2%;
+}
+
 .post-full-text {
     display: none;
 }
