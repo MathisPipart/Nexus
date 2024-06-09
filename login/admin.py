@@ -9,7 +9,7 @@ from .models import UserProfile
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'url', 'role')
+    list_display = ('user', 'url', 'role', 'score')
     list_filter = ('user',)
     search_fields = ('user__username', 'user__email')
 
