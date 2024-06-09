@@ -128,8 +128,8 @@
                     <form method="post" action="{% url 'send_direct_message' %}" class="form-message" autocomplete="off">
                         {% csrf_token %}
                         <input type="hidden" name="to_user" value="{{ active_direct.id }}">
-                        <input type="text" name="body" class="message-input" placeholder="Votre message...">
-                        <button class="send-message-btn" type="submit">
+                        <input type="text" name="body" id="messageInput" class="message-input" placeholder="Votre message...">
+                        <button id="sendMessageBtn" class="send-message-btn" type="submit" disabled>
                             Envoyer
                         </button>
                     </form>

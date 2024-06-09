@@ -29,7 +29,7 @@ window.onload = function() {
                 .catch(error => console.error('Error refreshing messages:', error));
         }
 
-        setInterval(refreshMessages, 1000);
+        setInterval(refreshMessages, 500);
     }
 
     // Toggle visibility for mobile view
@@ -50,3 +50,16 @@ function closeChat() {
 function backToInbox() {
     window.location.href = "/inbox/";
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let messageInput = document.getElementById('messageInput');
+    let sendMessageBtn = document.getElementById('sendMessageBtn');
+
+    messageInput.addEventListener('input', function() {
+        if (messageInput.value.trim() === '') {
+            sendMessageBtn.disabled = true;
+        } else {
+            sendMessageBtn.disabled = false;
+        }
+    });
+});
