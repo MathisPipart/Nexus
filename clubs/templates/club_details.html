@@ -20,44 +20,49 @@
 
     <h1 class="nom_club">{{ clubs.nom_affiche }}</h1>
     <div class="little_spacer"></div>
-    <div class="centered">
-        <img class="pdp" src="{{ clubs.photo.url }}" alt="Photo de profil" />
 
-        <ul class="Burreau">
-            <h4>Membres du bureau :</h4>
-            <li>
-            Président : <a href="https://instagram.com/{{ clubs.president }}">@{{ clubs.president }}</a>
-            </li>
-            <li>
-            Vice-Présidents :
-            <a href="https://instagram.com/{{ clubs.vp1 }}">@{{ clubs.vp1 }}</a>
+    <section class="club-details-infos">
+        <div class="centered">
+            <img class="pdp" src="{{ clubs.photo.url }}" alt="Photo de profil" />
 
-            {% if clubs.vp2 %}
-                et <a href="https://instagram.com/{{ clubs.vp2 }}">@{{ clubs.vp2 }}</a>
-            {% endif %}
+            <ul class="Bureau">
+                <h4>Membres du bureau</h4>
+                <li>
+                Président : <a href="https://instagram.com/{{ clubs.president }}">@{{ clubs.president }}</a>
+                </li>
+                <li>
+                Vice-Présidents :
+                <a href="https://instagram.com/{{ clubs.vp1 }}">@{{ clubs.vp1 }}</a>
 
-            {% if clubs.vp3 %}
-                et <a href="https://instagram.com/{{ clubs.vp3 }}">@{{ clubs.vp3 }}</a>
-            {% endif %}
-            </li>
-            <li>
-                Secrétaire : <a href="https://instagram.com/{{ clubs.secretaire }}">@{{ clubs.secretaire }}</a>
-            </li>
-            <li>
-                Trésorier : <a href="https://instagram.com/{{ clubs.tresorier }}">@{{ clubs.tresorier }}</a>
-            </li>
-        </ul>
-    </div>
+                {% if clubs.vp2 %}
+                    et <a href="https://instagram.com/{{ clubs.vp2 }}">@{{ clubs.vp2 }}</a>
+                {% endif %}
 
-    <div class="little_spacer"></div>
+                {% if clubs.vp3 %}
+                    et <a href="https://instagram.com/{{ clubs.vp3 }}">@{{ clubs.vp3 }}</a>
+                {% endif %}
+                </li>
+                <li>
+                    Secrétaire : <a href="https://instagram.com/{{ clubs.secretaire }}">@{{ clubs.secretaire }}</a>
+                </li>
+                <li>
+                    Trésorier : <a href="https://instagram.com/{{ clubs.tresorier }}">@{{ clubs.tresorier }}</a>
+                </li>
+            </ul>
+        </div>
 
-    <hr>
+{#        <div class="little_spacer"></div>#}
+{##}
 
-    <div class="description">
-        <p>{{ clubs.description }}</p>
-    </div>
+        <div class="description">
+            <hr>
+            <p>{{ clubs.description }}</p>
+            <hr>
+        </div>
 
-    <hr>
+
+    </section>
+
 
 
     <div class="little_spacer"></div>
