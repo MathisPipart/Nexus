@@ -49,7 +49,7 @@ body {
     padding-right: 0;
 }
 
-.nav-item:hover {
+.nav-link:hover {
     filter: drop-shadow(cyan 0px 0px 4px);
 }
 
