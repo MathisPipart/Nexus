@@ -45,6 +45,7 @@ body, html {
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
+    color: white;
 }
 
 .new-message-btn:hover {

@@ -1,58 +1,72 @@
 {% load static %}
 {% block post_template %}
-<article class="f_post">
+    <article class="f_post">
 
-    {% if user.userprofile.role == 'moderator' %}
+        {% if user.userprofile.role == 'moderator' %}
 
-        <form action="{% url 'delete_post' post.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="poubelle">
-                <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
-            </button>
-        </form>
+            <form action="{% url 'delete_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="poubelle">
+                    <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
+                </button>
+            </form>
 
-    {% endif %}
-
-    {% if post.user == user and user.userprofile.role != 'user' %}
-
-        <form action="{% url 'delete_post' post.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="poubelle">
-                <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
-            </button>
-        </form>
-
-    {% endif %}
-
-    <div class="post-sender">
-        <img src="{{ post.club.photo.url }}" alt="Photo du club" class="post-sender-pp">
-        {% if post.club.nom not in special_clubs %}
-            <h3>Club {{ post.club.nom }}</h3>
-        {% else %}
-            <h3>{{ post.club.nom }}</h3>
         {% endif %}
-    </div>
 
-    <h4>{{ post.titre }}</h4>
-    <!-- <h2>{{ post.club }}</h2> -->
+        {% if post.user == user and user.userprofile.role != 'user' %}
 
-    <div class="post_text">
-        <p>{{ post.contenu|safe }}</p>
-    </div>
+            <form action="{% url 'delete_post' post.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="poubelle">
+                    <img src="{% static 'img/trash.png' %}" alt="Delete Post" style="max-width: 15px;">
+                </button>
+            </form>
 
-    <div class="post_images">
-        {% for image in post.images.all %}
-            <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
-        {% endfor %}
-    </div>
-
-    <div class="post-infos">
-        {% if post.user %}
-            <p class="post-date_gauche">Posté par : {{ post.user.first_name }} {{ post.user.last_name }} - club : {{ post.club.nom }}</p>
         {% endif %}
-        <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y - H \h i" }}</p>
-    </div>
 
-    <!-- <p class="invisible"> ID : {{ post.id }} </p> -->
-</article>
+        <div class="post-sender">
+            <img src="{{ post.club.photo.url }}" alt="Photo du club" class="post-sender-pp">
+            {% if post.club.nom not in special_clubs %}
+                <h3>Club {{ post.club.nom }}</h3>
+            {% else %}
+                <h3>{{ post.club.nom }}</h3>
+            {% endif %}
+        </div>
+
+        <h4>{{ post.titre }}</h4>
+        <!-- <h2>{{ post.club }}</h2> -->
+
+        <div class="post_text">
+            <section class="post-truncate-text">
+                {% if post.contenu|length > 300 %}
+                    <p>{{ post.contenu|safe|truncatechars:300 }}<button class="post-read-more" onclick="toggleText(this)">plus</button></p>
+                {% else %}
+                    <p>{{ post.contenu|safe }}</p>
+                {% endif %}
+            </section>
+
+            <section class="post-full-text" style="display: none;">
+                <p>{{ post.contenu|safe }}</p>
+                <button class="post-read-more" onclick="toggleText(this)">moins</button>
+            </section>
+        </div>
+
+
+        <div class="post_images">
+            {% for image in post.images.all %}
+                <img src="{{ image.image.url }}" alt="Image_du_post" class="Image_du_post">
+            {% endfor %}
+        </div>
+
+        <div class="post-infos">
+            {% if post.user %}
+                <p class="post-date_gauche">Posté par : {{ post.user.first_name }} {{ post.user.last_name }} - club : {{ post.club.nom }}</p>
+            {% endif %}
+            <p class="post-date_droite">{{ post.date_de_creation|date:"l d F Y - H \h i" }}</p>
+        </div>
+
+        <!-- <p class="invisible"> ID : {{ post.id }} </p> -->
+    </article>
+
+    <script src="{% static 'js/post_template.js' %}"></script>
 {% endblock %}
