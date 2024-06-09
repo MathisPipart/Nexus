@@ -8,11 +8,25 @@
 <link rel="stylesheet" href="{% static 'css/err404.css' %}">
 
 <div class="container">
+    <div class="img">
+        <img src="{% static 'img/Black_logo.png' %}" alt="Nexus_Logo" width="900" height="300">
+    </div>
+    <div class="text">
+        <h1> 404 - Page not found </h1>
+        <p> The page you are looking for might have been removed, had its name changed or is temporarily unavailable. </p>
+        <a href="{% url 'feed' %}"> Go to Home </a>
+    </div>
+</div>
 
-    <h1> 404 - Page not found </h1>
-    <p> The page you are looking for might have been removed, had its name changed or is temporarily unavailable. </p>
-    <a href="{% url 'feed' %}"> Go to Home </a>
-
+<div class="container-mobile">
+    <div class="img">
+        <img src="{% static 'img/Black_logo.png' %}" alt="Nexus_Logo" width="100" height="50    ">
+    </div>
+    <div class="text">
+        <h1> 404 - Page not found </h1>
+        <p> The page you are looking for might have been removed, had its name changed or is temporarily unavailable. </p>
+        <a href="{% url 'feed' %}"> Go to Home </a>
+    </div>
 </div>
 
 {% endblock %}
