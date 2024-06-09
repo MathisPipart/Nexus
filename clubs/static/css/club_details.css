@@ -241,6 +241,18 @@ hr {
     font-size: 12px;
 }
 
+.post-full-text {
+    display: none;
+}
+
+.post-read-more {
+    color: #A158FF;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+}
+
 @media (max-width: 768px) {
     img.pdp {
         width: 25%;
