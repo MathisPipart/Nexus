@@ -23,7 +23,6 @@ def home(request):
             post = Post(
                 titre=form.cleaned_data['titre'],
                 contenu=form.cleaned_data['contenu'],
-                # club=form.cleaned_data['club']
                 club=request.user.userprofile.club
             )
             post.user = request.user
@@ -34,11 +33,11 @@ def home(request):
 
             return HttpResponseRedirect('/')
 
-    else:
-        posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('date_de_creation')
-        posts_size = len(posts_subscribed)
-        posts_subscribed = reversed(posts_subscribed)
-        form = AddPost(user=request.user)
+    # else:
+    posts_subscribed = Post.objects.filter(club__membres=request.user).order_by('date_de_creation')
+    posts_size = len(posts_subscribed)
+    posts_subscribed = reversed(posts_subscribed)
+    form = AddPost(user=request.user)
 
     events = Event.objects.all()
 

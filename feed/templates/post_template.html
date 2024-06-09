@@ -34,7 +34,7 @@
         <div class="post_text">
             <section class="post-truncate-text">
                 {% if post.contenu|length > 300 %}
-                    <p>{{ post.contenu|safe|truncatechars:300 }}<button class="post-read-more" onclick="toggleText(this)">plus</button></p>
+                    <p>{{ post.contenu|safe|truncatechars:300 }}<button class="post-read-more" onclick="toggleText(this)">Voir plus</button></p>
                 {% else %}
                     <p>{{ post.contenu|safe }}</p>
                 {% endif %}
@@ -42,7 +42,7 @@
 
             <section class="post-full-text" style="display: none;">
                 <p>{{ post.contenu|safe }}</p>
-                <button class="post-read-more" onclick="toggleText(this)">moins</button>
+                <button class="post-read-more" onclick="toggleText(this)">Voir moins</button>
             </section>
         </div>
 

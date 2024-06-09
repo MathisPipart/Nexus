@@ -9,14 +9,13 @@ class AddPost(forms.Form):
                             widget=forms.TextInput(
                                 attrs={'title': 'Titre du post','placeholder': 'Titre du post'}))
     
-    contenu = forms.CharField(widget=CKEditorWidget(config_name='default'))
+    contenu = forms.CharField(required=True, widget=CKEditorWidget(config_name='default', attrs={'placeholder': 'Contenu du post'}))
 
     file_field = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'multiple': True,
                                                                         'title': 'multiple images',
                                                                         'accept': 'image/*',
                                                                         }))
-    # club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post'}))
-    # club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.Select(attrs={'title': 'Club du post', 'placeholder': 'Club du post', 'disabled': 'true'}))
+    
     club = forms.ModelChoiceField(queryset=Info_Clubs.objects.all(), required=False, widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
