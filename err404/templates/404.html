@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} ERROR 404 {% endblock %}
+{% block title %} 404ERR - Nexus {% endblock %}
 
 {% block content %}
 
@@ -8,21 +8,11 @@
 <link rel="stylesheet" href="{% static 'css/err404.css' %}">
 
 <div class="container">
-    <canvas id="canvas"></canvas>
 
-    <h1>
-        <span>N</span>
-        <span>E</span>
-        <span>X</span>
-        <span>U</span>
-        <span>S</span>
-    </h1>
-
-    <p> 404 - Page not found </p>
-    <p> NEXUS will be back as soon as possible </p>
+    <h1> 404 - Page not found </h1>
+    <p> The page you are looking for might have been removed, had its name changed or is temporarily unavailable. </p>
+    <a href="{% url 'feed' %}"> Go to Home </a>
 
 </div>
-
-<script src="{% static 'js/particles.js' %}"></script>
 
 {% endblock %}
