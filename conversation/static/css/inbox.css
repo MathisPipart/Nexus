@@ -60,6 +60,7 @@ body, html {
     height: 80vh;
     width: 100%;
     overflow-y: scroll;
+    flex-grow: 1;
 }
 
 .inbox-list-message {
@@ -103,7 +104,9 @@ body, html {
 }
 
 .message-container {
-    height: 100vh;
+    flex-grow: 1; /* Permet à la zone rouge de prendre tout l'espace restant */
+    display: flex;
+    flex-direction: column;
 }
 
 .message-header {
@@ -112,8 +115,7 @@ body, html {
     padding: 8px;
     display: flex;
     flex-direction: row;
-    position: fixed;
-    width: 70%;
+    width: 100%;
     z-index: 1;
 }
 
@@ -129,9 +131,8 @@ body, html {
 
 .message-content-part {
     overflow-y: scroll;
-    padding-top: 10vh;
-    padding-bottom: 17vh;
-    height: 100%;
+    padding-top: 1%;
+    height: 77vh;
 }
 
 .chat-message-left-content, .chat-message-right-content {
@@ -182,11 +183,10 @@ body, html {
 }
 
 .message-input-container {
-    background-color: white;
     width: 70%;
-    position: fixed;
     bottom: 0;
     padding: 5px;
+    position: fixed;
 }
 
 .form-message {
@@ -278,5 +278,15 @@ body, html {
 
     .message-input-container {
         width: 100%;
+    }
+}
+
+@media screen and (max-height: 667px) {
+    .message-content-part {
+        height: 71vh;
+    }
+
+    .inbox-bottom-part {
+        height: 76vh;
     }
 }

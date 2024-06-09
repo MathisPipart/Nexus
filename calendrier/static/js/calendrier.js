@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         headerToolbar: {
             left: 'prev,next,today',
             center: 'title',
-            right: 'dayGridDay,timeGridWeek,dayGridMonth'
+            right: 'timeGridWeek,dayGridMonth'
         },
         slotLabelFormat: {
             hour: 'numeric',
