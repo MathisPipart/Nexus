@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def vueClassement(request):
-    utilisateurs = UserProfile.objects.all()
+    utilisateurs = UserProfile.objects.all().order_by('score')
+    utilisateurs = list(reversed(utilisateurs))
     clubs = Info_Clubs.objects.all()
     context = {
         'utilisateurs': utilisateurs,

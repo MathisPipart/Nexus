@@ -23,6 +23,7 @@ class UserProfile(models.Model):
         default=UserRole.USER
     )
     club = models.ForeignKey(Info_Clubs, on_delete=models.CASCADE, blank=True, null=True)
+    score = models.IntegerField(default=0)
 
     def get_subscribed_clubs(self):
         return self.user.clubs_subscribed.all()
