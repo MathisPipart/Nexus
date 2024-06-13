@@ -8,7 +8,7 @@ Fontionnalités :
   - Calendrier -> Pour accéder à son calendrier personnalisable
 
 # Démo
-Accessible sur : demo.nexus.maximelombardo.com
+Accessible sur : [demo.nexus.maximelombardo.com](http://demo.nexus.maximelombardo.com)
 
 # Exécution en local
 1. Installer [Python](https://www.python.org/) >= 3.6
