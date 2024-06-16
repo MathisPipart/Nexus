@@ -7,16 +7,39 @@ Fontionnalités :
   - Messages -> Pouvoir discuter avec ses amis
   - Calendrier -> Pour accéder à son calendrier personnalisable
 
-# Arborescence (mermaid)
-```mermaid
-graph TD
-A[scripts] --> B[main.py]
-C[data] --> A
-D[get_data.py] --> C
+# Arborescence
+Voici l'arborscence du projet, divisée en applications :  
+```
+└── Nexus/
+    ├── calendrier/
+    ├── classement/
+    ├── clubs/
+    ├── conversation/
+    ├── err404/
+    ├── feed/
+    ├── login/
+    ├── media/
+    ├── Nexus/
+    ├── profil/
+    ├── Nexus/
+    └── staticfiles/
+```
+
+Dans chaque application, on retrouve les fichiers suivants :  
+```
+└── application/
+    ├── migrations/
+    ├── templates/
+    ├── tests.py
+    ├── views.py
+    ├── models.py
+    ├── urls.py
+    └── apps.py
 ```
 
 # Démo
-Accessible sur : [nexus.maximelombardo.com](https://nexus.maximelombardo.com)
+Accessible sur : [nexus.maximelombardo.com](https://nexus.maximelombardo.com)  
+Il faut se connecter avec son mail ESIEE. (edu.esiee.fr ou seulement esiee.fr)
 
 # Exécution en local
 1. Installer [Python](https://www.python.org/) >= 3.6
