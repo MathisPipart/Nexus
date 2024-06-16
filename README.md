@@ -7,8 +7,16 @@ Fontionnalités :
   - Messages -> Pouvoir discuter avec ses amis
   - Calendrier -> Pour accéder à son calendrier personnalisable
 
+# Arborescence (mermaid)
+```mermaid
+graph TD
+A[scripts] --> B[main.py]
+C[data] --> A
+D[get_data.py] --> C
+```
+
 # Démo
-Accessible sur : [demo.nexus.maximelombardo.com](http://demo.nexus.maximelombardo.com)
+Accessible sur : [nexus.maximelombardo.com](https://nexus.maximelombardo.com)
 
 # Exécution en local
 1. Installer [Python](https://www.python.org/) >= 3.6
