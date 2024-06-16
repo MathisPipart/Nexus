@@ -65,3 +65,10 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 7. Accéder à l'application sur http://localhost:8000
+
+# Auteurs
+- Mathis Pipart
+- Joël Mbiapa
+- Pierre Alla
+- Ahmed Rais
+- Maxime Lombardo
