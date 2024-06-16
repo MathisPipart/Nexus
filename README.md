@@ -52,10 +52,16 @@ git clone https://github.com/MathisPipart/Nexus.git
 ```bash
 python -m venv venv
 ```
-4. Activer l'environnement virtuel
+4. Activer l'environnement virtuel  
+- Sur mac ou Linux :
 ```bash
 source venv/bin/activate
 ```
+- Sur Windows :
+```bash
+venv\Scripts\activate
+```
+
 5. Installer les dépendances
 ```bash
 pip install -r requirements.txt
