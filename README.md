@@ -7,6 +7,8 @@ Fontionnalités :
   - Messages -> Pouvoir discuter avec ses amis
   - Calendrier -> Pour accéder à son calendrier personnalisable
 
+Vidéo de présentation disponible [ici](https://youtu.be/KoZS_eFsjdA).
+
 # Arborescence
 Voici l'arborscence du projet, divisée en applications :  
 ```
@@ -38,7 +40,6 @@ Dans chaque application, on retrouve les fichiers suivants :
 ```
 
 # Démo
-Accessible sur : [nexus.maximelombardo.com](https://nexus.maximelombardo.com)  
 Il faut se connecter avec son mail ESIEE. (edu.esiee.fr ou seulement esiee.fr)
 
 # Exécution en local
